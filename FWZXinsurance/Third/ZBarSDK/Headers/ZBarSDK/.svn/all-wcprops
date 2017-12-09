@@ -1,0 +1,71 @@
+K 25
+svn:wc:ra_dav:version-url
+V 99
+/svn/QuickLawyerIOSNew/!svn/ver/120/OrganicVegetable/OrganicVegetable/Third/ZBarSDK/Headers/ZBarSDK
+END
+ZBarHelpController.h
+K 25
+svn:wc:ra_dav:version-url
+V 120
+/svn/QuickLawyerIOSNew/!svn/ver/120/OrganicVegetable/OrganicVegetable/Third/ZBarSDK/Headers/ZBarSDK/ZBarHelpController.h
+END
+ZBarImageScanner.h
+K 25
+svn:wc:ra_dav:version-url
+V 118
+/svn/QuickLawyerIOSNew/!svn/ver/120/OrganicVegetable/OrganicVegetable/Third/ZBarSDK/Headers/ZBarSDK/ZBarImageScanner.h
+END
+ZBarReaderView.h
+K 25
+svn:wc:ra_dav:version-url
+V 116
+/svn/QuickLawyerIOSNew/!svn/ver/120/OrganicVegetable/OrganicVegetable/Third/ZBarSDK/Headers/ZBarSDK/ZBarReaderView.h
+END
+zbar.h
+K 25
+svn:wc:ra_dav:version-url
+V 106
+/svn/QuickLawyerIOSNew/!svn/ver/120/OrganicVegetable/OrganicVegetable/Third/ZBarSDK/Headers/ZBarSDK/zbar.h
+END
+ZBarReaderViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 126
+/svn/QuickLawyerIOSNew/!svn/ver/120/OrganicVegetable/OrganicVegetable/Third/ZBarSDK/Headers/ZBarSDK/ZBarReaderViewController.h
+END
+ZBarSDK.h
+K 25
+svn:wc:ra_dav:version-url
+V 109
+/svn/QuickLawyerIOSNew/!svn/ver/120/OrganicVegetable/OrganicVegetable/Third/ZBarSDK/Headers/ZBarSDK/ZBarSDK.h
+END
+ZBarImage.h
+K 25
+svn:wc:ra_dav:version-url
+V 111
+/svn/QuickLawyerIOSNew/!svn/ver/120/OrganicVegetable/OrganicVegetable/Third/ZBarSDK/Headers/ZBarSDK/ZBarImage.h
+END
+ZBarSymbol.h
+K 25
+svn:wc:ra_dav:version-url
+V 112
+/svn/QuickLawyerIOSNew/!svn/ver/120/OrganicVegetable/OrganicVegetable/Third/ZBarSDK/Headers/ZBarSDK/ZBarSymbol.h
+END
+ZBarCaptureReader.h
+K 25
+svn:wc:ra_dav:version-url
+V 119
+/svn/QuickLawyerIOSNew/!svn/ver/120/OrganicVegetable/OrganicVegetable/Third/ZBarSDK/Headers/ZBarSDK/ZBarCaptureReader.h
+END
+ZBarReaderController.h
+K 25
+svn:wc:ra_dav:version-url
+V 122
+/svn/QuickLawyerIOSNew/!svn/ver/120/OrganicVegetable/OrganicVegetable/Third/ZBarSDK/Headers/ZBarSDK/ZBarReaderController.h
+END
+ZBarCameraSimulator.h
+K 25
+svn:wc:ra_dav:version-url
+V 121
+/svn/QuickLawyerIOSNew/!svn/ver/120/OrganicVegetable/OrganicVegetable/Third/ZBarSDK/Headers/ZBarSDK/ZBarCameraSimulator.h
+END

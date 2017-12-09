@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="com.fulan.FWZXinsurance" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <feature name="HaleyPlugin">
+        <param name="ios-package" value="HaleyPlugin" />
+    </feature>
+    <feature name="CeshiPlugin">
+        <param name="ios-package" value="CeshiPlugin" />
+    </feature>
+    <feature name="TestPlugin">
+        <param name="ios-package" value="TestPlugin" />
+    </feature>
+    <feature name="Signature">
+        <param name="ios-package" value="Signature" />
+    </feature>
+    <feature name="Email">
+        <param name="ios-package" value="Email" />
+    </feature>
+    <feature name="QCode">
+        <param name="ios-package" value="QCode" />
+    </feature>
+    <feature name="FULAN_OCR">
+        <param name="ios-package" value="FULAN_OCR" />
+    </feature>
+    <feature name="FULAN_IFLY">
+        <param name="ios-package" value="FULAN_IFLY" />
+    </feature>
+    <feature name="Share">
+        <param name="ios-package" value="Share" />
+    </feature>
+    <feature name="Pen">
+        <param name="ios-package" value="Pen" />
+    </feature>
+    <feature name="PDF">
+        <param name="ios-package" value="PDF" />
+    </feature>
+    <feature name="Add">
+        <param name="ios-package" value="Add" />
+    </feature>
+    <feature name="UpCardId">
+        <param name="ios-package" value="UpCardId" />
+    </feature>
+    <feature name="LocalStorage">
+        <param name="ios-package" value="CDVLocalStorage" />
+    </feature>
+    <feature name="HandleOpenUrl">
+        <param name="ios-package" value="CDVHandleOpenURL" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="IntentAndNavigationFilter">
+        <param name="ios-package" value="CDVIntentAndNavigationFilter" />
+        <param name="onload" value="true" />
+    </feature>
+    <feature name="GestureHandler">
+        <param name="ios-package" value="CDVGestureHandler" />
+        <param name="onload" value="true" />
+    </feature>
+    <name>HelloCordova</name>
+    <description>
+        A sample Apache Cordova application that responds to the deviceready event.
+    </description>
+    <author email="dev@cordova.apache.org" href="http://cordova.io">
+        Apache Cordova Team
+    </author>
+    <content src="index.html" />
+    <access origin="*" />
+    
+    <allow-navigation href="https://*/*" />
+    <allow-navigation href="http://*/*"  />
+    <allow-navigation href="*" /> 
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+    <allow-intent href="tel:*" />
+    <allow-intent href="sms:*" />
+    <allow-intent href="mailto:*" />
+    <allow-intent href="geo:*" />
+    <allow-intent href="itms:*" />
+    <allow-intent href="itms-apps:*" />
+    <preference name="AllowInlineMediaPlayback" value="false" />
+    <preference name="BackupWebStorage" value="cloud" />
+    <preference name="DisallowOverscroll" value="false" />
+    <preference name="EnableViewportScale" value="false" />
+    <preference name="KeyboardDisplayRequiresUserAction" value="true" />
+    <preference name="MediaPlaybackRequiresUserAction" value="false" />
+    <preference name="SuppressesIncrementalRendering" value="false" />
+    <preference name="SuppressesLongPressGesture" value="false" />
+    <preference name="Suppresses3DTouchGesture" value="false" />
+    <preference name="GapBetweenPages" value="0" />
+    <preference name="PageLength" value="0" />
+    <preference name="PaginationBreakingMode" value="page" />
+    <preference name="PaginationMode" value="unpaginated" />
+    <platform name="ios">
+        <allow-intent href="itms:*" />
+        <allow-intent href="itms-apps:*" />
+    </platform>
+    <engine name="ios" spec="~4.5.4" />
+</widget>

@@ -1,0 +1,343 @@
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf8">
+            <script type="text/javascript" src="cordova.js"></script>
+            <script language="javascript">
+            function scanClick() {
+<!--                cordova.exec(null,null,"HaleyPlugin","scan",[]);-->
+                    Signature.getSignature(onSuccess, onFail);
+                    function onSuccess(success) {
+                        alert("成功码: " + success.result_code
+                              + "\n签名："
+                              + success.signature
+                              + "\n随机码："
+                              + success.randomcode);
+                    }
+                    function onFail(fail) {
+                        alert("错误码: " + fail.result_code);
+                    }
+
+            }
+            function sendEmail(){
+                    Email.sendEmail(onSuccess, onFail,"ee","1051416875@qq.com","富卫","");
+                    function onSuccess(success) {
+                        alert("成功码: " + success.result_code
+                              + "\n信息："
+                              + success.result_msg
+                              );
+                    }
+                    function onFail(fail) {
+                        alert("错误码: " + fail.result_code
+                              + "\n信息："
+                              + fail.result_msg
+                              );
+                    }
+
+            }
+            function codeSave(){
+                alert('dd');
+                QCode.saveCode(onSuccess, onFail, "https://www.baidu.com");
+                function onSuccess(success) {
+<!--                    alert("成功码: " + success.result_code-->
+<!--                          + "\n信息："-->
+<!--                          + success.result_msg-->
+<!--                          );-->
+                          document.getElementById("image").src = success.result_img;
+                }
+                function onFail(fail) {
+                    alert("错误码: " + fail.result_code
+                          + "\n信息："
+                          + fail.result_msg
+                          );
+                }
+                
+            }
+            function ocrClick(){
+        
+           FULAN_OCR.getIdInfo(onSuccess, onFail);
+              function onSuccess(success) {
+               alert("成功码: " + success.result_code
+                     + "\n信息："
+                     + success.result_msg
+                     + "\n姓名："
+                     + success.id_name
+                     + "\n性别："
+                     + success.id_sex
+                     + "\n出生："
+                     + success.id_birthday
+                     + "\n年龄："
+                     + success.id_age
+                     + "\n身份证号："
+                     + success.id_number
+                     + "\n地址："
+                     + success.id_address
+                     + "\n民族："
+                     + success.id_ethnic
+                     + "\n签发时间："
+                     + success.id_signDate
+                     + "\n到期时间："
+                     + success.id_expiryDate
+                     + "\n签发单位："
+                     + success.id_issueAuthority 
+                     );
+           }
+           function onFail(fail) {
+               alert("错误码: " + fail.result_code
+                     + "\n信息："
+                     + fail.result_msg
+                     );
+           }
+           
+            }
+            function iflyClick(){
+                FULAN_IFLY.getIfly(onSuccess, onFail);
+                function onSuccess(success) {
+                    alert("成功码: " + success.result_code
+                          + "\n信息："
+                          + success.result_msg
+                          + "\n结果："
+                          + success.text
+                          );
+                }
+                function onFail(fail) {
+                    alert("错误码: " + fail.result_code
+                          + "\n信息："
+                          + fail.result_msg
+                          );
+                }
+                
+               
+            }
+            function UMshareClick(){
+                Share.share (onSuccess, onFail, "123");
+                function onSuccess(success) {
+                    alert("成功码: " + success.result_code
+                          + "\n信息："
+                          + success.result_msg
+                          );
+                }
+                function onFail(fail) {
+                    alert("错误码: " + fail.result_code
+                          + "\n信息："
+                          + fail.result_msg
+                          );
+                }
+                
+               
+            }
+            function signClick(){
+                Pen.doSign (onSuccess, onFail);
+                function onSuccess(success) {
+                    alert("成功码: " + success.result_code
+                          + "\n信息："
+                          + success.result_msg
+                          );
+                          document.getElementById("image").src = success.result_img;
+                }
+                function onFail(fail) {
+                    alert("错误码: " + fail.result_code
+                          + "\n信息："
+                          + fail.result_msg
+                          );
+                }
+            }
+            function pdfClick(){
+                PDF.openPDF (onSuccess, onFail,'http://www-support-downloads.sonymobile.com/common/warranty_phones_CN_12_6.pdf');
+                function onSuccess(success) {
+                    
+                    alert("成功码: " + success.result_code
+                          + "\n信息："
+                          + success.result_msg
+                          );
+                          
+                }
+                function onFail(fail) {
+                    alert("错误码: " + fail.result_code
+                          + "\n信息："
+                          + fail.result_msg
+                          );
+                }
+            }
+            
+            function addClick(){
+                Add.chooseAddress(onSuccess, onFail);
+                function onSuccess(success) {
+                    alert("成功码: " + success.result_code
+                          + "\n信息："
+                          + success.result_msg
+                          + "\n结果："
+                          + success.text
+                          + "\n省："
+                          + success.code_province
+                          + "\n市："
+                          + success.code_city
+                          + "\n区："
+                          + success.code_area
+                          );
+                          
+                }
+                function onFail(fail) {
+                    alert("错误码: " + fail.result_code
+                          + "\n信息："
+                          + fail.result_msg
+                          );
+                }
+
+            }
+            
+            function frontClick(){
+                alert('cheng')
+                UpCardId.upCardId(onSuccess, onFail);
+                function onSuccess(success) {
+                   
+                         alert('front')
+                }
+                function onFail(fail) {
+            
+                }
+            }
+            function backClick(){
+                
+            }
+            
+            function shareClick() {
+            cordova.exec(null,null,"HaleyPlugin","share",['测试分享的标题','测试分享的内容','http://m.rblcmall.com/share/openShare.htm?share_uuid=shdfxdfdsfsdfs&share_url=http://m.rblcmall.com/store_index_32787.htm&imagePath=http://c.hiphotos.baidu.com/image/pic/item/f3d3572c11dfa9ec78e256df60d0f703908fc12e.jpg']);
+            }
+
+            function locationClick() {
+                cordova.exec(setLocation,locationError,"HaleyPlugin","location",[fwd]);
+            }
+
+            function locationError(error) {
+                asyncAlert(error);
+                document.getElementById("returnValue").value = error;
+            }
+
+            function setLocation(location) {
+                asyncAlert(location);
+                document.getElementById("returnValue").value = location;
+            }
+            
+            function getQRCode(result) {
+                asyncAlert(result);
+                document.getElementById("returnValue").value = result;
+            }
+            
+            function colorClick() {
+                cordova.exec(null,null,"HaleyPlugin","changeColor",[67,205,128,0.5]);
+            }
+            
+            function payClick() {
+                cordova.exec(null,null,"HaleyPlugin","pay",['201511120981234','wx',1,'粉色外套']);
+            }
+            
+            function payResult(str,code) {
+                asyncAlert(str + ' , ' + code);
+                document.getElementById("returnValue").value = str;
+            }
+            function mdResult(result)
+            {
+                 asyncAlert(result);
+                 document.getElementById("returnValue").value = result;
+            }
+            function shareResult(channel_id,share_channel,share_url) {
+                var content = channel_id+","+share_channel+","+share_url;
+                asyncAlert(content);
+                document.getElementById("returnValue").value = content;
+            }
+
+            function shake() {
+                cordova.exec(null,null,"HaleyPlugin","shake",[]);
+            }
+            
+            function playSound() {
+                cordova.exec(null,null,"HaleyPlugin","playSound",['shake_sound_male.wav']);
+            }
+            
+            function asyncAlert(content) {
+                setTimeout(function(){
+                           alert(content);
+                           },1);
+            }
+            
+            document.addEventListener("deviceready", onDeviceReady, false);
+            function onDeviceReady() {
+<!--                myplugin.addstr(addSuc,addFiald,"wang","zhao","bin");-->
+
+            }
+            </script>
+            <script √>
+                /**
+                 * js回调函数
+                 */
+            function addSuc(result) {
+                alert(result);
+            }
+            function addFiald(result) {
+                alert(result);
+            }
+            
+            </script>
+            </head>
+    
+    <body>
+        <h1></h1>
+        <br/>
+        <br/>
+        <input type="button" value="扫一扫" onclick="scanClick()" />
+        <input type="button" value="md" onclick="mdClick()" />
+        <input type="button" value="获取定位" onclick="locationClick()" />
+        <input type="button" value="修改背景色" onclick="colorClick()" />
+        <input type="button" value="分享" onclick="shareClick()" />
+        <input type="button" value="支付" onclick="payClick()" />
+        <input type="button" value="摇一摇" onclick="shake()" />
+        <input type="button" value="播放声音" onclick="playSound()" />
+        <input type="button" value="发送邮件" onclick="sendEmail()"/>
+        <input type="button" value="二维码" onclick="codeSave()"/>
+        <input type="button" value="身份证识别" onclick="ocrClick()"/>
+        <input type="button" value="语音听写" onclick="iflyClick()"/>
+        <input type="button" value="分享" onclick="UMshareClick()"/>
+        <input type="button" value="电子签名" onclick="signClick()"/>
+        <input type="button" value="PDF" onclick="pdfClick()"/>
+        <input type="button" value="Address" onclick="addClick()"/>
+        <input type="button" value="身份证正面" onclick="frontClick()"/>
+        <input type="button" value="身份证反面" onclick="backClick()"/>
+        <div>
+            <select>
+                <option selected disabled>请选择职业</option>
+                <option>中国</option>
+                <option>美国</option>
+                <option>英国</option>
+                <option>新加坡</option>
+            </select>
+        </div>
+        <h1>这是文件上传</h1>
+        <input type="file" />
+        <img id="image" src="data:image/png;base64,/9j/4AAQSkZJRgABAQAASABIAAD/4QBYRXhpZgAATU0AKgAAAAgAAgESAAMAAAABAAEAAIdpAAQAAAABAAAAJgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAABY6ADAAQAAAABAAABTgAAAAD/7QA4UGhvdG9zaG9wIDMuMAA4QklNBAQAAAAAAAA4QklNBCUAAAAAABDUHYzZjwCyBOmACZjs+EJ+/8AAEQgBTgFjAwERAAIRAQMRAf/EAB8AAAEFAQEBAQEBAAAAAAAAAAABAgMEBQYHCAkKC//EALUQAAIBAwMCBAMFBQQEAAABfQECAwAEEQUSITFBBhNRYQcicRQygZGhCCNCscEVUtHwJDNicoIJChYXGBkaJSYnKCkqNDU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6g4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2drh4uPk5ebn6Onq8fLz9PX29/j5+v/EAB8BAAMBAQEBAQEBAQEAAAAAAAABAgMEBQYHCAkKC//EALURAAIBAgQEAwQHBQQEAAECdwABAgMRBAUhMQYSQVEHYXETIjKBCBRCkaGxwQkjM1LwFWJy0QoWJDThJfEXGBkaJicoKSo1Njc4OTpDREVGR0hJSlNUVVZXWFlaY2RlZmdoaWpzdHV2d3h5eoKDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uLj5OXm5+jp6vLz9PX29/j5+v/bAEMAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/bAEMBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAf/dAAQALf/aAAwDAQACEQMRAD8A/v4oAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgD/9D+/igAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAP/0f7+KACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoA//S/v4oAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgD/9P+/igAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAP/1P7+KACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoA//V/v4oAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgD/9b+/igAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAP/1/7+KACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoA//Q/v4oAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgD/9H+/igAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAP/0v7+KACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoA//T/v4oAKACgAoAKACgAoAKACgAoAKACgAoAKAC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3/BwR/wcj+Bfi94H8H6vpHwd/wCFy/Dn4lXGj+JbaEXnhD9lP9l5/C8zzeMYdPvtasNI8QfEK08PWem3lnZ6lq+k2HxG+J1ro9pqF7pwivHAP9WGgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAP/9T+/igAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAQgMCrAMrAhlIyCDwQQcggjggjn3oA/PX9ob/gk1/wAE1P2q/t0/x4/Yj/Z28aazqXmfb/GFp8OtG8F/EG583O/zPiP4Cj8L+PPvMzrt8Rjy5WaVNshLUAfmlcf8Gon/AARImnmmj/Zr8dWkcsryJa2/7RXx2aC3R2LLBC1146urloogQiG4uZ5iqgySyOWegD9NP2H/APglj+wR/wAE5I/Ekn7Hf7O/hz4T634y02x0jxd4wk13xj458c+IdLsLj7bDpl74y+IXiLxT4ht9Ie/26hPoel3+n6HLfQ2ty+m+ZZWRtwD9BKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoA//V/v4oAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgD/9b+/igAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAP/1/7+KACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoA//Q/v4oAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgD/9H+/igAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAP/0v7+KACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoA//T/v4oAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgD/9T+/igAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAP/1f7+KACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoA//W/v4oAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgD/9f+/igAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKAP/0P7+KACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoAKACgAoA//Z">
+
+        
+        <h1>这是回调结果展示区</h1>
+        <textarea id ="returnValue" type="value" rows="5" cols="40">
+        
+        <img>
+        </textarea>
+        
+        <h4>竖直方向的表头：</h4>
+        <table border="1" style="width:90%;height:600px">
+            <tr>
+                <th>姓名</th>
+                <td>Bill Gates</td>
+            </tr>
+            <tr>
+                <th>电话</th>
+                <td>555 77 854</td>
+            </tr>
+            <tr>
+                <th>传真</th>
+                <td>555 77 855</td>
+            </tr>
+        </table>
+        
+        
+    </body>
+</html>

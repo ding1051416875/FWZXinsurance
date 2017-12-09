@@ -1,0 +1,31 @@
+//
+//  FWZXPrefixHeader.pch
+//  FWZXinsurance
+//
+//  Created by 丁晓雷 on 2017/11/16.
+//  Copyright © 2017年 丁晓雷. All rights reserved.
+//
+
+#ifndef FWZXPrefixHeader_pch
+#define FWZXPrefixHeader_pch
+#ifdef __OBJC__
+
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import "AFNetworking.h"
+#import "BXExtensions.h"
+#import "FWZXHeader.h"
+#import "MJExtension.h"
+#import "UIImageView+WebCache.h"
+#import "Maker.h"
+#import "Check.h"
+#import "ProgressHUD.h"
+#import "MJExtension.h"
+#import "HttpTool.h"
+#import "SDLog.h"
+#endif 
+// Include any system framework and library headers here that should be included in all compilation units.
+// You will also need to set the Prefix Header build setting of one or more of your targets to reference this file.
+
+#endif /* FWZXPrefixHeader_pch */
