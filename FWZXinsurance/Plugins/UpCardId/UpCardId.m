@@ -15,6 +15,8 @@
 @property (nonatomic, copy) NSString *policyId;
 @property (nonatomic, copy) NSString *seqNum;
 @property (nonatomic, copy) NSString *url;
+@property (nonatomic, copy) NSString *urlImage;
+@property (nonatomic,strong) CDVInvokedUrlCommand *command;
 @end
 @implementation UpCardId
 {
@@ -48,7 +50,8 @@
     image.sourceType = UIImagePickerControllerSourceTypeCamera;
     image.allowsEditing = YES;
     [self.viewController presentViewController:image animated:YES completion:nil];
-    [self configCallback:command ];
+    [self configCallback:command];
+    _command =command;
 
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
@@ -57,46 +60,73 @@
     if([mediaType isEqualToString:(NSString *)kUTTypeImage])
     {
         UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-        NSDictionary *options = @{@"detect_direction":@"false",@"id_card_side":@"front"};
-        if([_seqNum isEqualToString:@"1"]){
-            //身份证正面
-            [[AipOcrService shardService] detectIdCardFrontFromImage:image withOptions:options successHandler:_successHandle failHandler:_failHandler];
-            
-            [self uploadImageToService:image];
-        }else if([_seqNum isEqualToString:@"0"]){
-            //身份证反面
-            [[AipOcrService shardService] detectIdCardBackFromImage:image withOptions:options successHandler:_successHandle failHandler:_failHandler];
-            [self uploadImageToService:image];
-            
-        }
+        
+        [self uploadImageToService:image];
 
     }
 }
 - (void)uploadImageToService:(UIImage *)filePath
 {
-    NSString *netPath = @"insure/policyHolder/sumbitImage";
+    NSString *netPath = @"http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage";
+//    NSString *netPath = @"/uploadDynamicImage.do?";
+//    http://139.196.227.121:8088/zsdj/app//uploadDynamicImage.do?
     NSMutableDictionary *rdict = [NSMutableDictionary dictionary];
     [rdict setObject:@([_customerId integerValue]) forKey:@"customerId"];
     [rdict setObject:_policyId forKey:@"policyId"];
     [rdict setObject:_seqNum forKey:@"seqNum"];
-    NSData *imageData = UIImageJPEGRepresentation(filePath, 0.8);
-    [HttpTool postWithPath:netPath indexName:@"file" fileData:imageData params:rdict success:^(id responseObj) {
-        NSDictionary *dict = (NSDictionary *)responseObj;
-        NSString *result = [NSString stringWithFormat:@"%@",dict[@"result"]];
-        if([result isEqualToString:@"1"]){
-            
+    NSMutableArray *array = [[NSMutableArray alloc] init];
+    [array addObject:filePath];
+    [HttpTool postWithPath:netPath name:@"file" imagePathList:array params:rdict success:^(id responseObj) {
+       
+        
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableContainers error:nil];
+
+        
+        NSString *result = [NSString stringWithFormat:@"%@",dict[@"code"]];
+        if([result isEqualToString:@"000"]){
+            _urlImage = dict[@"data"];
+            if([_seqNum isEqualToString:@"1"]){
+                
+                
+            NSDictionary *options = @{@"detect_direction":@"false",@"id_card_side":@"front"};
+                //身份证正面
+                [[AipOcrService shardService] detectIdCardFrontFromImage:filePath withOptions:options successHandler:_successHandle failHandler:_failHandler];
+            }else if([_seqNum isEqualToString:@"0"]){
+            NSDictionary *options = @{@"detect_direction":@"false",@"id_card_side":@"front"};
+                //身份证反面
+                [[AipOcrService shardService] detectIdCardBackFromImage:filePath withOptions:options successHandler:_successHandle failHandler:_failHandler];
+                
+            }
         }else{
-            
+            [ProgressHUD showError:dict[@"message"]];
+            NSDictionary *dict = [[NSMutableDictionary alloc] init];
+            [dict setValue:@"0" forKey:@"result_code"];
+            [dict setValue:@"失败" forKey:@"result_msg"];
+            CDVPluginResult *resultId = nil;
+            resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
+            [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
+            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+                [self back];
+            }];
         }
-        
     } failure:^(NSError *error) {
-        
+        [ProgressHUD showError:@"服务器正在调试"];
+        NSDictionary *dict = [[NSMutableDictionary alloc] init];
+        [dict setValue:@"0" forKey:@"result_code"];
+        [dict setValue:@"失败" forKey:@"result_msg"];
+        CDVPluginResult *resultId = nil;
+        resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
+        [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+            [self back];
+        }];
     }];
 }
 - (void)configCallback:(CDVInvokedUrlCommand *)command{
-   
+  
     __weak typeof(self) weakSelf = self;
     NSDictionary *dict = [[NSMutableDictionary alloc] init];
+
     _successHandle = ^(id result){
         NSMutableString *message = [[NSMutableString alloc] init];
         if(result[@"words_result"]){
@@ -105,39 +135,44 @@
                 if([obj isKindOfClass:[NSDictionary class]] && [obj objectForKey:@"words"]){
 
                     [message appendFormat:@"%@: %@\n", key, obj[@"words"]];
-                    if ([key isEqualToString:@"姓名"]) {
-                        [dict setValue:obj[@"words"]forKey:@"id_name"];
-                    }else if ([key isEqualToString:@"出生"]){
-                        NSString *card = obj[@"words"];
-                        NSMutableString *formatStr = [[NSMutableString alloc] initWithString:card];
-                        [formatStr insertString:@"-" atIndex:4];
-                        [formatStr insertString:@"-" atIndex:7];
-                        [dict setValue:formatStr forKey:@"id_birthday"];
-                    }else if ([key isEqualToString:@"公民身份号码"]){
-                        NSString *age = [obj[@"words"] ageFromIDCard];
-                        [dict setValue:age forKey:@"id_age"];
-                        [dict setValue:obj[@"words"] forKey:@"id_number"];
-                    }else if ([key isEqualToString:@"性别"]){
-                        [dict setValue:obj[@"words"] forKey:@"id_sex"];
-                    }else if ([key isEqualToString:@"住址"]){
-                        [dict setValue:obj[@"words"] forKey:@"id_address"];
-                    }else if ([key isEqualToString:@"民族"]){
-                        [dict setValue:obj[@"words"] forKey:@"id_ethnic"];
-                    }else if ([key isEqualToString:@"签发日期"]){
-                        NSString *card = obj[@"words"];
-                        NSMutableString *formatStr = [[NSMutableString alloc] initWithString:card];
-                        [formatStr insertString:@"-" atIndex:4];
-                        [formatStr insertString:@"-" atIndex:7];
-                        [dict setValue:formatStr forKey:@"id_signDate"];
-                    }else if ([key isEqualToString:@"失效日期"]){
-                        NSString *card = obj[@"words"];
-                        NSMutableString *formatStr = [[NSMutableString alloc] initWithString:card];
-                        [formatStr insertString:@"-" atIndex:4];
-                        [formatStr insertString:@"-" atIndex:7];
-                        [dict setValue:formatStr forKey:@"id_expiryDate"];
-                    }else if ([key isEqualToString:@"签发机关"]){
-                        [dict setValue:obj[@"words"] forKey:@"id_issueAuthority"];
+                    if ([weakSelf.seqNum isEqualToString:@"1"]) {
+                        if ([key isEqualToString:@"姓名"]) {
+                            [dict setValue:obj[@"words"]forKey:@"id_name"];
+                        }else if ([key isEqualToString:@"出生"]){
+                            NSString *card = obj[@"words"];
+                            NSMutableString *formatStr = [[NSMutableString alloc] initWithString:card];
+                            [formatStr insertString:@"-" atIndex:4];
+                            [formatStr insertString:@"-" atIndex:7];
+                            [dict setValue:formatStr forKey:@"id_birthday"];
+                        }else if ([key isEqualToString:@"公民身份号码"]){
+                            NSString *age = [obj[@"words"] ageFromIDCard];
+                            [dict setValue:age forKey:@"id_age"];
+                            [dict setValue:obj[@"words"] forKey:@"id_number"];
+                        }else if ([key isEqualToString:@"性别"]){
+                            [dict setValue:obj[@"words"] forKey:@"id_sex"];
+                        }else if ([key isEqualToString:@"住址"]){
+                            [dict setValue:obj[@"words"] forKey:@"id_address"];
+                        }else if ([key isEqualToString:@"民族"]){
+                            [dict setValue:obj[@"words"] forKey:@"id_ethnic"];
+                        }
+                    }else if ([weakSelf.seqNum isEqualToString:@"0"]){
+                        if ([key isEqualToString:@"签发日期"]){
+                            NSString *card = obj[@"words"];
+                            NSMutableString *formatStr = [[NSMutableString alloc] initWithString:card];
+                            [formatStr insertString:@"-" atIndex:4];
+                            [formatStr insertString:@"-" atIndex:7];
+                            [dict setValue:formatStr forKey:@"id_signDate"];
+                        }else if ([key isEqualToString:@"失效日期"]){
+                            NSString *card = obj[@"words"];
+                            NSMutableString *formatStr = [[NSMutableString alloc] initWithString:card];
+                            [formatStr insertString:@"-" atIndex:4];
+                            [formatStr insertString:@"-" atIndex:7];
+                            [dict setValue:formatStr forKey:@"id_expiryDate"];
+                        }else if ([key isEqualToString:@"签发机关"]){
+                            [dict setValue:obj[@"words"] forKey:@"id_issueAuthority"];
+                        }
                     }
+                   
                 }else{
                     [message appendFormat:@"%@: %@\n",key,obj];
                 }
@@ -157,27 +192,31 @@
         }
         [dict setValue:@"1" forKey:@"result_code"];
         [dict setValue:@"成功" forKey:@"result_msg"];
-        CDVPluginResult *resultId = nil;
-        resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
-        [weakSelf.commandDelegate sendPluginResult:resultId callbackId:command.callbackId];
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [weakSelf back];
-        }];
+        
+          [dict setValue:weakSelf.urlImage forKey:@"result_data"];
+           CDVPluginResult *resultId = nil;
+          resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
+          [weakSelf.commandDelegate sendPluginResult:resultId callbackId:command.callbackId];
+           [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+             [weakSelf back];
+           }];
+        
     };
-    
+
     _failHandler = ^(NSError *error){
-//       NSString *msg = [NSString stringWithFormat:@"%li:%@", (long)[error code], [error localizedDescription]];
+
         [dict setValue:@"0" forKey:@"result_code"];
         [dict setValue:@"失败" forKey:@"result_msg"];
         CDVPluginResult *resultId = nil;
         resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
         [weakSelf.commandDelegate sendPluginResult:resultId callbackId:command.callbackId];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//            [[[UIAlertView alloc] initWithTitle:@"识别失败" message:msg delegate:weakSelf cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
              [weakSelf back];
         }];
        
     };
+   
+  
     
 }
 

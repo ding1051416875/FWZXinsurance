@@ -147,7 +147,7 @@ static NSString *const kFirstLuanch=@"FirstLuanch";
 
 #define BUGLY_APP_ID @"d80c96a245"
 
-#define kHostAdress             @"http://40.125.170.204:8082/FwCustom"
+#define kHostAdress             @"http://40.125.170.204:8082/FwCustom/"
 
 
 #define NSLog(format, ...) do { \

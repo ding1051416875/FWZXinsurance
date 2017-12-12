@@ -45,7 +45,7 @@
 + (void)postWithPath:(NSString *)path name:(NSString *)name imagePathList:(NSArray *)imageList params:(NSDictionary *)params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure
 {
     NSDictionary *allParams = [self jointParamsWithDict:params];
-    NSString *netPath = [NSString stringWithFormat:@"%@/%@",kHostAdress,path];
+    NSString *netPath = [NSString stringWithFormat:@"%@",path];
     if (imageList == nil || imageList.count == 0) {
         [BaseHttpTool post:netPath params:params success:success failure:failure];
     }else{
@@ -59,7 +59,7 @@
 + (void)postWithPath:(NSString *)path indexName:(NSString *)name imagePathList:(NSArray *)imageList params:(NSDictionary *)params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure
 {
     NSDictionary *allParams = [self jointParamsWithDict:params];
-    NSString *netPath = [NSString stringWithFormat:@"%@/%@",kHostAdress,path];
+    NSString *netPath = [NSString stringWithFormat:@"%@%@",kHostAdress,path];
     if (imageList == nil || imageList.count == 0) {
         [BaseHttpTool post:netPath params:params success:success failure:failure];
     }else{
@@ -83,7 +83,7 @@
 + (void)postWithPath:(NSString *)path indexName:(NSString *)name fileData:(NSData *)fileData params:(NSDictionary *)params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure
 {
     NSDictionary *allParams = [self jointParamsWithDict:params];
-    NSString *netPath = [NSString stringWithFormat:@"%@/%@",kHostAdress,path];
+    NSString *netPath = [NSString stringWithFormat:@"%@%@",kHostAdress,path];
     if (fileData == nil || fileData == NULL) {
         [BaseHttpTool post:netPath params:params success:success failure:failure];
     }else{

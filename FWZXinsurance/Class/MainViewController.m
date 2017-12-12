@@ -24,7 +24,8 @@
     
 //    self.startPage = @"http://139.219.62.113/web/login/login.html";
 //    self.startPage = @"http://192.168.5.173/web/login/login.html";
-    self.startPage = self.urlString;
+    self.startPage = @"http://192.168.5.23:8100/web/login/login.html";
+//    self.startPage = self.urlString;
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.

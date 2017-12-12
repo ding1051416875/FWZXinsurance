@@ -186,18 +186,22 @@
             }
             
             function frontClick(){
-                alert('cheng')
-                UpCardId.upCardId(onSuccess, onFail);
+                UpCardId.upCardId(onSuccess, onFail,"1","w","1","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
                 function onSuccess(success) {
-                   
-                         alert('front')
+                    alert('success');
                 }
                 function onFail(fail) {
-            
+                    alert('fail');
                 }
             }
             function backClick(){
-                
+                UpCardId.upCardId(onSuccess, onFail,"0","w","0","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
+                function onSuccess(success) {
+                    alert("suceess")
+                }
+                function onFail(fail) {
+                    alert("fail")
+                }
             }
             
             function shareClick() {

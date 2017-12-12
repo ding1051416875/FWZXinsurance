@@ -123,8 +123,19 @@
 //            failure(error);
 //        }
 //    }];
+//    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+//    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+//
+//    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    manager.responseSerializer.acceptableContentTypes =[NSSet setWithObjects:@"text/html",@"application/json", @"text/json", @"text/javascript", nil];
+        manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    
+        manager.responseSerializer = [AFHTTPResponseSerializer serializer];
+    manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/plain", @"multipart/form-data", @"application/json", @"text/html", @"image/jpeg", @"image/png", @"application/octet-stream", @"text/json", nil];
+    
+    
+//    manager.responseSerializer.acceptableContentTypes =[NSSet setWithObjects:@"text/html",@"application/json", @"text/json",@"text/plain", @"text/javascript", nil];
     [manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                 for (int index=0; index<imageList.count; index++) {
                     UIImage * image=[imageList objectAtIndex:index];
@@ -312,10 +323,14 @@
 //        }
 //    }];
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    manager.requestSerializer = [AFHTTPRequestSerializer serializer];
+    
+    manager.responseSerializer = [AFHTTPResponseSerializer serializer];
     manager.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html",@"application/json", @"text/json", @"text/javascript", nil];
     [manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
         NSString * fileName = @"video1.mp4";
         [formData appendPartWithFileData:fileData name:name fileName:fileName mimeType:@"video/quicktime"];
+       
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
