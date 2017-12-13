@@ -14,6 +14,8 @@
 @property (nonatomic, copy) NSString *customerId;
 @property (nonatomic, copy) NSString *policyId;
 @property (nonatomic, copy) NSString *seqNum;
+@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSString *customerType;
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, copy) NSString *urlImage;
 @property (nonatomic,strong) CDVInvokedUrlCommand *command;
@@ -26,11 +28,24 @@
 }
 - (void)upCardId:(CDVInvokedUrlCommand *)command
 {
+//    <!--                UpCardId.upCardId (success(function), error(function)-->
+//                                           <!--                                   , customerId, policyId, seqNum, type, customerType, url);-->
+//    <!--                                   success :成功回调；-->
+//    <!--                                   error：失败回调;-->
+//    <!--                                   customerId：customerId;-->
+//    <!--                                   policyId : policyId;-->
+//    <!--                                   seqNum : seqNum（1正面，2反面）；-->
+//    <!--                                   type:上传文件类型，0为身份证，1为签名-->
+//    <!--                                   customerType: 0投保人，1被保人，2代理人-->
+//    <!--                                   url ：上传服务器。-->
     //返回值
     _customerId= [command.arguments objectAtIndex:0];
     _policyId = [command.arguments objectAtIndex:1];
+    //seqNum 1代表身份证正面 2代表身份证反面
     _seqNum = [command.arguments objectAtIndex:2];
-    _url = [command.arguments objectAtIndex:3];
+    _type = [command.arguments objectAtIndex:3];
+    _customerType = [command.arguments objectAtIndex:4];
+    _url = [command.arguments objectAtIndex:5];
     
     //ocr
     [[AipOcrService shardService] authWithAK:@"DUtU6MUv6Pn1yuQG9FMGhDmo" andSK:@"wPT0Dkkl3v8BYjE3kRYHatzPcQ11mbf3"];
@@ -74,6 +89,8 @@
     [rdict setObject:@([_customerId integerValue]) forKey:@"customerId"];
     [rdict setObject:_policyId forKey:@"policyId"];
     [rdict setObject:_seqNum forKey:@"seqNum"];
+    [rdict setObject:_type forKey:@"type"];
+    [rdict setObject:_customerType forKey:@"customerType"];
     NSMutableArray *array = [[NSMutableArray alloc] init];
     [array addObject:filePath];
     [HttpTool postWithPath:_url name:@"file" imagePathList:array params:rdict success:^(id responseObj) {
@@ -86,7 +103,7 @@
             NSDictionary *options = @{@"detect_direction":@"false",@"id_card_side":@"front"};
                 //身份证正面
                 [[AipOcrService shardService] detectIdCardFrontFromImage:filePath withOptions:options successHandler:_successHandle failHandler:_failHandler];
-            }else if([_seqNum isEqualToString:@"0"]){
+            }else if([_seqNum isEqualToString:@"2"]){
             NSDictionary *options = @{@"detect_direction":@"false",@"id_card_side":@"front"};
                 //身份证反面
                 [[AipOcrService shardService] detectIdCardBackFromImage:filePath withOptions:options successHandler:_successHandle failHandler:_failHandler];
@@ -150,7 +167,7 @@
                         }else if ([key isEqualToString:@"民族"]){
                             [dict setValue:obj[@"words"] forKey:@"id_ethnic"];
                         }
-                    }else if ([weakSelf.seqNum isEqualToString:@"0"]){
+                    }else if ([weakSelf.seqNum isEqualToString:@"2"]){
                         if ([key isEqualToString:@"签发日期"]){
                             NSString *card = obj[@"words"];
                             NSMutableString *formatStr = [[NSMutableString alloc] initWithString:card];

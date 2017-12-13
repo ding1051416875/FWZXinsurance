@@ -186,7 +186,19 @@
             }
             
             function frontClick(){
-                UpCardId.upCardId(onSuccess, onFail,"1","w","1","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
+<!--                UpCardId.upCardId (success(function), error(function)-->
+<!--                                   , customerId, policyId, seqNum, type, customerType, url);-->
+<!--                                   success :成功回调；-->
+<!--                                   error：失败回调;-->
+<!--                                   customerId：customerId;-->
+<!--                                   policyId : policyId;-->
+<!--                                   seqNum : seqNum（1正面，2反面）；-->
+<!--                                   type:上传文件类型，0为身份证，1为签名-->
+<!--                                   customerType: 0投保人，1被保人，2代理人-->
+<!--                                   url ：上传服务器。-->
+
+
+                UpCardId.upCardId(onSuccess, onFail,"1","w","1","0","0","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
                 function onSuccess(success) {
                     alert("成功码: " + success.result_code
                           + "\n信息："
@@ -219,7 +231,7 @@
                 }
             }
             function backClick(){
-                UpCardId.upCardId(onSuccess, onFail,"0","w","0","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
+                UpCardId.upCardId(onSuccess, onFail,"1","w","2","0","0","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage")
                 function onSuccess(success) {
                     alert( "\n签发时间："
                           + success.id_signDate

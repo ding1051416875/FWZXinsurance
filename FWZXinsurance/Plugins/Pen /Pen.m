@@ -13,6 +13,8 @@
 @property (nonatomic, copy) NSString *customerId;
 @property (nonatomic, copy) NSString *policyId;
 @property (nonatomic, copy) NSString *seqNum;
+@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSString *customerType;
 @property (nonatomic, copy) NSString *url;
 @end
 
@@ -20,11 +22,24 @@
 -(void)doSign:(CDVInvokedUrlCommand *)command
 {
     
+    //    <!--                UpCardId.upCardId (success(function), error(function)-->
+    //                                           <!--                                   , customerId, policyId, seqNum, type, customerType, url);-->
+    //    <!--                                   success :成功回调；-->
+    //    <!--                                   error：失败回调;-->
+    //    <!--                                   customerId：customerId;-->
+    //    <!--                                   policyId : policyId;-->
+    //    <!--                                   seqNum : seqNum（1正面，2反面）；-->
+    //    <!--                                   type:上传文件类型，0为身份证，1为签名-->
+    //    <!--                                   customerType: 0投保人，1被保人，2代理人-->
+    //    <!--                                   url ：上传服务器。-->
     //返回值
     _customerId= [command.arguments objectAtIndex:0];
     _policyId = [command.arguments objectAtIndex:1];
+    //seqNum 1代表身份证正面 2代表身份证反面
     _seqNum = [command.arguments objectAtIndex:2];
-    _url = [command.arguments objectAtIndex:3];
+    _type = [command.arguments objectAtIndex:3];
+    _customerType = [command.arguments objectAtIndex:4];
+    _url = [command.arguments objectAtIndex:5];
     SignDrawViewController *vc = [[SignDrawViewController alloc] init];
     vc.backImage = ^(UIImage *image, BOOL isSuccess) {
         // 如果项目需求要将电子签名上传服务器，那就可以在这里处理图片并上传服务器
@@ -77,6 +92,8 @@
     [rdict setObject:@([_customerId integerValue]) forKey:@"customerId"];
     [rdict setObject:_policyId forKey:@"policyId"];
     [rdict setObject:_seqNum forKey:@"seqNum"];
+    [rdict setObject:_type forKey:@"type"];
+    [rdict setObject:_customerType forKey:@"customerType"];
     NSMutableArray *array = [[NSMutableArray alloc] init];
     [array addObject:filePath];
     [HttpTool postWithPath:_url name:@"file" imagePathList:array params:rdict success:^(id responseObj) {

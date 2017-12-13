@@ -54,8 +54,8 @@
 //    //关于mimeType：http://www.iana.org/assignments/media-types/index.html
 //    [mailPicker addAttachmentData:imageData mimeType:@"" fileName:@"me"];
     //添加一个pdf附件
-    NSString *file = [[NSBundle mainBundle] pathForResource:@"面试题-C部分" ofType:@"pdf"];
-    NSData *pdf  = [NSData dataWithContentsOfFile:file];
+//    NSString *file = [[NSBundle mainBundle] pathForResource:@"面试题-C部分" ofType:@"pdf"];
+//    NSData *pdf  = [NSData dataWithContentsOfFile:file];
 //    [mailPicker addAttachmentData:@"" mimeType:@"" fileName:@"面试图-C部分"];
     
 //    NSString *emailBody = @"<font color='red'>eMail</font>正文";
