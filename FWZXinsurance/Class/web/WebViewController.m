@@ -36,7 +36,7 @@
     //创建UI界面
     [self createUI];
     [self loadWebViewWith:self.urlString];
-    self.webView.frame = CGRectMake(0, 64, kWidth, kHeight);
+    self.webView.frame = CGRectMake(0, 0, kWidth, kHeight);
     UIButton *backBtn = [Maker makeBtn:CGRectMake(10, 0, 70, 70) title:@"" img:@"back" font:kFont_Lable_15 target:self action:@selector(btnClicked:)];
     [self.view addSubview:backBtn];
 }
@@ -64,7 +64,8 @@
     if (!_progressView) {
         _progressView =[[UIView alloc] initWithFrame:CGRectZero];
         //进度条的y值根据导航条是否透明会有变化
-        _progressView.y = 64;
+        _progressView.y = 0
+        ;
         _progressView.height = 3.0;
         _progressView.backgroundColor = kColor_Blue;
     }
@@ -88,7 +89,7 @@
 {
     _webViewFrame = webViewFrame;
     self.webView.frame = webViewFrame;
-    self.progressView.y = webViewFrame.origin.y + 64;
+    self.progressView.y = webViewFrame.origin.y + 0;
 }
 
 #pragma mark - WKNavigationDelegate

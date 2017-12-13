@@ -21,7 +21,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundlaunch.png" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zEh-6u-Ytn">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="backgroundlaunch" highlighted="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zEh-6u-Ytn">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -35,6 +35,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backgroundlaunch.png" width="1586" height="1190"/>
+        <image name="backgroundlaunch" width="1586" height="1190"/>
     </resources>
 </document>

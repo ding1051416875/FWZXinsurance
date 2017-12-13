@@ -22,7 +22,7 @@
     NSString *recipient =[command.arguments objectAtIndex:0];
     NSString *emailTheme =[command.arguments objectAtIndex:1];
     NSString *emailBody=[command.arguments objectAtIndex:2];
-    NSString *emailfile =[command.arguments objectAtIndex:3];
+//    NSString *emailfile =[command.arguments objectAtIndex:3];
     Class mailClass = (NSClassFromString(@"MFMailComposeViewController"));
     if (!mailClass) {
         [self alertControler:@"当前系统版本不支持应用内发送邮件功能，您可以使用mailto方法代替"];

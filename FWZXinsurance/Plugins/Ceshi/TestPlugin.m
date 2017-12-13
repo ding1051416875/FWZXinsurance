@@ -36,10 +36,10 @@
     if([md isEqualToString:@""])
     {
         [dict setObject:randomcode forKey:@"rangdomcode"];
-        [dict setObject:@"100" forKey:@"code"];
+        [dict setObject:@"000" forKey:@"code"];
         [dict setObject:md forKey:@"Signature"];
         NSString *jsStr = [NSString stringWithFormat:@"mdResult('%@',)",[dict mj_JSONString]];
-        result=[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:jsStr];
+        result=[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsString:jsStr];
         [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
     }else{
         [dict setObject:randomcode forKey:@"rangdomcode"];

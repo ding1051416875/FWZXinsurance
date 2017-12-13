@@ -24,8 +24,8 @@
     
 //    self.startPage = @"http://139.219.62.113/web/login/login.html";
 //    self.startPage = @"http://192.168.5.173/web/login/login.html";
-    self.startPage = @"http://192.168.5.23:8100/web/login/login.html";
-//    self.startPage = self.urlString;
+//    self.startPage = @"http://192.168.5.23:8100/web/login/login.html";
+    self.startPage = self.urlString;
     
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -37,7 +37,7 @@
 //    self.wkwebView.frame =CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height);
 //    self.wkwebView.scrollView.bounces = NO;
     UIButton *back = [Maker makeBtn:CGRectMake(0, 10, 50, 50) title:@"" img:@"back" font:kFont_Lable_14 target:self action:@selector(backBtnClicked)];
-//    [self.view addSubview:back];
+    [self.view addSubview:back];
 }
 - (void)backBtnClicked
 {

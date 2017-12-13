@@ -67,7 +67,7 @@
 }
 - (void)uploadImageToService:(UIImage *)filePath
 {
-    NSString *netPath = @"http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage";
+//    NSString *netPath = @"http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage";
 //    NSString *netPath = @"/uploadDynamicImage.do?";
 //    http://139.196.227.121:8088/zsdj/app//uploadDynamicImage.do?
     NSMutableDictionary *rdict = [NSMutableDictionary dictionary];
@@ -76,17 +76,12 @@
     [rdict setObject:_seqNum forKey:@"seqNum"];
     NSMutableArray *array = [[NSMutableArray alloc] init];
     [array addObject:filePath];
-    [HttpTool postWithPath:netPath name:@"file" imagePathList:array params:rdict success:^(id responseObj) {
-       
-        
+    [HttpTool postWithPath:_url name:@"file" imagePathList:array params:rdict success:^(id responseObj) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableContainers error:nil];
-
-        
         NSString *result = [NSString stringWithFormat:@"%@",dict[@"code"]];
         if([result isEqualToString:@"000"]){
             _urlImage = dict[@"data"];
             if([_seqNum isEqualToString:@"1"]){
-                
                 
             NSDictionary *options = @{@"detect_direction":@"false",@"id_card_side":@"front"};
                 //身份证正面
@@ -103,7 +98,7 @@
             [dict setValue:@"0" forKey:@"result_code"];
             [dict setValue:@"失败" forKey:@"result_msg"];
             CDVPluginResult *resultId = nil;
-            resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
+            resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
             [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
                 [self back];
@@ -115,7 +110,7 @@
         [dict setValue:@"0" forKey:@"result_code"];
         [dict setValue:@"失败" forKey:@"result_msg"];
         CDVPluginResult *resultId = nil;
-        resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
+        resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
         [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
             [self back];
@@ -192,14 +187,14 @@
         }
         [dict setValue:@"1" forKey:@"result_code"];
         [dict setValue:@"成功" forKey:@"result_msg"];
-        
-          [dict setValue:weakSelf.urlImage forKey:@"result_data"];
-           CDVPluginResult *resultId = nil;
-          resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
-          [weakSelf.commandDelegate sendPluginResult:resultId callbackId:command.callbackId];
-           [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        [dict setValue:weakSelf.urlImage forKey:@"result_data"];
+        [dict setValue:weakSelf.seqNum forKey:@"upload_type"];
+        CDVPluginResult *resultId = nil;
+        resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
+        [weakSelf.commandDelegate sendPluginResult:resultId callbackId:command.callbackId];
+        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
              [weakSelf back];
-           }];
+        }];
         
     };
 
@@ -208,7 +203,7 @@
         [dict setValue:@"0" forKey:@"result_code"];
         [dict setValue:@"失败" forKey:@"result_msg"];
         CDVPluginResult *resultId = nil;
-        resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
+        resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
         [weakSelf.commandDelegate sendPluginResult:resultId callbackId:command.callbackId];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
              [weakSelf back];

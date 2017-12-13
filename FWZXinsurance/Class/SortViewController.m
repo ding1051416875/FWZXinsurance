@@ -70,7 +70,7 @@
 //        OCRViewController *ocr = [[OCRViewController alloc] init];
 //        [self presentViewController:ocr animated:YES completion:nil];
         MainViewController  *main = [[MainViewController alloc] init];
-        main.urlString = @"http://192.168.5.140/web/login/login.html";
+        main.urlString = @"http://192.168.5.173/web/login/login.html";
         [self presentViewController:main animated:YES completion:nil];
     }
 }

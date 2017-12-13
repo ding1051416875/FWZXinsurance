@@ -51,7 +51,5 @@
         }
     };
     [self.viewController presentViewController:web animated:YES completion:nil];
-  
-    
 }
 @end

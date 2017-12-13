@@ -140,7 +140,7 @@
 //    _result = [CDVPluginResult new];
     // 这是默认的识别成功的回调
     _successHandler = ^(id result){
-        NSString *title = @"识别结果";
+//        NSString *title = @"识别结果";
 
         NSMutableString *message = [NSMutableString string];
        
@@ -222,7 +222,7 @@
         [dict setValue:@"0" forKey:@"result_code"];
         [dict setValue:@"失败" forKey:@"result_msg"];
         CDVPluginResult *result = nil;
-        result=[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
+        result=[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
         [weakSelf.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         
         [weakSelf.viewController dismissViewControllerAnimated:YES completion:nil];

@@ -126,7 +126,7 @@
                
             }
             function signClick(){
-                Pen.doSign (onSuccess, onFail);
+                Pen.doSign (onSuccess, onFail,"1","w","1","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
                 function onSuccess(success) {
                     alert("成功码: " + success.result_code
                           + "\n信息："
@@ -188,19 +188,52 @@
             function frontClick(){
                 UpCardId.upCardId(onSuccess, onFail,"1","w","1","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
                 function onSuccess(success) {
-                    alert('success');
+                    alert("成功码: " + success.result_code
+                          + "\n信息："
+                          + success.result_msg
+                          + "\n姓名："
+                          + success.id_name
+                          + "\n性别："
+                          + success.id_sex
+                          + "\n身份证号："
+                          + success.id_number
+                          + "\n地址："
+                          + success.id_address
+                          + "\n民族："
+                          + success.id_ethnic
+                          + "\n出生日期："
+                          + success.id_birthday
+                          + "\n年龄："
+                          + success.id_age
+                          + "\ndata："
+                          + success.result_data
+                          );
+
                 }
                 function onFail(fail) {
-                    alert('fail');
+                    alert("错误码: " + fail.result_code
+                          + "\n信息："
+                          + fail.result_msg
+                          );
+
                 }
             }
             function backClick(){
                 UpCardId.upCardId(onSuccess, onFail,"0","w","0","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
                 function onSuccess(success) {
-                    alert("suceess")
+                    alert( "\n签发时间："
+                          + success.id_signDate
+                          + "\n到期时间："
+                          + success.id_expiryDate
+                          + "\n签发单位："
+                          + success.id_issueAuthority);
                 }
                 function onFail(fail) {
-                    alert("fail")
+                    alert("错误码: " + fail.result_code
+                          + "\n信息："
+                          + fail.result_msg
+                          );
+
                 }
             }
             
