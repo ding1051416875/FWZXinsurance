@@ -10,6 +10,8 @@
 #import <objc/runtime.h>
 #import <AipOcrSdk/AipOcrSdk.h>
 #import <AVFoundation/AVFoundation.h>
+#import "CameraViewController.h"
+#import "UIImage+SubImage.h"
 @interface UpCardId()<UINavigationControllerDelegate,UIImagePickerControllerDelegate>
 @property (nonatomic, copy) NSString *customerId;
 @property (nonatomic, copy) NSString *policyId;
@@ -19,6 +21,7 @@
 @property (nonatomic, copy) NSString *url;
 @property (nonatomic, copy) NSString *urlImage;
 @property (nonatomic,strong) CDVInvokedUrlCommand *command;
+@property (nonatomic,strong) UIImageView *iMG;
 @end
 @implementation UpCardId
 {
@@ -39,14 +42,18 @@
 //    <!--                                   customerType: 0投保人，1被保人，2代理人-->
 //    <!--                                   url ：上传服务器。-->
     //返回值
-    _customerId= [command.arguments objectAtIndex:0];
-    _policyId = [command.arguments objectAtIndex:1];
+    _customerId= [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:0]];
+    _policyId =[NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:1]];
     //seqNum 1代表身份证正面 2代表身份证反面
-    _seqNum = [command.arguments objectAtIndex:2];
-    _type = [command.arguments objectAtIndex:3];
-    _customerType = [command.arguments objectAtIndex:4];
-    _url = [command.arguments objectAtIndex:5];
-    
+    _seqNum = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:2]];
+    _type = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:3]];
+    _customerType = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:4]];
+    _url = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:5]];
+//    if ([Check isEmptyString:_customerId]||[Check isEmptyString:_policyId]||[Check isEmptyString:_seqNum]||[Check isEmptyString:_type]||[Check isEmptyString:_customerType]||[Check isEmptyString:_url]) {
+////        [ProgressHUD showError:@"传入数据为空"];
+//        [MBProgressHUD showError:@"传入数据为空" toView:self.viewController.view];
+//        return;
+//    }
     //ocr
     [[AipOcrService shardService] authWithAK:@"DUtU6MUv6Pn1yuQG9FMGhDmo" andSK:@"wPT0Dkkl3v8BYjE3kRYHatzPcQ11mbf3"];
     
@@ -59,12 +66,32 @@
         
         return;
     }
+
     //身份证正面
     UIImagePickerController *image = [[UIImagePickerController alloc] init];
     image.delegate = self;
     image.sourceType = UIImagePickerControllerSourceTypeCamera;
     image.allowsEditing = YES;
+    UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kWidth/2+kWidth/4-50, (kWidth/2+kWidth/4-50)*0.65)];
+    view.center = self.viewController.view.center;
+    view.transform = CGAffineTransformMakeTranslation(-2, 0);
+    NSString *seq = [NSString stringWithFormat:@"%@",_seqNum];
+    if ([seq isEqualToString:@"1"]) {
+        view.image = [UIImage imageNamed:@"cardfront"];
+    }else{
+        view.image = [UIImage imageNamed:@"cardback"];
+    }
+     image.cameraOverlayView =view;
+
     [self.viewController presentViewController:image animated:YES completion:nil];
+//    self.iMG = [Maker makeImgView:CGRectMake(0, 100, 500, 500) img:@""];
+//    [self.viewController.view addSubview:self.iMG];
+//    CameraViewController *camera = [[CameraViewController alloc] init];
+//    camera.saveImage = ^(UIImage *image) {
+//        [self uploadImageToService:image];
+//        self.iMG.image = image;
+//    };
+//    [self.viewController presentViewController:camera animated:YES completion:nil];
     [self configCallback:command];
     _command =command;
 
@@ -74,17 +101,24 @@
     NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     if([mediaType isEqualToString:(NSString *)kUTTypeImage])
     {
-        UIImage *image = [info objectForKey:UIImagePickerControllerEditedImage];
-        
-        [self uploadImageToService:image];
+        UIImage *oldImage = [info objectForKey:UIImagePickerControllerEditedImage];
+        CGFloat height = (kHeight- (kWidth/2+kWidth/4)*0.65)/2;
+        UIImage *newImage;
+        newImage = [oldImage subImageWithRect:CGRectMake(0, height, oldImage.size.width, oldImage.size.height)];
+        [self uploadImageToService:oldImage newImage:newImage];
+        [self back];
 
     }
 }
-- (void)uploadImageToService:(UIImage *)filePath
+- (void)uploadImageToService:(UIImage *)oldImage newImage:(UIImage *)newImage
 {
 //    NSString *netPath = @"http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage";
 //    NSString *netPath = @"/uploadDynamicImage.do?";
 //    http://139.196.227.121:8088/zsdj/app//uploadDynamicImage.do?
+//    if ([Check isEmptyString:_customerId]||[Check isEmptyString:_policyId]||[Check isEmptyString:_seqNum]||[Check isEmptyString:_type]||[Check isEmptyString:_customerType]||[Check isEmptyString:_url]||newImage ==nil) {
+//        [ProgressHUD showError:@"传入数据为空"];
+//        return;
+//    }
     NSMutableDictionary *rdict = [NSMutableDictionary dictionary];
     [rdict setObject:@([_customerId integerValue]) forKey:@"customerId"];
     [rdict setObject:_policyId forKey:@"policyId"];
@@ -92,28 +126,31 @@
     [rdict setObject:_type forKey:@"type"];
     [rdict setObject:_customerType forKey:@"customerType"];
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    [array addObject:filePath];
+    [ProgressHUD show:@"正在上传中"];
+    [array addObject:newImage];
     [HttpTool postWithPath:_url name:@"file" imagePathList:array params:rdict success:^(id responseObj) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableContainers error:nil];
         NSString *result = [NSString stringWithFormat:@"%@",dict[@"code"]];
+        [ProgressHUD dismiss];
         if([result isEqualToString:@"000"]){
             _urlImage = dict[@"data"];
+            [ProgressHUD showSuccess:@"图片上传成功"];
             if([_seqNum isEqualToString:@"1"]){
-                
+            
             NSDictionary *options = @{@"detect_direction":@"false",@"id_card_side":@"front"};
                 //身份证正面
-                [[AipOcrService shardService] detectIdCardFrontFromImage:filePath withOptions:options successHandler:_successHandle failHandler:_failHandler];
+
+                [[AipOcrService shardService] detectIdCardFrontFromImage:oldImage withOptions:options successHandler:_successHandle failHandler:_failHandler];
             }else if([_seqNum isEqualToString:@"2"]){
-            NSDictionary *options = @{@"detect_direction":@"false",@"id_card_side":@"front"};
+            NSDictionary *options = @{@"detect_direction":@"false",@"id_card_side":@"back"};
                 //身份证反面
-                [[AipOcrService shardService] detectIdCardBackFromImage:filePath withOptions:options successHandler:_successHandle failHandler:_failHandler];
+                [[AipOcrService shardService] detectIdCardBackFromImage:oldImage withOptions:options successHandler:_successHandle failHandler:_failHandler];
                 
             }
         }else{
-            [ProgressHUD showError:dict[@"message"]];
             NSDictionary *dict = [[NSMutableDictionary alloc] init];
             [dict setValue:@"0" forKey:@"result_code"];
-            [dict setValue:@"失败" forKey:@"result_msg"];
+            [dict setValue:dict[@"message"] forKey:@"result_msg"];
             CDVPluginResult *resultId = nil;
             resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
             [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
@@ -125,7 +162,7 @@
         [ProgressHUD showError:@"服务器正在调试"];
         NSDictionary *dict = [[NSMutableDictionary alloc] init];
         [dict setValue:@"0" forKey:@"result_code"];
-        [dict setValue:@"失败" forKey:@"result_msg"];
+        [dict setValue:error.localizedDescription forKey:@"result_msg"];
         CDVPluginResult *resultId = nil;
         resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
         [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
@@ -136,10 +173,15 @@
 }
 - (void)configCallback:(CDVInvokedUrlCommand *)command{
   
+   
     __weak typeof(self) weakSelf = self;
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//        [weakSelf back];
+    }];
     NSDictionary *dict = [[NSMutableDictionary alloc] init];
 
     _successHandle = ^(id result){
+   
         NSMutableString *message = [[NSMutableString alloc] init];
         if(result[@"words_result"]){
             if([result[@"words_result"] isKindOfClass:[NSDictionary class]]){
@@ -203,28 +245,26 @@
             [message appendFormat:@"%@",result];
         }
         [dict setValue:@"1" forKey:@"result_code"];
-        [dict setValue:@"成功" forKey:@"result_msg"];
+        [dict setValue:@"识别成功" forKey:@"result_msg"];
         [dict setValue:weakSelf.urlImage forKey:@"result_data"];
         [dict setValue:weakSelf.seqNum forKey:@"upload_type"];
         CDVPluginResult *resultId = nil;
         resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
         [weakSelf.commandDelegate sendPluginResult:resultId callbackId:command.callbackId];
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-             [weakSelf back];
-        }];
+//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//             [weakSelf back];
+//        }];
         
     };
 
     _failHandler = ^(NSError *error){
 
         [dict setValue:@"0" forKey:@"result_code"];
-        [dict setValue:@"失败" forKey:@"result_msg"];
+        [dict setValue:error.localizedDescription forKey:@"result_msg"];
         CDVPluginResult *resultId = nil;
         resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
         [weakSelf.commandDelegate sendPluginResult:resultId callbackId:command.callbackId];
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-             [weakSelf back];
-        }];
+       
        
     };
    
@@ -232,7 +272,43 @@
     
 }
 
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation {
+    
+    return UIInterfaceOrientationLandscapeLeft;
+    
+}
 
+
+
+- (NSUInteger)supportedInterfaceOrientations{
+    
+    return UIInterfaceOrientationMaskLandscape;
+    
+}
+
+
+
+- (BOOL)shouldAutorotate {
+    
+    return NO;
+    
+}
+
+
+
+- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
+    
+    if(UIInterfaceOrientationIsLandscape(interfaceOrientation)) {
+        
+        return YES;
+        
+    } else {
+        
+        return NO;
+        
+    }
+    
+}
 
 - (void)back{
     [self.viewController dismissViewControllerAnimated:YES completion:nil];

@@ -179,8 +179,8 @@
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	if (orient == UIInterfaceOrientationPortrait)			rotate = 0.0;
 	if (orient == UIInterfaceOrientationPortraitUpsideDown)	rotate = M_PI;
-	if (orient == UIInterfaceOrientationLandscapeLeft)		rotate = - M_PI_2;
-	if (orient == UIInterfaceOrientationLandscapeRight)		rotate = + M_PI_2;
+	if (orient == UIInterfaceOrientationLandscapeLeft)		rotate = 0.0;
+	if (orient == UIInterfaceOrientationLandscapeRight)		rotate = 0.0;
 	//---------------------------------------------------------------------------------------------------------------------------------------------
 	hud.transform = CGAffineTransformMakeRotation(rotate);
 }
@@ -249,34 +249,45 @@
 - (void)hudHide
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	if (self.alpha == 1)
-	{
-		NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseIn;
-
-		[UIView animateWithDuration:0.15 delay:0 options:options animations:^{
-			hud.transform = CGAffineTransformScale(hud.transform, 0.7, 0.7);
-			hud.alpha = 0;
-		}
-		completion:^(BOOL finished)
-		{
-			[self hudDestroy];
-			self.alpha = 0;
-		}];
-	}
+    
+    
+	
 }
 
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 - (void)timedHide
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
-	@autoreleasepool
-	{
+//    @autoreleasepool
+//    {
 		//double length = label.text.length;
+    
+    dispatch_sync(dispatch_get_main_queue(), ^{
+      
+        
+        
+   
         NSTimeInterval sleep = 1.0;//length * 0.04 + 0.5;
 		
 		[NSThread sleepForTimeInterval:sleep];
 		[self hudHide];
-	}
+        if (self.alpha == 1)
+        {
+            NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseIn;
+            
+            [UIView animateWithDuration:0.25 delay:0 options:options animations:^{
+                hud.transform = CGAffineTransformScale(hud.transform, 0.7, 0.7);
+                hud.alpha = 0;
+            }
+                             completion:^(BOOL finished)
+             {
+                 [self hudDestroy];
+                 self.alpha = 0;
+             }];
+        }
+         });
+
+//    }
 }
 
 @end

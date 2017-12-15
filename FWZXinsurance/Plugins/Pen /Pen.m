@@ -15,6 +15,7 @@
 @property (nonatomic, copy) NSString *seqNum;
 @property (nonatomic, copy) NSString *type;
 @property (nonatomic, copy) NSString *customerType;
+@property (nonatomic, copy) NSString *agentId;
 @property (nonatomic, copy) NSString *url;
 @end
 
@@ -31,15 +32,21 @@
     //    <!--                                   seqNum : seqNum（1正面，2反面）；-->
     //    <!--                                   type:上传文件类型，0为身份证，1为签名-->
     //    <!--                                   customerType: 0投保人，1被保人，2代理人-->
+    //                                           agentId
     //    <!--                                   url ：上传服务器。-->
+        
     //返回值
-    _customerId= [command.arguments objectAtIndex:0];
-    _policyId = [command.arguments objectAtIndex:1];
+    _customerId= [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:0]];
+    _policyId =[NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:1]];
     //seqNum 1代表身份证正面 2代表身份证反面
-    _seqNum = [command.arguments objectAtIndex:2];
-    _type = [command.arguments objectAtIndex:3];
-    _customerType = [command.arguments objectAtIndex:4];
-    _url = [command.arguments objectAtIndex:5];
+    _seqNum = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:2]];
+    _type = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:3]];
+    _customerType = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:4]];
+    _url = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:5]];
+    if ([Check isEmptyString:_customerId]||[Check isEmptyString:_policyId]||[Check isEmptyString:_seqNum]||[Check isEmptyString:_type]||[Check isEmptyString:_customerType]||[Check isEmptyString:_url]) {
+        [ProgressHUD showError:@"传入数据为空"];
+        return;
+    }
     SignDrawViewController *vc = [[SignDrawViewController alloc] init];
     vc.backImage = ^(UIImage *image, BOOL isSuccess) {
         // 如果项目需求要将电子签名上传服务器，那就可以在这里处理图片并上传服务器
@@ -67,7 +74,7 @@
             [ProgressHUD showError:@"没有保存成功"];
             NSDictionary *dict = [[NSMutableDictionary alloc] init];
             [dict setValue:@"0" forKey:@"result_code"];
-            [dict setValue:@"失败" forKey:@"result_msg"];
+            [dict setValue:@"没有保存成功" forKey:@"result_msg"];
             CDVPluginResult *resultId = nil;
             resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
             [self.commandDelegate sendPluginResult:resultId callbackId:command.callbackId];
@@ -84,7 +91,10 @@
 - (void)uploadImageToService:(UIImage *)filePath command:(CDVInvokedUrlCommand *)command
 {
 
-    
+    if ([Check isEmptyString:_customerId]||[Check isEmptyString:_policyId]||[Check isEmptyString:_seqNum]||[Check isEmptyString:_type]||[Check isEmptyString:_customerType]||[Check isEmptyString:_url]||filePath ==nil) {
+        [ProgressHUD showError:@"传入数据为空"];
+        return;
+    }
     NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
     
 //    NSString *netPath = @"http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage";
@@ -103,7 +113,7 @@
         if([result isEqualToString:@"000"]){
             NSData *imageData = UIImageJPEGRepresentation(filePath,1.0);
             NSString *image =[NSString stringWithFormat:@"data:image/png;base64,%@",[GTMBase64 stringByEncodingData:imageData]];
-            [dict setObject:@"成功" forKey:@"result_msg"];
+            [dict setObject:@"上传成功" forKey:@"result_msg"];
             [dict setObject:@"1" forKey:@"result_code"];
             [dict setObject:dictionary[@"data"] forKey:@"result_data"];
             [dict setObject:image forKey:@"result_img"];
@@ -115,7 +125,7 @@
             [ProgressHUD showError:dict[@"message"]];
             NSDictionary *dict = [[NSMutableDictionary alloc] init];
             [dict setValue:@"0" forKey:@"result_code"];
-            [dict setValue:@"失败" forKey:@"result_msg"];
+            [dict setValue:dictionary[@"message"] forKey:@"result_msg"];
             CDVPluginResult *resultId = nil;
             resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
             [self.commandDelegate sendPluginResult:resultId callbackId:command.callbackId];
@@ -125,8 +135,8 @@
         [ProgressHUD showError:@"服务器正在调试"];
         NSDictionary *dict = [[NSMutableDictionary alloc] init];
         [dict setValue:@"0" forKey:@"result_code"];
-        [dict setValue:@"失败" forKey:@"result_msg"];
-        CDVPluginResult *resultId = nil;
+        [dict setValue:error.localizedDescription forKey:@"result_msg"];
+        CDVPluginResult *resultId = nil  ;
         resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
         [self.commandDelegate sendPluginResult:resultId callbackId:command.callbackId];
   

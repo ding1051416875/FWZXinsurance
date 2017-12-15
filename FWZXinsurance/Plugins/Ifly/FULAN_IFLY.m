@@ -77,13 +77,17 @@
     NSMutableDictionary *dictary = [[NSMutableDictionary alloc] init];
 
     if(![Check isEmptyString:newStr]){
-        [dictary setObject:@"成功" forKey:@"result_msg"];
+        [dictary setObject:@"识别成功" forKey:@"result_msg"];
         [dictary setObject:@"1" forKey:@"result_code"];
+        if ([Check isEmptyString:newStr]) {
+            [ProgressHUD showError:@"请重新输入"];
+            return;
+        }
         [dictary setObject:newStr forKey:@"text"];
         result=[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dictary];
     
     }else{
-        [dictary setObject:@"失败" forKey:@"result_msg"];
+        [dictary setObject:@"识别失败" forKey:@"result_msg"];
         [dictary setObject:@"0" forKey:@"result_code"];
         result=[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dictary];
     

@@ -139,7 +139,7 @@
     [manager POST:url parameters:params constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData) {
                 for (int index=0; index<imageList.count; index++) {
                     UIImage * image=[imageList objectAtIndex:index];
-                    NSData * imageData=UIImageJPEGRepresentation(image, 0.8);
+                    NSData * imageData=UIImageJPEGRepresentation(image, 0.3);
                     NSString * fileName=[NSString stringWithFormat:@"img%d.jpg",index];
                     [formData appendPartWithFileData:imageData name:name fileName:fileName mimeType:@"image/jpg/file"];
                 }

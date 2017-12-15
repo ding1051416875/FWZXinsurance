@@ -3,6 +3,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf8">
             <script type="text/javascript" src="cordova.js"></script>
             <script language="javascript">
+  
             function scanClick() {
 <!--                cordova.exec(null,null,"HaleyPlugin","scan",[]);-->
                     Signature.getSignature(onSuccess, onFail);
@@ -126,7 +127,8 @@
                
             }
             function signClick(){
-                Pen.doSign (onSuccess, onFail,"1","w","1","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
+              
+                Pen.doSign (onSuccess, onFail,"1","w","1","1","1","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
                 function onSuccess(success) {
                     alert("成功码: " + success.result_code
                           + "\n信息："
@@ -327,10 +329,18 @@
             }
             
             </script>
+            <style>
+                input{
+                    width: 100px;
+                    height: 100px;
+                }
+            </style>
             </head>
     
     <body>
         <h1></h1>
+        <br/>
+        <br/>
         <br/>
         <br/>
         <input type="button" value="扫一扫" onclick="scanClick()" />

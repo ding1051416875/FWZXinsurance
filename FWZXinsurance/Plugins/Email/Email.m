@@ -93,13 +93,13 @@
     NSMutableDictionary *dictary = [[NSMutableDictionary alloc] init];
     
     if([msg isEqualToString:@"用户点击发送，将邮件放到队列中，还没发送"]){
-        [dictary setObject:@"成功" forKey:@"result_msg"];
+        [dictary setObject:@"发送成功" forKey:@"result_msg"];
         [dictary setObject:@"1" forKey:@"result_code"];
      
         _result=[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dictary];
         
     }else{
-        [dictary setObject:@"失败" forKey:@"result_msg"];
+        [dictary setObject:msg forKey:@"result_msg"];
         [dictary setObject:@"0" forKey:@"result_code"];
         _result=[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dictary];
         

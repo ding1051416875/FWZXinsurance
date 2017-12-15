@@ -13,15 +13,19 @@
 {
     NSLog(@"share");
     
-    NSString *title =[command.arguments objectAtIndex:0];
+    NSString *title =[NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:0]];
+    if ([Check isEmptyString:title]) {
+        [ProgressHUD showError:@"传入数据为空"];
+        return;
+    }
        
-        [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_WechatTimeLine)]];
-            
-        [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+//        [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_WechatTimeLine)]];
+    
+//        [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
             // 根据获取的platformType确定所选平台进行下一步操作
-            [self shareWebPageToPlatformType:platformType title:title command:command];
-        }];
-        
+            [self shareWebPageToPlatformType:UMSocialPlatformType_WechatSession title:title command:command];
+//        }];
+    
   
 }
 //网页分享
@@ -40,7 +44,7 @@
     messageObject.shareObject = shareObject;
     
     //调用分享接口
-    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
+    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self.viewController completion:^(id data, NSError *error) {
         if (error) {
             UMSocialLogInfo(@"************Share fail with error %@*********",error);
         }else{
@@ -59,7 +63,7 @@
          NSMutableDictionary *dictary = [[NSMutableDictionary alloc] init];
         if (!error) {
 //            result = [NSString stringWithFormat:@"分享成功"];
-            [dictary setObject:@"成功" forKey:@"result_msg"];
+            [dictary setObject:@"分享成功" forKey:@"result_msg"];
             [dictary setObject:@"1" forKey:@"result_code"];
 
             result=[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dictary];
@@ -71,7 +75,7 @@
 //            else{
 //                result = [NSString stringWithFormat:@"分享失败"];
 //            }
-            [dictary setObject:@"失败" forKey:@"result_msg"];
+            [dictary setObject: [NSString stringWithFormat:@"分享失败 code: %d\n",(int)error.code] forKey:@"result_msg"];
             [dictary setObject:@"0" forKey:@"result_code"];
             result=[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dictary];
         }

@@ -63,6 +63,13 @@
         image.delegate = self;
         image.allowsEditing = YES;
         image.sourceType = UIImagePickerControllerSourceTypeCamera;
+        UIImageView *view = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, kWidth/2+kWidth/4-50, (kWidth/2+kWidth/4-50)*0.65)];
+        view.center = self.viewController.view.center;
+        view.transform = CGAffineTransformMakeTranslation(-2, 0);
+        view.image = [UIImage imageNamed:@"cardfront"];
+        
+        
+        image.cameraOverlayView =view;
         [self.viewController presentViewController:image animated:YES completion:nil];
     }
     [self configCallback:command];
@@ -206,7 +213,7 @@
             [message appendFormat:@"%@", result];
         }
             [dict setValue:@"1" forKey:@"result_code"];
-            [dict setValue:@"成功" forKey:@"result_msg"];
+            [dict setValue:@"识别成功" forKey:@"result_msg"];
             CDVPluginResult *resultcd = nil;
             resultcd=[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
             [weakSelf.commandDelegate sendPluginResult:resultcd callbackId:command.callbackId];
@@ -217,17 +224,18 @@
     
     _failHandler = ^(NSError *error){
         NSLog(@"%@", error);
-        NSString *msg = [NSString stringWithFormat:@"%li:%@", (long)[error code], [error localizedDescription]];
+//        NSString *msg = [NSString stringWithFormat:@"%li:%@", (long)[error code], [error localizedDescription]];
         
         [dict setValue:@"0" forKey:@"result_code"];
-        [dict setValue:@"失败" forKey:@"result_msg"];
+        [dict setValue:@"识别失败" forKey:@"result_msg"];
         CDVPluginResult *result = nil;
         result=[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
         [weakSelf.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         
         [weakSelf.viewController dismissViewControllerAnimated:YES completion:nil];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [[[UIAlertView alloc] initWithTitle:@"识别失败" message:msg delegate:weakSelf cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+//            [[[UIAlertView alloc] initWithTitle:@"识别失败" message:msg delegate:weakSelf cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
+            [weakSelf back];
         }];
     };
 }

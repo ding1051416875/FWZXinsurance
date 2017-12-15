@@ -430,7 +430,7 @@
 
     // default
     if ([result count] == 0) {
-        [result addObject:[NSNumber numberWithInt:UIInterfaceOrientationLandscapeLeft]];
+        [result addObject:[NSNumber numberWithInt:UIInterfaceOrientationPortrait]];
     }
 
     return result;
@@ -438,7 +438,7 @@
 
 - (BOOL)shouldAutorotate
 {
-    return NO;
+    return YES;
 }
 
 - (NSUInteger)supportedInterfaceOrientations

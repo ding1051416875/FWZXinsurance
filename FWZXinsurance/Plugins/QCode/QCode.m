@@ -21,7 +21,12 @@
 {
     //获取js传过来的值
 //    CDVPluginResult *result=nil;
-    NSString *code=[command.arguments objectAtIndex:0];
+    NSString *code=[NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:0]];
+    if([Check isEmptyString:code])
+    {
+        [ProgressHUD showError:@"传入数据为空"];
+        return;
+    }
     //转换 二维码图片
     _codeImage = [QRCodeGenerator qrImageForString:code imageSize:300];
 //    CodeViewController *codeview = [[CodeViewController alloc] init];
@@ -43,13 +48,13 @@
     if(code)
     {
         [dict setObject:@"1" forKey:@"result_code"];
-        [dict setObject:@"成功" forKey:@"result_msg"];
+        [dict setObject:@"加载成功" forKey:@"result_msg"];
         [dict setObject:image forKey:@"result_img"];
         result =[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
         [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
     }else{
         [dict setObject:@"0" forKey:@"result_code"];
-        [dict setObject:@"失败" forKey:@"result_msg"];
+        [dict setObject:@"加载失败" forKey:@"result_msg"];
         result=[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
         [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
     }

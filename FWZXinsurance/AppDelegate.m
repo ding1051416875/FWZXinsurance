@@ -143,7 +143,7 @@
     [[UMSocialManager defaultManager] setUmSocialAppkey:@"5a1e5260f43e482fdc0000ea"];
     //获取友盟social版本号
     NSLog(@"UMeng social version: %@", [UMSocialGlobal umSocialSDKVersion]);
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession  appKey:@"wx5a2768ce01c9795d" appSecret:@"d4758ed8ca6d22e6c3595f2a13a6ffad" redirectURL:@""];
+    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession  appKey:@"wxfd1ff2cf263fd44f" appSecret:@"d7aec0d241e9ef6d9af9f0331e03a727" redirectURL:@""];
   
 }
 - (void)confitUShareSettings

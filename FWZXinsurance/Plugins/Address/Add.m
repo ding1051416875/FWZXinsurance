@@ -16,7 +16,7 @@
     [self.viewController.view endEditing:YES];
     [self zmjPickView];
     [_zmjPickView show];
-    
+    [ProgressHUD showSuccess:@"正常"];
     __weak typeof(self) weakSelf = self;
     _zmjPickView.determineBtnBlock = ^(NSInteger shengId, NSInteger shiId, NSInteger xianId, NSString *shengName, NSString *shiName, NSString *xianName) {
          __strong typeof(weakSelf)strongSelf = weakSelf;
