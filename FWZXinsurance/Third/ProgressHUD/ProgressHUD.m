@@ -250,7 +250,30 @@
 //-------------------------------------------------------------------------------------------------------------------------------------------------
 {
     
+//    dispatch_sync(dispatch_get_main_queue(), ^{
     
+        
+        
+//
+//        NSTimeInterval sleep = 1.0;//length * 0.04 + 0.5;
+//
+//        [NSThread sleepForTimeInterval:sleep];
+//        [self hudHide];
+        if (self.alpha == 1)
+        {
+            NSUInteger options = UIViewAnimationOptionAllowUserInteraction | UIViewAnimationCurveEaseIn;
+            
+            [UIView animateWithDuration:0.25 delay:0 options:options animations:^{
+                hud.transform = CGAffineTransformScale(hud.transform, 0.7, 0.7);
+                hud.alpha = 0;
+            }
+                             completion:^(BOOL finished)
+             {
+                 [self hudDestroy];
+                 self.alpha = 0;
+             }];
+        }
+//    });
 	
 }
 

@@ -28,14 +28,36 @@
     [self setBugly];
     //友盟分享
     [self initUM];
-    SortViewController *main = [[SortViewController alloc] init];
-//    MainViewController *main = [[MainViewController alloc] init];
-    self.window.rootViewController = main;
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
+    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(btn) userInfo:nil repeats:NO];
+
     return YES;
 }
+- (void)btn{
+    UIAlertController *alertText = [UIAlertController alertControllerWithTitle:@"更改IP" message:@"" preferredStyle:UIAlertControllerStyleAlert];
+    [alertText addTextFieldWithConfigurationHandler:^(UITextField * _Nonnull textField) {
+        textField.placeholder = @"请输入IP";
+    }];
+    [alertText addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        SortViewController *main = [[SortViewController alloc] init];
+//        MainViewController *main = [[MainViewController alloc] init];
+//        main.urlString = @"http://10.145.105.65:8100/web/login/login.html";
+        self.window.rootViewController = main;
+        self.window.backgroundColor = [UIColor whiteColor];
+        [self.window makeKeyAndVisible];
+    }]];
+    [alertText addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        
+        
+        MainViewController *main = [[MainViewController alloc] init];
+        main.urlString = [alertText.textFields[0] text];
+        self.window.rootViewController = main;
+        self.window.backgroundColor = [UIColor whiteColor];
+        [self.window makeKeyAndVisible];
+        
+    }]];
+    [self.window.rootViewController presentViewController:alertText animated:YES completion:nil];
+}
+
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;

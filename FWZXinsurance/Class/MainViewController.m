@@ -7,9 +7,11 @@
 //
 
 #import "MainViewController.h"
-
+#import "HWProgressHUD.h"
 @interface MainViewController ()
-
+{
+    NSTimer *_timer;
+}
 @end
 
 @implementation MainViewController
@@ -18,55 +20,74 @@
 {
     return UIStatusBarStyleLightContent;
 }
-
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+  
+}
 
 - (void)viewDidLoad {
     
+//    self.urlString = @"http://139.219.62.113/web/login/login.html";
 //    self.startPage = @"http://139.219.62.113/web/login/login.html";
 //    self.startPage = @"http://192.168.5.173/web/login/login.html";
-//    self.startPage = @"http://192.168.5.23:8100/web/login/login.html";
+//    self.startPage = @"http://192.168.5.160:8100/web/login/login.html";
+   
     self.startPage = self.urlString;
     
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    //网络监测
     [self setNetwork];
+   
+    
     self.view.backgroundColor = kColor_White;
     self.webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     self.webView.scrollView.bounces = NO;
-//    self.wkwebView.frame =CGRectMake(0, 20, self.view.frame.size.width, self.view.frame.size.height);
-//    self.wkwebView.scrollView.bounces = NO;
-    UIButton *back = [Maker makeBtn:CGRectMake(0, 10, 50, 50) title:@"" img:@"back" font:kFont_Lable_14 target:self action:@selector(backBtnClicked)];
-    [self.view addSubview:back];
+
+//    UIButton *back = [Maker makeBtn:CGRectMake(0, 10, 50, 50) title:@"" img:@"back" font:kFont_Lable_14 target:self action:@selector(backBtnClicked)];
+//    [self.view addSubview:back];
+
+
+    
+   
+   
+    
 }
+
 - (void)backBtnClicked
 {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
 - (void)setNetwork{
     AFNetworkReachabilityManager *manager = [AFNetworkReachabilityManager sharedManager];
     [manager setReachabilityStatusChangeBlock:^(AFNetworkReachabilityStatus status) {
         switch (status) {
             case AFNetworkReachabilityStatusReachableViaWiFi:
             {
-                [self alertControler:@"您正在使用WIFI环境"];
+//                [self alertControler:@"您正在使用WIFI环境"];
+                [self.view showSuccess:@"您正在使用WIFI环境"];
             }
                 break;
             case AFNetworkReachabilityStatusReachableViaWWAN:
             {
-                [self alertControler:@"您正在使用自带网络"];
+//                [self alertControler:@"您正在使用自带网络"];
+          
+                [self.view showSuccess:@"您正在使用自带网络"];
             }
                 break;
             case AFNetworkReachabilityStatusNotReachable:
             {
-                NSLog(@"没有网络");
-                [self alertControler:@"没有网络连接"];
+//                [self alertControler:@"没有网络连接"];
+              
+                [self.view showSuccess:@"没有网络连接"];
             }
                 break;
             case AFNetworkReachabilityStatusUnknown:
             {
-                NSLog(@"未知网络");
-                [self alertControler:@"正在使用未知网络"];
+            
+//                [self alertControler:@"正在使用未知网络"];
+        
+                [self.view showSuccess:@"正在使用未知网络"];
             }
                 break;
             default:

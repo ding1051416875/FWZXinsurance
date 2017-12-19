@@ -12,6 +12,7 @@
 {
     NSString *_statusStr;
 }
+
 - (void)openPDF:(CDVInvokedUrlCommand *)command
 {
   

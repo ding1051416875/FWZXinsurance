@@ -119,12 +119,23 @@
 //        [ProgressHUD showError:@"传入数据为空"];
 //        return;
 //    }
+
     NSMutableDictionary *rdict = [NSMutableDictionary dictionary];
-    [rdict setObject:@([_customerId integerValue]) forKey:@"customerId"];
-    [rdict setObject:_policyId forKey:@"policyId"];
-    [rdict setObject:_seqNum forKey:@"seqNum"];
-    [rdict setObject:_type forKey:@"type"];
-    [rdict setObject:_customerType forKey:@"customerType"];
+    if (![Check isEmptyString:_customerId]) {
+          [rdict setObject:_customerId forKey:@"customerId"];
+    }
+    if (![Check isEmptyString:_policyId]) {
+        [rdict setObject:_policyId forKey:@"policyId"];
+    }
+    if (![Check isEmptyString:_seqNum]) {
+        [rdict setObject:_seqNum forKey:@"seqNum"];
+    }
+    if (![Check isEmptyString:_type]) {
+        [rdict setObject:_type forKey:@"type"];
+    }
+    if (![Check isEmptyString:_customerType]) {
+        [rdict setObject:_customerType forKey:@"customerType"];
+    }
     NSMutableArray *array = [[NSMutableArray alloc] init];
     [ProgressHUD show:@"正在上传中"];
     [array addObject:newImage];
@@ -148,15 +159,16 @@
                 
             }
         }else{
+            [ProgressHUD showError:@"图片上传失败"];
             NSDictionary *dict = [[NSMutableDictionary alloc] init];
             [dict setValue:@"0" forKey:@"result_code"];
             [dict setValue:dict[@"message"] forKey:@"result_msg"];
             CDVPluginResult *resultId = nil;
             resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
             [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
-            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                [self back];
-            }];
+//            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//                [self back];
+//            }];
         }
     } failure:^(NSError *error) {
         [ProgressHUD showError:@"服务器正在调试"];
@@ -166,9 +178,9 @@
         CDVPluginResult *resultId = nil;
         resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
         [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
-        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-            [self back];
-        }];
+//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+//            [self back];
+//        }];
     }];
 }
 - (void)configCallback:(CDVInvokedUrlCommand *)command{

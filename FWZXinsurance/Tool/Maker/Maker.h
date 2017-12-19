@@ -77,4 +77,6 @@
 
 
 + (UIButton *)creatButtonWithTitle:(NSString *)title image:(NSString *)image selImage:(NSString *)selImage target:(id)target selector:(SEL)sel;
+
+
 @end

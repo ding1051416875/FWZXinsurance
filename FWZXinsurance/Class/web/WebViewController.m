@@ -42,7 +42,13 @@
 }
 - (void)btnClicked:(UIButton *)btn
 {
+    [ProgressHUD dismiss];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:animated];
+    [ProgressHUD dismiss];
 }
 - (void)reloadWebView
 {
@@ -96,16 +102,17 @@
 // 页面开始加载时调用
 - (void)webView:(WKWebView *)webView didStartProvisionalNavigation:(WKNavigation *)navigation {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
-    
+    [ProgressHUD show:@"拼命加载中"];
     self.displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(progressValueMonitor)];
     [self.displayLink addToRunLoop:[NSRunLoop mainRunLoop] forMode:NSDefaultRunLoopMode];
+    
 }
 
 // 页面加载完成之后调用
 - (void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation
 {
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-    
+    [ProgressHUD dismiss];
     [self.displayLink invalidate];
     [UIView animateWithDuration:0.2 animations:^{
         self.progressView.width = kWidth;
@@ -113,6 +120,7 @@
         [self.progressView removeFromSuperview];
     }];
     self.backStatus(@"加载成功");
+    
 }
 
 - (BOOL)webView:(UIWebView*)webView shouldStartLoadWithRequest:(NSURLRequest*)request navigationType:(UIWebViewNavigationType)navigationType {
@@ -135,7 +143,7 @@
     }];
     [self.displayLink invalidate];
     if([error code] == NSURLErrorCancelled) return;
-//    [ProgressHUD showError:@"网络不给力"] ;
+    [ProgressHUD showError:@"网络不给力"] ;
     self.backStatus(@"加载失败");
 }
 
@@ -149,7 +157,7 @@
     }];
     [self.displayLink invalidate];
     if([error code] == NSURLErrorCancelled) return;
-//    [ProgressHUD showError:@"网络不给力"];
+    [ProgressHUD showError:@"网络不给力"];
     self.backStatus(@"加载成功");
 }
 
