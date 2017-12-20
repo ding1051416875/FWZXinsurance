@@ -66,12 +66,25 @@ module.exports = [
                   }
                   ,
                   {
+                  "file": "plugins/cordova-plugin-occupation.www/occupation.js",//js文件路径
+                  "id": "cordova-plugin-occupation.www.Occupation",//js cordova.define的id
+                  "clobbers": [
+                               "Occupation"//js 调用时的方法名
+                               ]
+                  }
+                  ,
+                  {
                   "file": "plugins/cordova-plugin-upcardid.www/upcardid.js",//js文件路径
                   "id": "cordova-plugin-upcardid.www.UpCardId",//js cordova.define的id
                   "clobbers": [
                                "UpCardId"//js 调用时的方法名
                                ]
                   }
+                  
+
+                 
+
+                 
                  
  
 ];

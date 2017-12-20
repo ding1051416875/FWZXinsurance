@@ -39,8 +39,10 @@
     }];
     [alertText addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         SortViewController *main = [[SortViewController alloc] init];
-//        MainViewController *main = [[MainViewController alloc] init];
-//        main.urlString = @"http://10.145.105.65:8100/web/login/login.html";
+//        MainViewController  *main = [[MainViewController alloc] init];
+//        //        main.urlString = @"http://139.219.62.113/web/login/login.html";
+//        main.urlString = @"http://40.125.210.226/web/login/login.html";
+
         self.window.rootViewController = main;
         self.window.backgroundColor = [UIColor whiteColor];
         [self.window makeKeyAndVisible];
@@ -49,7 +51,7 @@
         
         
         MainViewController *main = [[MainViewController alloc] init];
-        main.urlString = [alertText.textFields[0] text];
+        main.urlString = [NSString stringWithFormat:@"http://%@/web/login/login.html",[alertText.textFields[0] text]];
         self.window.rootViewController = main;
         self.window.backgroundColor = [UIColor whiteColor];
         [self.window makeKeyAndVisible];

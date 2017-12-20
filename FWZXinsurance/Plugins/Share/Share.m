@@ -8,23 +8,41 @@
 
 #import "Share.h"
 #import <UShareUI/UShareUI.h>
+#import "WXApi.h"
 @implementation Share
 -(void)share:(CDVInvokedUrlCommand *)command
 {
-    NSLog(@"share");
+//    // 判断是否安装微信
+//    
+//    if ([WXApi isWXAppInstalled] ){
+//        
+//        //判断当前微信的版本是否支持OpenApi
+//        
+//        if ([WXApi isWXAppSupportApi]) {
+//            
+//            
+//          
+//            //        }];
+//            
+//        }else{
+//            [self.viewController.view showError:@"请升级微信至最新版本"];
+//        }
+//    }else{
+//        NSLog(@"请安装微信客户端");
+//        [self.viewController.view showError:@"请安装微信客户端"];
+//    }
     
     NSString *title =[NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:0]];
     if ([Check isEmptyString:title]) {
         [ProgressHUD showError:@"传入数据为空"];
         return;
     }
-       
-//        [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_WechatTimeLine)]];
     
-//        [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
-            // 根据获取的platformType确定所选平台进行下一步操作
-            [self shareWebPageToPlatformType:UMSocialPlatformType_WechatSession title:title command:command];
-//        }];
+    //        [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_WechatTimeLine)]];
+    
+    //        [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
+    // 根据获取的platformType确定所选平台进行下一步操作
+    [self shareWebPageToPlatformType:UMSocialPlatformType_WechatSession title:title command:command];
     
   
 }

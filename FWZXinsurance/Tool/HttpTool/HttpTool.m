@@ -23,7 +23,7 @@
     NSDictionary *allParams = [self jointParamsWithDict:params];
     
 //     拼接url
-    NSString *netPath = [NSString stringWithFormat:@"%@%@",kHostAdress,path];
+    NSString *netPath = [NSString stringWithFormat:@"%@",path];
     // 拼接url
 //    NSString *netPath = [NSString stringWithFormat:@"%@",kHostAdress];
     [BaseHttpTool get:netPath params:allParams success:success failure:failure];
@@ -35,7 +35,7 @@
 + (void)postWithPath:(NSString *)path params:(NSDictionary *)params success:(void (^)(id responseObj))success failure:(void (^)(NSError *error))failure
 {
     NSDictionary *allParams = [self jointParamsWithDict:params];
-    NSString *netPath = [NSString stringWithFormat:@"%@%@",kHostAdress,path];
+    NSString *netPath = [NSString stringWithFormat:@"%@",path];
     [BaseHttpTool post:netPath params:allParams success:success failure:failure];
 }
 

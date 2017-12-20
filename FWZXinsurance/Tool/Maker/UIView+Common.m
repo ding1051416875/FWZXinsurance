@@ -13,7 +13,8 @@
 
 -(void)showSuccess:(NSString *)info{
     [SVProgressHUD setDefaultStyle:SVProgressHUDStyleCustom];
-    [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:127/255.0 green:27/255.0 blue:27/255.0 alpha:1]];
+//    [SVProgressHUD setBackgroundColor:[UIColor colorWithRed:127/255.0 green:27/255.0 blue:27/255.0 alpha:1]];
+    [SVProgressHUD setBackgroundColor:hexColor(0xdb7742)];
     [SVProgressHUD setForegroundColor:[UIColor whiteColor]];
     [SVProgressHUD setDefaultMaskType:SVProgressHUDMaskTypeClear];
     [SVProgressHUD setSuccessImage:[UIImage imageNamed:@"icon_zhengquezhuangtai"]];

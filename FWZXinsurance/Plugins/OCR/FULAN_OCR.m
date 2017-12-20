@@ -218,7 +218,7 @@
             resultcd=[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
             [weakSelf.commandDelegate sendPluginResult:resultcd callbackId:command.callbackId];
             [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-                [weakSelf back];
+//                [weakSelf back];
             }];
     };
     
@@ -235,7 +235,7 @@
         [weakSelf.viewController dismissViewControllerAnimated:YES completion:nil];
         [[NSOperationQueue mainQueue] addOperationWithBlock:^{
 //            [[[UIAlertView alloc] initWithTitle:@"识别失败" message:msg delegate:weakSelf cancelButtonTitle:@"确定" otherButtonTitles:nil] show];
-            [weakSelf back];
+//            [weakSelf back];
         }];
     };
 }

@@ -7,12 +7,17 @@
 //
 
 #import "CeshiViewController.h"
-
+#import "AddressPickView.h"
+#import "AddressPickTableView.h"
 #import <UShareUI/UShareUI.h>
+#import "Address.h"
+#import "AddrObject.h"
 @interface CeshiViewController ()<UITableViewDelegate,UITableViewDataSource,UMSocialShareMenuViewDelegate>
 @property (nonatomic,strong) UITableView *tbView;
 @property (nonatomic,strong) NSArray *titleAry;
-
+@property (nonatomic,strong) Address *address;
+@property(nonatomic, strong) AddressPickView *addressPickView;
+@property(nonatomic, strong) UIView *backView;
 
 @end
 
@@ -23,10 +28,12 @@
     // Do any additional setup after loading the view.
  
     [self createUI];
+    //初始化地址选择模块
+    [self handlebackView];
     UIButton *btn = [Maker makeBtn:CGRectMake(10, 20, 100, 40) title:@"back" img:@"" font:kFont_Lable_12 target:self action:@selector(back)];
     [self.view addSubview:btn];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 - (void)orientChange:(NSNotification *)noti {
     UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
@@ -67,9 +74,9 @@
 - (void)createUI
 {
     
-    _titleAry = @[@"分享"];
+    _titleAry = @[@"分享",@"选择"];
     
-    
+    self.address = [[Address alloc] init];
     
     _tbView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kWidth, kHeight-64-49) style:UITableViewStylePlain];
     _tbView.dataSource = self;
@@ -111,6 +118,11 @@
             [self initShare];
         }
             break;
+        case 1:
+        {
+             [self jumpToSelectView];
+        }
+            break;
        
         default:
             
@@ -124,82 +136,55 @@
 {
     return 44;
 }
-- (void)initShare{
-    
-//    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_WechatTimeLine)]];
-    
+- (void)handlebackView {
+    self.backView = [[UIView alloc] initWithFrame:self.view.bounds];
+    self.backView.backgroundColor = [UIColor blackColor];
+    self.backView.alpha = 0.39;
+    self.backView.hidden = YES;
+    [self.view addSubview:self.backView];
+    UITapGestureRecognizer *blurviewTap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(blurViewTaped:)];
+    [self.backView addGestureRecognizer:blurviewTap];
     __weak typeof(self) weakSelf = self;
-    [UMSocialUIManager setPreDefinePlatforms:@[@(UMSocialPlatformType_QQ),@(UMSocialPlatformType_Qzone),@(UMSocialPlatformType_WechatSession),@(UMSocialPlatformType_WechatTimeLine)]];
-    [UMSocialUIManager showShareMenuViewInWindowWithPlatformSelectionBlock:^(UMSocialPlatformType platformType, NSDictionary *userInfo) {
-        // 根据获取的platformType确定所选平台进行下一步操作
-        [weakSelf shareWebPageToPlatformType:platformType];
-    }];
-}
-//网页分享
-- (void)shareWebPageToPlatformType:(UMSocialPlatformType)platformType
-{
-    //创建分享消息对象
-    UMSocialMessageObject *messageObject = [UMSocialMessageObject messageObject];
+    self.addressPickView = [[AddressPickView alloc] init:self.address];
+    self.addressPickView.confirmBlock = ^(Address *address){
+        address.userName = weakSelf.address.userName;
+        address.phone = weakSelf.address.phone;
+        address.address = weakSelf.address.address;
+        weakSelf.address = address;
     
-    //创建网页内容对象
-    //    NSString *thumbURL =  [kUserDefaults objectForKey:kShareUrl];
-    UMShareWebpageObject *shareObject = [UMShareWebpageObject shareObjectWithTitle:@"京宠" descr:@"最全面，最齐全的宠物社区服务平台" thumImage:[UIImage imageNamed:@"umshare"]];
-    //设置网页地址
-    shareObject.webpageUrl = @"www.baidu.com";
-    
-    //分享消息对象设置分享内容对象
-    messageObject.shareObject = shareObject;
-    
-    //调用分享接口
-    [[UMSocialManager defaultManager] shareToPlatform:platformType messageObject:messageObject currentViewController:self completion:^(id data, NSError *error) {
-        if (error) {
-            UMSocialLogInfo(@"************Share fail with error %@*********",error);
-        }else{
-            if ([data isKindOfClass:[UMSocialShareResponse class]]) {
-                UMSocialShareResponse *resp = data;
-                //分享结果消息
-                UMSocialLogInfo(@"response message is %@",resp.message);
-                //第三方原始返回的数据
-                UMSocialLogInfo(@"response originalResponse data is %@",resp.originalResponse);
-                
-            }else{
-                UMSocialLogInfo(@"response data is %@",data);
-            }
-        }
-        [self alertWithError:error];
-    }];
-    
-}
-- (void)alertWithError:(NSError *)error
-{
-    NSString *result = nil;
-    if (!error) {
-        result = [NSString stringWithFormat:@"分享成功"];
-    }
-    else{
-        if (error) {
-            result = [NSString stringWithFormat:@"分享失败 code: %d\n",(int)error.code];
-        }
-        else{
-            result = [NSString stringWithFormat:@"分享失败"];
-        }
-    }
-    //    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"分享"
-    //                                                    message:result
-    //                                                   delegate:nil
-    //                                          cancelButtonTitle:NSLocalizedString(@"sure", @"确定")
-    //                                          otherButtonTitles:nil];
-    //    [alert show];
-    UIAlertController *ac = [UIAlertController alertControllerWithTitle:@"分享" message:result preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *confirm = [UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        
-    }];
-    UIAlertAction *cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:nil];
-    [ac addAction:confirm];
-    [ac addAction:cancel];
-    [[UIApplication sharedApplication].keyWindow.rootViewController presentViewController:ac animated:YES completion:nil];
+        [weakSelf hideSelectView];
+        [weakSelf.tbView reloadData];
+        [weakSelf.view showSuccess:[NSString stringWithFormat:@"%@,%@,%@",weakSelf.address.provinceName,weakSelf.address.cityName,weakSelf.address.districtName]];
+    };
+    [self.view addSubview:self.addressPickView];
 }
 
+- (void)jumpToSelectView{
+    [UIView animateWithDuration:0.6 animations:^{
+        self.backView.hidden = NO;
+        [self.addressPickView setY:(kHeight - 746/2)];
+    }completion:^(BOOL finish){
+        
+    }];
+}
+
+- (void)hideSelectView{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.backView.hidden = YES;
+        [self.addressPickView setY:kHeight];
+    }completion:^(BOOL finish){
+        
+    }];
+}
+
+- (void)blurViewTaped:(id)sender{
+    [self hideSelectView];
+}
+
+- (void)initShare
+{
+    
+}
 //
 //- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 //{

@@ -36,6 +36,9 @@
     <feature name="Add">
         <param name="ios-package" value="Add" />
     </feature>
+    <feature name="Occupation">
+        <param name="ios-package" value="Occupation" />
+    </feature>
     <feature name="UpCardId">
         <param name="ios-package" value="UpCardId" />
     </feature>

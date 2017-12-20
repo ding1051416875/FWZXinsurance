@@ -187,6 +187,21 @@
 
             }
             
+            function stageClick(){
+                Occupation.getStage(onSuccess, onFail);
+                function onSuccess(success) {
+                    alert("成功码: " + success.result_code
+                          + "\n签名："
+                          + success.result_data
+                          + "\n随机码："
+                          + success.result_occupation_code);
+                }
+                function onFail(fail) {
+                    alert("错误码: " + fail.result_code);
+                }
+                
+            }
+            
             function frontClick(){
 <!--                UpCardId.upCardId (success(function), error(function)-->
 <!--                                   , customerId, policyId, seqNum, type, customerType, url);-->
@@ -249,6 +264,9 @@
                           );
 
                 }
+            }
+            function upfileClick(){
+              
             }
             
             function shareClick() {
@@ -361,6 +379,8 @@
         <input type="button" value="Address" onclick="addClick()"/>
         <input type="button" value="身份证正面" onclick="frontClick()"/>
         <input type="button" value="身份证反面" onclick="backClick()"/>
+        <input type="button" value="上传证明材料" onclick="upfileClick()"/>
+        <input type="button" value="选择职业等级" onclick="stageClick()"/>
         <div>
             <select>
                 <option selected disabled>请选择职业</option>

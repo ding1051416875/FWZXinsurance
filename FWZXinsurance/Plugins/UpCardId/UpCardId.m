@@ -110,6 +110,15 @@
 
     }
 }
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    NSDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setValue:@"0" forKey:@"result_code"];
+    [dict setValue:@"您取消了操作" forKey:@"result_msg"];
+    CDVPluginResult *resultId = nil;
+    resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
+    [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
+}
 - (void)uploadImageToService:(UIImage *)oldImage newImage:(UIImage *)newImage
 {
 //    NSString *netPath = @"http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage";
@@ -139,7 +148,7 @@
     NSMutableArray *array = [[NSMutableArray alloc] init];
     [ProgressHUD show:@"正在上传中"];
     [array addObject:newImage];
-    [HttpTool postWithPath:_url name:@"file" imagePathList:array params:rdict success:^(id responseObj) {
+    [HttpTool postWithPath:_url name:@"file1" imagePathList:array params:rdict success:^(id responseObj) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableContainers error:nil];
         NSString *result = [NSString stringWithFormat:@"%@",dict[@"code"]];
         [ProgressHUD dismiss];
@@ -159,28 +168,22 @@
                 
             }
         }else{
-            [ProgressHUD showError:@"图片上传失败"];
+        
             NSDictionary *dict = [[NSMutableDictionary alloc] init];
             [dict setValue:@"0" forKey:@"result_code"];
-            [dict setValue:dict[@"message"] forKey:@"result_msg"];
+            [dict setValue:@"图片上传失败" forKey:@"result_msg"];
             CDVPluginResult *resultId = nil;
             resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
             [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
-//            [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//                [self back];
-//            }];
         }
     } failure:^(NSError *error) {
-        [ProgressHUD showError:@"服务器正在调试"];
+        [ProgressHUD dismiss];
         NSDictionary *dict = [[NSMutableDictionary alloc] init];
         [dict setValue:@"0" forKey:@"result_code"];
-        [dict setValue:error.localizedDescription forKey:@"result_msg"];
+        [dict setValue:@"图片上传失败" forKey:@"result_msg"];
         CDVPluginResult *resultId = nil;
         resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
         [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
-//        [[NSOperationQueue mainQueue] addOperationWithBlock:^{
-//            [self back];
-//        }];
     }];
 }
 - (void)configCallback:(CDVInvokedUrlCommand *)command{
@@ -272,11 +275,10 @@
     _failHandler = ^(NSError *error){
 
         [dict setValue:@"0" forKey:@"result_code"];
-        [dict setValue:error.localizedDescription forKey:@"result_msg"];
+        [dict setValue:@"识别失败" forKey:@"result_msg"];
         CDVPluginResult *resultId = nil;
         resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
         [weakSelf.commandDelegate sendPluginResult:resultId callbackId:command.callbackId];
-       
        
     };
    
