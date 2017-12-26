@@ -113,9 +113,6 @@ class Decoder {
         return(zbar_get_symbol_name(zbar_decoder_get_type(_decoder)));
     }
 
-    /// retrieve string name for last decode addon.
-    /// see zbar_get_addon_name()
-    /// @deprecated in 0.11
     const char *get_addon_name () const
     {
         return(zbar_get_addon_name(zbar_decoder_get_type(_decoder)));

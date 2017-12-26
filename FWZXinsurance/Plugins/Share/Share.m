@@ -8,7 +8,6 @@
 
 #import "Share.h"
 #import <UShareUI/UShareUI.h>
-#import "WXApi.h"
 @implementation Share
 -(void)share:(CDVInvokedUrlCommand *)command
 {

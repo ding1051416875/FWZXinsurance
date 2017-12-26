@@ -3,9 +3,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=utf8">
             <script type="text/javascript" src="cordova.js"></script>
             <script language="javascript">
-  
             function scanClick() {
-<!--                cordova.exec(null,null,"HaleyPlugin","scan",[]);-->
                     Signature.getSignature(onSuccess, onFail);
                     function onSuccess(success) {
                         alert("成功码: " + success.result_code
@@ -17,7 +15,6 @@
                     function onFail(fail) {
                         alert("错误码: " + fail.result_code);
                     }
-
             }
             function sendEmail(){
                     Email.sendEmail(onSuccess, onFail,"ee","1051416875@qq.com","富卫","");
@@ -36,7 +33,6 @@
 
             }
             function codeSave(){
-                alert('dd');
                 QCode.saveCode(onSuccess, onFail, "https://www.baidu.com");
                 function onSuccess(success) {
 <!--                    alert("成功码: " + success.result_code-->
@@ -54,8 +50,7 @@
                 
             }
             function ocrClick(){
-        
-           FULAN_OCR.getIdInfo(onSuccess, onFail);
+              FULAN_OCR.getIdInfo(onSuccess, onFail);
               function onSuccess(success) {
                alert("成功码: " + success.result_code
                      + "\n信息："
@@ -81,13 +76,13 @@
                      + "\n签发单位："
                      + success.id_issueAuthority 
                      );
-           }
-           function onFail(fail) {
+              }
+                 function onFail(fail) {
                alert("错误码: " + fail.result_code
                      + "\n信息："
                      + fail.result_msg
                      );
-           }
+               }
            
             }
             function iflyClick(){
@@ -106,8 +101,6 @@
                           + fail.result_msg
                           );
                 }
-                
-               
             }
             function UMshareClick(){
                 Share.share (onSuccess, onFail, "123");
@@ -123,11 +116,8 @@
                           + fail.result_msg
                           );
                 }
-                
-               
             }
             function signClick(){
-              
                 Pen.doSign (onSuccess, onFail,"1","w","1","1","1","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
                 function onSuccess(success) {
                     alert("成功码: " + success.result_code
@@ -184,11 +174,10 @@
                           + fail.result_msg
                           );
                 }
-
             }
             
             function stageClick(){
-                Occupation.getStage(onSuccess, onFail);
+                Occupation.getStage(onSuccess, onFail,'http://40.125.211.242:8082/FwCustom/insure/assuranceController/selectOccupational');
                 function onSuccess(success) {
                     alert("成功码: " + success.result_code
                           + "\n签名："
@@ -199,7 +188,6 @@
                 function onFail(fail) {
                     alert("错误码: " + fail.result_code);
                 }
-                
             }
             
             function frontClick(){
@@ -270,7 +258,7 @@
             }
             
             function shareClick() {
-            cordova.exec(null,null,"HaleyPlugin","share",['测试分享的标题','测试分享的内容','http://m.rblcmall.com/share/openShare.htm?share_uuid=shdfxdfdsfsdfs&share_url=http://m.rblcmall.com/store_index_32787.htm&imagePath=http://c.hiphotos.baidu.com/image/pic/item/f3d3572c11dfa9ec78e256df60d0f703908fc12e.jpg']);
+              cordova.exec(null,null,"HaleyPlugin","share",['测试分享的标题','测试分享的内容','http://m.rblcmall.com/share/openShare.htm?share_uuid=shdfxdfdsfsdfs&share_url=http://m.rblcmall.com/store_index_32787.htm&imagePath=http://c.hiphotos.baidu.com/image/pic/item/f3d3572c11dfa9ec78e256df60d0f703908fc12e.jpg']);
             }
 
             function locationClick() {
@@ -335,18 +323,6 @@
 
             }
             </script>
-            <script √>
-                /**
-                 * js回调函数
-                 */
-            function addSuc(result) {
-                alert(result);
-            }
-            function addFiald(result) {
-                alert(result);
-            }
-            
-            </script>
             <style>
                 input{
                     width: 100px;
@@ -379,7 +355,7 @@
         <input type="button" value="Address" onclick="addClick()"/>
         <input type="button" value="身份证正面" onclick="frontClick()"/>
         <input type="button" value="身份证反面" onclick="backClick()"/>
-        <input type="button" value="上传证明材料" onclick="upfileClick()"/>
+<!--        <input type="button" value="上传证明材料" onclick="upfileClick()"/>-->
         <input type="button" value="选择职业等级" onclick="stageClick()"/>
         <div>
             <select>

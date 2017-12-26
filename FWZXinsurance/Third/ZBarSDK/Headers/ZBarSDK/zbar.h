@@ -104,25 +104,13 @@ typedef enum zbar_symbol_type_e {
     ZBAR_CODE93      =     93,  /**< Code 93. @since 0.11 */
     ZBAR_CODE128     =    128,  /**< Code 128 */
 
-    /** mask for base symbol type.
-     * @deprecated in 0.11, remove this from existing code
-     */
+
     ZBAR_SYMBOL      = 0x00ff,
-    /** 2-digit add-on flag.
-     * @deprecated in 0.11, a ::ZBAR_EAN2 component is used for
-     * 2-digit GS1 add-ons
-     */
+ 
     ZBAR_ADDON2      = 0x0200,
-    /** 5-digit add-on flag.
-     * @deprecated in 0.11, a ::ZBAR_EAN5 component is used for
-     * 5-digit GS1 add-ons
-     */
+  
     ZBAR_ADDON5      = 0x0500,
-    /** add-on flag mask.
-     * @deprecated in 0.11, GS1 add-ons are represented using composite
-     * symbols of type ::ZBAR_COMPOSITE; add-on components use ::ZBAR_EAN2
-     * or ::ZBAR_EAN5
-     */
+
     ZBAR_ADDON       = 0x0700,
 } zbar_symbol_type_t;
 
@@ -223,7 +211,6 @@ extern const char *zbar_get_symbol_name(zbar_symbol_type_t sym);
  * @param sym symbol type encoding
  * @returns static string name for any addon, or the empty string
  * if no addons were decoded
- * @deprecated in 0.11
  */
 extern const char *zbar_get_addon_name(zbar_symbol_type_t sym);
 

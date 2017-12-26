@@ -12,6 +12,7 @@
 #import <UShareUI/UShareUI.h>
 #import "Address.h"
 #import "AddrObject.h"
+
 @interface CeshiViewController ()<UITableViewDelegate,UITableViewDataSource,UMSocialShareMenuViewDelegate>
 @property (nonatomic,strong) UITableView *tbView;
 @property (nonatomic,strong) NSArray *titleAry;
@@ -74,7 +75,7 @@
 - (void)createUI
 {
     
-    _titleAry = @[@"分享",@"选择"];
+    _titleAry = @[@"分享",@"选择",@"识别"];
     
     self.address = [[Address alloc] init];
     
@@ -123,14 +124,13 @@
              [self jumpToSelectView];
         }
             break;
-       
         default:
             
             break;
     }
     view.title = _titleAry[indexPath.row];
     view.hidesBottomBarWhenPushed = YES;
-    [self.navigationController pushViewController:view animated:YES];
+    [self presentViewController:view animated:YES completion:nil];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {

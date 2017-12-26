@@ -24,7 +24,7 @@
         if(!self.label){
             
             self.label = [[UILabel alloc] initWithFrame:CGRectMake(30, 0, kWidth - 30, 45)];
-            self.label.font = [UIFont systemFontOfSize:14 weight:UIFontWeightLight];
+            self.label.font = [UIFont systemFontOfSize:14];
             self.label.textAlignment = NSTextAlignmentLeft;
             self.label.textColor = [UIColor blackColor];
             [self.contentView addSubview:self.label];

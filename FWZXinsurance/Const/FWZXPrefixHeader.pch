@@ -24,7 +24,6 @@
 #import "MJExtension.h"
 #import "HttpTool.h"
 #import "SDLog.h"
-#import "HWProgressHUD.h"
 #import "UIView+Common.h"
 #endif 
 // Include any system framework and library headers here that should be included in all compilation units.

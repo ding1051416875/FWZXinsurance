@@ -32,6 +32,7 @@ static const __unused short _base64DecodingTable[256] = {
 @implementation NSObject (ObjectMap)
 
 #pragma mark - XML to Object
+
 +(id)objectOfClass:(NSString *)object fromXML:(NSString *)xml {
     id newObject = [[NSClassFromString(object) alloc] init];
     

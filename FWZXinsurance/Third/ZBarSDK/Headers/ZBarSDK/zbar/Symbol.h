@@ -315,8 +315,7 @@ public:
         return(zbar_get_symbol_name(_type));
     }
 
-    /// retrieve the string name for any addon.
-    /// @deprecated in 0.11
+
     const std::string get_addon_name () const
     {
         return(zbar_get_addon_name(_type));

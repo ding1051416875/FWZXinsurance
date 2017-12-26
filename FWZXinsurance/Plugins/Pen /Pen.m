@@ -106,14 +106,13 @@
     [rdict setObject:_customerType forKey:@"customerType"];
     NSMutableArray *array = [[NSMutableArray alloc] init];
     [array addObject:filePath];
-    [ProgressHUD show:@"图片正在上传"];
     [HttpTool postWithPath:_url name:@"file" imagePathList:array params:rdict success:^(id responseObj) {
 
         NSDictionary *dictionary = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableContainers error:nil];
         NSString *result = [NSString stringWithFormat:@"%@",dictionary[@"code"]];
-        [ProgressHUD dismiss];
+      
         if([result isEqualToString:@"000"]){
-            [ProgressHUD showSuccess:@"图片上传成功"];
+            
             NSData *imageData = UIImageJPEGRepresentation(filePath,1.0);
             NSString *image =[NSString stringWithFormat:@"data:image/png;base64,%@",[GTMBase64 stringByEncodingData:imageData]];
             [dict setObject:@"上传成功" forKey:@"result_msg"];
@@ -125,7 +124,7 @@
                         //传值（消息）到JS文件
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }else{
-//            [ProgressHUD showError:@"图片上传失败"];
+
             NSDictionary *dict = [[NSMutableDictionary alloc] init];
             [dict setValue:@"0" forKey:@"result_code"];
             [dict setValue:@"图片上传失败" forKey:@"result_msg"];
@@ -135,8 +134,6 @@
          
         }
     } failure:^(NSError *error) {
-//        [ProgressHUD showError:@"图片上传失败"];
-        [ProgressHUD dismiss];
         NSDictionary *dict = [[NSMutableDictionary alloc] init];
         [dict setValue:@"0" forKey:@"result_code"];
         [dict setValue:@"图片上传失败" forKey:@"result_msg"];

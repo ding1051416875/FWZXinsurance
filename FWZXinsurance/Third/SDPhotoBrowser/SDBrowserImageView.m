@@ -70,7 +70,7 @@
         }
         _scroll.frame = self.bounds;
 
-        CGFloat imageViewH = self.bounds.size.width * (imageSize.height / imageSize.width);
+//        CGFloat imageViewH = self.bounds.size.width * (imageSize.height / imageSize.width);
 
         _scrollImageView.bounds = CGRectMake(0, 0, _scroll.frame.size.width/2, _scroll.frame.size.width/2);
 //        _scrollImageView.center = CGPointMake(_scroll.frame.size.width * 0.5, _scrollImageView.frame.size.height * 0.5);

@@ -38,10 +38,10 @@
  *****************************************************************************/
 
 typedef struct {
-	int width; //< Edge length of the symbol
-	int words;  //< Data capacity (bytes)
-	int remainder; //< Remainder bit (bits)
-	int ec[4];  //< Number of ECC code (bytes)
+	int width; // Edge length of the symbol
+	int words;  //Data capacity (bytes)
+	int remainder; // Remainder bit (bits)
+	int ec[4];  // Number of ECC code (bytes)
 } QRspec_Capacity;
 
 /**
@@ -275,12 +275,7 @@ static const int alignmentPattern[QRSPEC_VERSION_MAX+1][2] = {
 	{24, 50}, {28, 54}, {32, 58}, {26, 54}, {30, 58}, //35-40
 };
 
-/**
- * Put an alignment marker.
- * @param frame
- * @param width
- * @param ox,oy center coordinate of the pattern
- */
+
 static void QRspec_putAlignmentMarker(unsigned char *frame, int width, int ox, int oy)
 {
 	static const unsigned char finder[] = {
@@ -396,12 +391,7 @@ unsigned int QRspec_getFormatInfo(int mask, QRecLevel level)
  * by compiler. */
 static unsigned char *frames[QRSPEC_VERSION_MAX + 1];
 
-/**
- * Put a finder pattern.
- * @param frame
- * @param width
- * @param ox,oy upper-left coordinate of the pattern
- */
+
 static void putFinderPattern(unsigned char *frame, int width, int ox, int oy)
 {
 	static const unsigned char finder[] = {

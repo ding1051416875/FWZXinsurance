@@ -29,8 +29,8 @@
 -(NSString *)JSONString;
 
 // XML-SOAP
--(NSData *)XMLData;
--(NSString *)XMLString;
+//-(NSData *)XMLData;
+//-(NSString *)XMLString;
 +(id)objectOfClass:(NSString *)object fromXML:(NSString *)xml;
 
 

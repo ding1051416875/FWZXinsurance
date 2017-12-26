@@ -15,23 +15,29 @@
 @property (nonatomic, assign) NSInteger currentIndex;
 @property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) UIActivityIndicatorView *activity;
+@property (nonatomic,strong) NSString *Url;
 @end
 
 @implementation AddressPickTableView
 
 - (instancetype)init {
     self = [super init];
+   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(receiveValueUrl:) name:@"value" object:nil];
     self.backgroundColor = [UIColor whiteColor];
     [self setFrame:CGRectMake(0, 0, kWidth, 659/2)];
     if(self){
         if(!self.tableView){
             [self initTab];
             [self initActivityView];
+            
         }
     }
     return self;
 }
-
+- (void)receiveValueUrl:(NSNotification *)notifa
+{
+    _Url = [notifa.userInfo objectForKey:@"url"];
+}
 
 - (void)initActivityView{
     self.activity = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
@@ -118,9 +124,9 @@
 //    }];
     
 //    [postDataTask resume];
-  
-    NSString *url = [NSString stringWithFormat:@"http://40.125.211.242:8082/FwCustom/insure/assuranceController/selectOccupational?code=%@",addressId];
-    [HttpTool getWithPath:url params:nil success:^(id responseObj) {
+    NSString *url = [kUserDefaults objectForKey:@"stageUrl"];
+    NSString *netpath = [NSString stringWithFormat:@"%@%@code=%@",url,@"?",addressId];
+    [HttpTool getWithPath:netpath params:nil success:^(id responseObj) {
         [weakSelf.activity stopAnimating];
         NSDictionary *json = (NSDictionary *)responseObj;
         weakSelf.data = [NSObject arrayFromJSON:json[@"data"] ofObjects:@"AddrObject"];

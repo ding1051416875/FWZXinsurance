@@ -106,9 +106,9 @@
         UIImage *newImage;
         newImage = [oldImage subImageWithRect:CGRectMake(0, height, oldImage.size.width, oldImage.size.height)];
         [self uploadImageToService:oldImage newImage:newImage];
-        [self back];
 
     }
+     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
@@ -118,6 +118,7 @@
     CDVPluginResult *resultId = nil;
     resultId = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
     [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
+    [picker dismissViewControllerAnimated:YES completion:nil];
 }
 - (void)uploadImageToService:(UIImage *)oldImage newImage:(UIImage *)newImage
 {
@@ -146,15 +147,12 @@
         [rdict setObject:_customerType forKey:@"customerType"];
     }
     NSMutableArray *array = [[NSMutableArray alloc] init];
-    [ProgressHUD show:@"正在上传中"];
     [array addObject:newImage];
-    [HttpTool postWithPath:_url name:@"file1" imagePathList:array params:rdict success:^(id responseObj) {
+    [HttpTool postWithPath:_url name:@"file" imagePathList:array params:rdict success:^(id responseObj) {
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableContainers error:nil];
         NSString *result = [NSString stringWithFormat:@"%@",dict[@"code"]];
-        [ProgressHUD dismiss];
         if([result isEqualToString:@"000"]){
             _urlImage = dict[@"data"];
-            [ProgressHUD showSuccess:@"图片上传成功"];
             if([_seqNum isEqualToString:@"1"]){
             
             NSDictionary *options = @{@"detect_direction":@"false",@"id_card_side":@"front"};
@@ -177,7 +175,6 @@
             [self.commandDelegate sendPluginResult:resultId callbackId:_command.callbackId];
         }
     } failure:^(NSError *error) {
-        [ProgressHUD dismiss];
         NSDictionary *dict = [[NSMutableDictionary alloc] init];
         [dict setValue:@"0" forKey:@"result_code"];
         [dict setValue:@"图片上传失败" forKey:@"result_msg"];

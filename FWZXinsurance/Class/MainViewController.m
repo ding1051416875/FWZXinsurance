@@ -7,7 +7,7 @@
 //
 
 #import "MainViewController.h"
-#import "HWProgressHUD.h"
+
 @interface MainViewController ()
 {
     NSTimer *_timer;
@@ -20,6 +20,13 @@
 {
     return UIStatusBarStyleLightContent;
 }
+//-(BOOL)prefersStatusBarHidden
+//
+//{
+//    
+//    return YES;// 返回YES表示隐藏，返回NO表示显示
+//    
+//}
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -28,11 +35,6 @@
 
 - (void)viewDidLoad {
     
-//    self.urlString = @"http://139.219.62.113/web/login/login.html";
-//    self.startPage = @"http://139.219.62.113/web/login/login.html";
-//    self.startPage = @"http://192.168.5.173/web/login/login.html";
-//    self.startPage = @"http://192.168.5.160:8100/web/login/login.html";
-   
     self.startPage = self.urlString;
     
     [super viewDidLoad];
@@ -40,11 +42,18 @@
    
     
     self.view.backgroundColor = kColor_White;
-    self.webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
-    self.webView.scrollView.bounces = NO;
+    if(IOS11)
+    {
+        self.webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+        self.webView.scrollView.bounces = NO;
+    }else{
+        self.webView.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+        self.webView.scrollView.bounces = NO;
+    }
+    
 
-//    UIButton *back = [Maker makeBtn:CGRectMake(0, 10, 50, 50) title:@"" img:@"back" font:kFont_Lable_14 target:self action:@selector(backBtnClicked)];
-//    [self.view addSubview:back];
+    UIButton *back = [Maker makeBtn:CGRectMake(0, 10, 50, 50) title:@"" img:@"" font:kFont_Lable_14 target:self action:@selector(backBtnClicked)];
+    [self.view addSubview:back];
 
 
     
@@ -115,21 +124,21 @@
 {
     [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
 }
--(BOOL)shouldAutorotate{
-    return YES;
-}
-
-- (NSUInteger)supportedInterfaceOrientations
-{
-    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
-{
-    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
-            
-            interfaceOrientation == UIInterfaceOrientationLandscapeRight );
-}
+//-(BOOL)shouldAutorotate{
+//    return YES;
+//}
+//
+//- (NSUInteger)supportedInterfaceOrientations
+//{
+//    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+//}
+//
+//- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
+//{
+//    return (interfaceOrientation == UIInterfaceOrientationLandscapeLeft ||
+//            
+//            interfaceOrientation == UIInterfaceOrientationLandscapeRight );
+//}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

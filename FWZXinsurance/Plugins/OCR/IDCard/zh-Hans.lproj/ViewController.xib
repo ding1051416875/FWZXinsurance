@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" colorMatched="YES">
+    <device id="retina3_5" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ViewController">
+            <connections>
+                <outlet property="view" destination="iN0-l3-epB" id="4xv-3z-p0S"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="480" height="320"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cO7-N6-UiV">
+                    <rect key="frame" x="140" y="85" width="200" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="横屏扫描识别">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="scanningInHorizontalScreen:" destination="-1" eventType="touchUpInside" id="jPa-0B-2YZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aO3-9f-oSv">
+                    <rect key="frame" x="140" y="145" width="200" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="VZw-cM-jok"/>
+                        <constraint firstAttribute="width" constant="200" id="gi0-Wc-783"/>
+                    </constraints>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="竖屏扫描识别">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="scanningInVerticalScreen:" destination="-1" eventType="touchUpInside" id="SWN-Hx-eFJ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8w-1L-nLl">
+                    <rect key="frame" x="140" y="25" width="200" height="30"/>
+                    <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <state key="normal" title="选择证件类型">
+                        <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="selectCardType:" destination="-1" eventType="touchUpInside" id="Yb6-he-6wZ"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5hr-UR-979">
+                    <rect key="frame" x="140" y="205" width="200" height="30"/>
+                    <color key="backgroundColor" red="0.99215686270000003" green="0.41960784309999999" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="智能扫描识别">
+                        <color key="titleColor" red="0.92878953450000001" green="1" blue="0.93902210350000004" alpha="1" colorSpace="calibratedRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="scanningIntelligent:" destination="-1" eventType="touchUpInside" id="bjf-Dp-tXA"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vaB-va-6hF">
+                    <rect key="frame" x="140" y="265" width="200" height="30"/>
+                    <color key="backgroundColor" red="0.99215686270000003" green="0.41960784309999999" blue="0.023529411760000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <state key="normal" title="选择识别">
+                        <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </state>
+                    <connections>
+                        <action selector="selectToRecog:" destination="-1" eventType="touchUpInside" id="m6z-Hz-1LF"/>
+                    </connections>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="vaB-va-6hF" firstAttribute="bottom" secondItem="5hr-UR-979" secondAttribute="bottom" constant="60" id="2cw-FU-Aa6"/>
+                <constraint firstItem="aO3-9f-oSv" firstAttribute="width" secondItem="cO7-N6-UiV" secondAttribute="width" id="32E-aW-Uaw"/>
+                <constraint firstItem="aO3-9f-oSv" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="7PL-GY-Xzm"/>
+                <constraint firstItem="5hr-UR-979" firstAttribute="height" secondItem="aO3-9f-oSv" secondAttribute="height" id="KRx-GE-U7Q"/>
+                <constraint firstItem="vaB-va-6hF" firstAttribute="height" secondItem="5hr-UR-979" secondAttribute="height" id="PCy-4x-giE"/>
+                <constraint firstItem="cO7-N6-UiV" firstAttribute="leading" secondItem="b8w-1L-nLl" secondAttribute="leading" id="PSL-G8-om4"/>
+                <constraint firstItem="aO3-9f-oSv" firstAttribute="height" secondItem="cO7-N6-UiV" secondAttribute="height" id="Ql9-Uj-W9s"/>
+                <constraint firstItem="5hr-UR-979" firstAttribute="bottom" secondItem="aO3-9f-oSv" secondAttribute="bottom" constant="60" id="TMe-Ar-FtA"/>
+                <constraint firstItem="aO3-9f-oSv" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="dcs-dO-YDE"/>
+                <constraint firstItem="5hr-UR-979" firstAttribute="leading" secondItem="aO3-9f-oSv" secondAttribute="leading" id="fc7-eF-IA7"/>
+                <constraint firstItem="aO3-9f-oSv" firstAttribute="leading" secondItem="cO7-N6-UiV" secondAttribute="leading" id="fmF-y2-jy0"/>
+                <constraint firstItem="5hr-UR-979" firstAttribute="width" secondItem="aO3-9f-oSv" secondAttribute="width" id="iHk-uq-c8w"/>
+                <constraint firstItem="cO7-N6-UiV" firstAttribute="width" secondItem="b8w-1L-nLl" secondAttribute="width" id="jld-Iu-LP5"/>
+                <constraint firstItem="cO7-N6-UiV" firstAttribute="height" secondItem="b8w-1L-nLl" secondAttribute="height" id="lG5-y9-WAP"/>
+                <constraint firstItem="vaB-va-6hF" firstAttribute="width" secondItem="5hr-UR-979" secondAttribute="width" id="mtu-Yw-adG"/>
+                <constraint firstItem="vaB-va-6hF" firstAttribute="leading" secondItem="5hr-UR-979" secondAttribute="leading" id="qcI-yy-3dd"/>
+                <constraint firstItem="aO3-9f-oSv" firstAttribute="top" secondItem="cO7-N6-UiV" secondAttribute="top" constant="60" id="y8Q-yz-rDh"/>
+                <constraint firstItem="cO7-N6-UiV" firstAttribute="top" secondItem="b8w-1L-nLl" secondAttribute="top" constant="60" id="z5V-zX-gYf"/>
+            </constraints>
+            <point key="canvasLocation" x="308.5" y="359.5"/>
+        </view>
+    </objects>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation" orientation="landscapeRight"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

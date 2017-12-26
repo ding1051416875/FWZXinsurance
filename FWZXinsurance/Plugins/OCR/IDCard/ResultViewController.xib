@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12118" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad12_9" orientation="landscape">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12086"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ResultViewController">
+            <connections>
+                <outlet property="imageView" destination="W5V-6O-q80" id="C46-Kf-bTf"/>
+                <outlet property="textView" destination="8qp-HW-aEp" id="TNl-X1-Xsx"/>
+                <outlet property="view" destination="iN0-l3-epB" id="v4y-Xd-cyU"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="1366" height="1024"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W5V-6O-q80">
+                    <rect key="frame" x="0.0" y="64" width="1366" height="350"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="ijp-C5-Bkf">
+                            <variation key="heightClass=compact-widthClass=compact" constant="200"/>
+                            <variation key="heightClass=compact-widthClass=regular" constant="200"/>
+                            <variation key="heightClass=regular-widthClass=compact" constant="250"/>
+                            <variation key="heightClass=regular-widthClass=regular" constant="350"/>
+                        </constraint>
+                    </constraints>
+                </imageView>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="8qp-HW-aEp">
+                    <rect key="frame" x="0.0" y="414" width="1366" height="610"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="8qp-HW-aEp" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="264" id="NO2-hU-Ijr">
+                    <variation key="heightClass=compact-widthClass=compact" constant="230"/>
+                    <variation key="heightClass=compact-widthClass=regular" constant="244"/>
+                    <variation key="heightClass=regular-widthClass=compact" constant="314"/>
+                    <variation key="heightClass=regular-widthClass=regular" constant="414"/>
+                </constraint>
+                <constraint firstItem="8qp-HW-aEp" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="OGk-bz-BFQ"/>
+                <constraint firstItem="W5V-6O-q80" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="64" id="Pj8-bl-0U0">
+                    <variation key="heightClass=compact-widthClass=compact" constant="30"/>
+                    <variation key="heightClass=compact-widthClass=regular" constant="44"/>
+                </constraint>
+                <constraint firstItem="W5V-6O-q80" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Qe8-CP-zaU"/>
+                <constraint firstAttribute="trailing" secondItem="8qp-HW-aEp" secondAttribute="trailing" id="his-gX-k7l"/>
+                <constraint firstAttribute="trailing" secondItem="W5V-6O-q80" secondAttribute="trailing" id="nYg-mx-ykj"/>
+                <constraint firstAttribute="bottom" secondItem="8qp-HW-aEp" secondAttribute="bottom" id="pQo-Z0-xnU"/>
+            </constraints>
+            <point key="canvasLocation" x="34.5" y="53.5"/>
+        </view>
+    </objects>
+</document>

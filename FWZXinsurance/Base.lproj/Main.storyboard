@@ -14,8 +14,8 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="OCRViewController" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="eie-Z3-2jE"/>
-                        <viewControllerLayoutGuide type="bottom" id="mvP-Ty-eNg"/>
+                        <viewControllerLayoutGuide type="top" id="lES-1x-bkR"/>
+                        <viewControllerLayoutGuide type="bottom" id="CQd-Ne-6dR"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>

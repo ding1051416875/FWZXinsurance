@@ -10,7 +10,9 @@
 #define FWZXHeader_h
 #pragma mark - 设备相关 ------------------------------------------------------------------------------------------
 //__IPHONE_OS_VERSION_MAX_ALLOWED
-#define IOS9   ([[[UIDevice currentDevice] systemVersion] floatValue] >= 9.0)
+#define IOS11    @available(iOS 11.0, *)
+#define IOS10    @available(iOS 10.0, *)
+#define IOS90    @available(iOS 9.0, *)
 #define IOS8   ([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0 )
 //#define IOS7   ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0 && [[[UIDevice currentDevice] systemVersion] floatValue] < 8.0)
 #define IOS6   ([[[UIDevice currentDevice] systemVersion] floatValue] >= 6.0 && [[[UIDevice currentDevice] systemVersion] floatValue] < 7.0)

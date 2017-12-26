@@ -64,6 +64,7 @@
     self.headScrollView.pagingEnabled = NO;
     self.headScrollView.scrollsToTop = NO;
     self.headScrollView.bounces = YES;
+    self.headScrollView.scrollEnabled = NO;
     self.headScrollView.directionalLockEnabled = YES;
     [self addSubview:self.headScrollView];
     
@@ -119,10 +120,14 @@
             break;
         }
         case 1:{
+            if ([Check isEmptyString:self.address.cityName ]) {
+                
+            }else{
             [UIView animateWithDuration:0.3 animations:^{
                 [self.underLine setX:(self.cityLabel.x + 30)];
                 [self.underLine setWidth:self.cityLabel.width];
             }];
+            }
 
             break;
         }
@@ -277,7 +282,7 @@
             weakSelf.address.distId = nil;
             weakSelf.address.districtName =nil;
             [weakSelf updateHead];
-            [weakSelf.cityTable refresh:weakSelf.address.provinceId currentId:nil type:@"city"];
+            [weakSelf.cityTable refresh:weakSelf.address.provinceId currentId:nil type:@"city" ];
             
             [weakSelf didSelect:1];
         }
@@ -323,14 +328,31 @@
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
-    NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
-    if (self.currentIndex != index) {
-        self.currentIndex = index;
-        [self updateUnderLine];
-    }
+    
+        NSInteger index = scrollView.contentOffset.x / scrollView.frame.size.width;
+        if (self.currentIndex != index) {
+            self.currentIndex = index;
+            [self updateUnderLine];
+        }
+    
+    
+  
 }
-
-
+- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView
+{
+    scrollView.scrollEnabled = NO;
+//    if ([Check  isEmptyString:self.address.provinceName]) {
+//        scrollView.scrollEnabled = NO;
+//    }else{
+//        scrollView.scrollEnabled= YES;
+//        if ([Check isEmptyString:self.address.cityName]) {
+//            scrollView.scrollEnabled= NO;
+//        }else{
+//            scrollView.scrollEnabled= YES;
+//        }
+//    }
+   
+}
 
 
 @end

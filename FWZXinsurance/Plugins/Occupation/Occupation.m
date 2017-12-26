@@ -19,11 +19,14 @@
 @implementation Occupation
 - (void)getStage:(CDVInvokedUrlCommand *)command
 {
+    NSString *url = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:0]];
+    [kUserDefaults setObject:url forKey:@"stageUrl"];
+    [kUserDefaults synchronize];
     self.address = [[Address alloc] init];
-    [self handlebackView:command];
+    [self handlebackView:command url:url];
     [self jumpToSelectView];
 }
-- (void)handlebackView:(CDVInvokedUrlCommand *)command {
+- (void)handlebackView:(CDVInvokedUrlCommand *)command url:(NSString *)url{
     self.backView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kHeight)];
     self.backView.backgroundColor = [UIColor blackColor];
     self.backView.alpha = 0.39;
@@ -45,7 +48,7 @@
         if(![Check isEmptyString:address.provinceName])
         {
             //拼接字符串
-            NSString *address=[NSString stringWithFormat:@"%@ %@ %@",weakSelf.address.provinceName,weakSelf.address.cityName,weakSelf.address.districtName];
+            NSString *address=[NSString stringWithFormat:@"%@",weakSelf.address.districtName];
             //            NSString *code = [NSString stringWithFormat:@"%ld %ld %ld",shengId,shiId,xianId];
             [dict setObject:@"成功" forKey:@"result_msg"];
             [dict setObject:@"1" forKey:@"result_code"];
