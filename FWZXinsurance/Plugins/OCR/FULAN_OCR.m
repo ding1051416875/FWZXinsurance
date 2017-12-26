@@ -18,16 +18,21 @@
 @implementation FULAN_OCR
 - (void)getIdInfo:(CDVInvokedUrlCommand *)command
 {
-
+    //返回值
+    NSString *type = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:0]];
+    int inttype= [type intValue];
     //IDCardCameraViewController适配了iPad、iPhone，支持程序旋转
     IDCardCameraViewController *cameraVC = [[IDCardCameraViewController alloc] init];
-    cameraVC.recogType = 2;
-    cameraVC.typeName = @"二代身份证";
+    cameraVC.recogType = inttype;
+    cameraVC.typeName = [NSString speciality:type];
     cameraVC.recogOrientation = 0;
-    cameraVC.backIDcard = ^(NSMutableDictionary *dict, BOOL isSuccess) {
+    cameraVC.backIDcard = ^(NSMutableDictionary *resultdict,UIImage *image, BOOL isSuccess) {
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
         if (isSuccess == YES) {
-            
+            NSString *jsStr = [NSString stringWithFormat:@"mdResult('%@',)",[resultdict mj_JSONString]];
+            [dict setObject:jsStr forKey:@"result_info"];
             [dict setValue:@"1" forKey:@"result_code"];
+            [dict setObject:@"" forKey:@"result_type"];
             [dict setValue:@"识别成功" forKey:@"result_msg"];
             CDVPluginResult *resultcd = nil;
             resultcd=[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];
@@ -38,7 +43,6 @@
             CDVPluginResult *result = nil;
             result=[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
-    
         }
     };
     [self.viewController presentViewController:cameraVC animated:YES completion:nil];

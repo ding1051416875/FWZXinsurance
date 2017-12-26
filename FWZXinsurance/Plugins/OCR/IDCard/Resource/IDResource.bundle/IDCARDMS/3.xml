@@ -476,7 +476,11 @@
     </vecAnchor>
     <vecOutPutResult>
       <COutPutResult nIndex="0" cellRecogType="20" cellNameEng="Reserve" cellName="保留" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0"/>
+<!--
       <COutPutResult nIndex="1" cellRecogType="16" cellNameEng="Issuing authority" cellName="签发机关" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1" bMainField="1">
+-->
+      <COutPutResult nIndex="1" cellRecogType="16" cellNameEng="Issuing authority" cellName="id_issueAuthority" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1" bMainField="1">
+
       <CFormatInfo strDefault="" strInFormat="" strOutFormat="" >
 			<vecCReplaceChar>
           <CReplaceChar newChar="" oldChar="有效.." />
@@ -485,7 +489,11 @@
         </CFormatInfo>
       
       </COutPutResult>
+<!--
       <COutPutResult nIndex="2" cellRecogType="20" cellNameEng="The limits to validity of the document" cellName="有效期限" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1" bMainField="1">
+-->
+      <COutPutResult nIndex="2" cellRecogType="20" cellNameEng="The limits to validity of the document" cellName="id_date_length" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1" bMainField="1">
+
       <CFormatInfo strDefault="" strInFormat="" strOutFormat="" >
 			<vecCReplaceChar>
           <CReplaceChar newChar="长期" oldChar=".期" />
@@ -493,13 +501,21 @@
             </vecCReplaceChar>
         </CFormatInfo>
       </COutPutResult>
+<!--
       <COutPutResult nIndex="3" cellRecogType="4" cellNameEng="Date of Issue" cellName="签发日期" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
-        <CFormatInfo strDefault="" strInFormat="YYYYMMDD" strOutFormat="YYYY-MM-DD" >
+-->
+      <COutPutResult nIndex="3" cellRecogType="4" cellNameEng="Date of Issue" cellName="id_signDate" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+
+      <CFormatInfo strDefault="" strInFormat="YYYYMMDD" strOutFormat="YYYY-MM-DD" >
 			
         </CFormatInfo>
       </COutPutResult>
+<!--
       <COutPutResult nIndex="4" cellRecogType="5" cellNameEng="Date of Expiry" cellName="有效期至" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
-        <CFormatInfo strDefault="" strInFormat="YYYYMMDD" strOutFormat="YYYY-MM-DD" >
+-->
+      <COutPutResult nIndex="4" cellRecogType="5" cellNameEng="Date of Expiry" cellName="id_expiryDate" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+
+      <CFormatInfo strDefault="" strInFormat="YYYYMMDD" strOutFormat="YYYY-MM-DD" >
         <vecCReplaceChar>
           <CReplaceChar newChar="长期" oldChar=".期" />
            <CReplaceChar newChar="长期" oldChar="长." />

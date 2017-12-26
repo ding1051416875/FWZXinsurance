@@ -563,7 +563,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
     //导入图片数据
     int loadImage = [self.cardRecog LoadImageToMemoryWithFileName:_originalImagepath Type:0];
-    
+    NSLog(@"%d",loadImage);
     if (self.recogType != 3000) {//***注意：机读码需要自己重新设置类型来识别，拍照识别无法识别机读码
         if (self.recogType == 2) {
             

@@ -2342,8 +2342,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FWZXinsurance/Third",
-					"$(PROJECT_DIR)/FWZXinsurance/Third/UMSocial/UMSocialSDK",
-					"$(PROJECT_DIR)/FWZXinsurance/Third/UMSocial/UMSocialUI",
 					"$(PROJECT_DIR)/FWZXinsurance/Third/UShareSDK/UMSocialSDK",
 					"$(PROJECT_DIR)/FWZXinsurance/Third/UShareSDK/UMSocialUI",
 				);
@@ -2380,8 +2378,6 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FWZXinsurance/Third",
-					"$(PROJECT_DIR)/FWZXinsurance/Third/UMSocial/UMSocialSDK",
-					"$(PROJECT_DIR)/FWZXinsurance/Third/UMSocial/UMSocialUI",
 					"$(PROJECT_DIR)/FWZXinsurance/Third/UShareSDK/UMSocialSDK",
 					"$(PROJECT_DIR)/FWZXinsurance/Third/UShareSDK/UMSocialUI",
 				);

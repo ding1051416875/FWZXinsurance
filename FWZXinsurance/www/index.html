@@ -50,31 +50,13 @@
                 
             }
             function ocrClick(){
-              FULAN_OCR.getIdInfo(onSuccess, onFail);
+              FULAN_OCR.getIdInfo(onSuccess, onFail,"7");
               function onSuccess(success) {
                alert("成功码: " + success.result_code
                      + "\n信息："
                      + success.result_msg
-                     + "\n姓名："
-                     + success.id_name
-                     + "\n性别："
-                     + success.id_sex
-                     + "\n出生："
-                     + success.id_birthday
-                     + "\n年龄："
-                     + success.id_age
-                     + "\n身份证号："
-                     + success.id_number
-                     + "\n地址："
-                     + success.id_address
-                     + "\n民族："
-                     + success.id_ethnic
-                     + "\n签发时间："
-                     + success.id_signDate
-                     + "\n到期时间："
-                     + success.id_expiryDate
-                     + "\n签发单位："
-                     + success.id_issueAuthority 
+                     + "\ninfo："
+                     + success.result_info
                      );
               }
                  function onFail(fail) {
@@ -118,7 +100,7 @@
                 }
             }
             function signClick(){
-                Pen.doSign (onSuccess, onFail,"1","w","1","1","1","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
+                Pen.doSign (onSuccess, onFail,"1","w","1","1","1","1","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
                 function onSuccess(success) {
                     alert("成功码: " + success.result_code
                           + "\n信息："
@@ -203,27 +185,13 @@
 <!--                                   url ：上传服务器。-->
 
 
-                UpCardId.upCardId(onSuccess, onFail,"","","1","0","0","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage");
+                UpCardId.upCardId(onSuccess, onFail,"","","1","0","0","2","http://192.168.0.69:8082/FwCustom/insure/policyHolder/sumbitImage");
                 function onSuccess(success) {
                     alert("成功码: " + success.result_code
                           + "\n信息："
                           + success.result_msg
-                          + "\n姓名："
-                          + success.id_name
-                          + "\n性别："
-                          + success.id_sex
-                          + "\n身份证号："
-                          + success.id_number
-                          + "\n地址："
-                          + success.id_address
-                          + "\n民族："
-                          + success.id_ethnic
-                          + "\n出生日期："
-                          + success.id_birthday
-                          + "\n年龄："
-                          + success.id_age
-                          + "\ndata："
-                          + success.result_data
+                          + "\n："
+                          + success.result_info
                           );
 
                 }
@@ -236,14 +204,14 @@
                 }
             }
             function backClick(){
-                UpCardId.upCardId(onSuccess, onFail,"1","w","2","0","0","http://40.125.170.204:8082/FwCustom/insure/policyHolder/sumbitImage")
+                UpCardId.upCardId(onSuccess, onFail,"1","w","2","0","0","3","http://192.168.0.69:8082/FwCustom/insure/policyHolder/sumbitImage")
                 function onSuccess(success) {
-                    alert( "\n签发时间："
-                          + success.id_signDate
-                          + "\n到期时间："
-                          + success.id_expiryDate
-                          + "\n签发单位："
-                          + success.id_issueAuthority);
+                    alert( "成功码: " + success.result_code
+                          + "\n信息："
+                          + success.result_msg
+                          + "\n："
+                          + success.result_info
+                          );
                 }
                 function onFail(fail) {
                     alert("错误码: " + fail.result_code

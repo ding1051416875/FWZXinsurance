@@ -42,9 +42,13 @@
     web.frame = CGRectMake(kWidth/2-100, 300, 200, 40);
     [self.view addSubview:web];
     
+    UIButton *ceshi74 = [UIButton buttonWithTitle:@"74 测试" titleColor:kColor_White font:kFont_Lable_16 target:self action:@selector(xiangmuBtn:)];
+    ceshi74.tag=5;
+    ceshi74.frame = CGRectMake(kWidth/2-100, 350, 200, 40);
+    [self.view addSubview:ceshi74];
     UIButton *ceshi = [UIButton buttonWithTitle:@"测试" titleColor:kColor_White font:kFont_Lable_16 target:self action:@selector(xiangmuBtn:)];
-    ceshi.tag=5;
-    ceshi.frame = CGRectMake(kWidth/2-100, 350, 200, 40);
+    ceshi.tag=6;
+    ceshi.frame = CGRectMake(kWidth/2-100, 400, 200, 40);
     [self.view addSubview:ceshi];
 
     
@@ -69,7 +73,11 @@
         MainViewController  *main = [[MainViewController alloc] init];
         main.urlString = @"http://192.168.5.173/web/login/login.html";
         [self presentViewController:main animated:YES completion:nil];
-    }else if (btn.tag==5){
+    }else if(btn.tag==5){
+        MainViewController  *main = [[MainViewController alloc] init];
+        main.urlString = @"http://192.168.5.74:8100/web/login/login.html";
+        [self presentViewController:main animated:YES completion:nil];
+    }else if (btn.tag==6){
         CeshiViewController *orc = [[CeshiViewController alloc] init];
         [self presentViewController:orc animated:YES completion:nil];
     }

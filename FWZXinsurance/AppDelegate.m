@@ -28,7 +28,7 @@
     [self setBugly];
     //友盟分享
     [self initUM];
-    [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(btn) userInfo:nil repeats:NO];
+    [NSTimer scheduledTimerWithTimeInterval:0.1 target:self selector:@selector(btn) userInfo:nil repeats:NO];
 
     return YES;
 }
@@ -40,7 +40,7 @@
     [alertText addAction:[UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         SortViewController *main = [[SortViewController alloc] init];
 //        MainViewController  *main = [[MainViewController alloc] init];
-//        main.urlString = @"http://40.125.210.226/web/login/login.html";
+//        main.urlString = @"http://40.125.211.242/web/login/login.html";
 
         self.window.rootViewController = main;
         self.window.backgroundColor = [UIColor whiteColor];
@@ -152,13 +152,7 @@
     return @"This is an attachment";
 }
 - (void)initUM{
-    //打开调试日志
-//    [[UMSocialManager defaultManager] openLog:YES];
-//    [UMSocialGlobal shareInstance].isClearCacheWhenGetUserInfo = NO;
-//    [[UMSocialManager defaultManager] setUmSocialAppkey:@"5a1e5260f43e482fdc0000ea"];
-//    [self configUSharePlatforms];
-//
-//    [self confitUShareSettings];
+
     
     
     //打开调试日志
@@ -187,19 +181,7 @@
     //[UMSocialGlobal shareInstance].isUsingHttpsWhenShareContent = NO;
     
 }
-- (void)configUSharePlatforms
-{
-    /*
-     设置微信的appKey和appSecret
-     [微信平台从U-Share 4/5升级说明]http://dev.umeng.com/social/ios/%E8%BF%9B%E9%98%B6%E6%96%87%E6%A1%A3#1_1
-     */
-    [[UMSocialManager defaultManager] setPlaform:UMSocialPlatformType_WechatSession  appKey:@"wx5a2768ce01c9795d" appSecret:@"d4758ed8ca6d22e6c3595f2a13a6ffad" redirectURL:@""];
-    /*
-     * 移除相应平台的分享，如微信收藏
-     */
-//    [[UMSocialManager defaultManager] removePlatformProviderWithPlatformTypes:@[@(UMSocialPlatformType_WechatFavorite)]];
 
-}
 - (BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url
 {
     BOOL result = [[UMSocialManager defaultManager] handleOpenURL:url];

@@ -23,35 +23,20 @@
 + (NSString *)speciality:(NSString *)str
 {
     NSString *speciality;
-    if ([str isEqualToString:@"1"]) {
-        speciality = @"婚姻家庭";
-    }else if ([str isEqualToString:@"2"])
-    {
-        speciality = @"交通事故";
+    if ([str isEqualToString:@"2"]) {
+        speciality = @"身份证正面";
     }else if ([str isEqualToString:@"3"])
     {
-        speciality = @"劳动纠纷";
-    }else if ([str isEqualToString:@"4"])
-    {
-        speciality = @"刑事辩护";
-    }else if ([str isEqualToString:@"5"])
-    {
-        speciality = @"合同纠纷";
-    }else if ([str isEqualToString:@"6"])
-    {
-        speciality = @"房产纠纷";
+        speciality = @"身份证反面";
     }else if ([str isEqualToString:@"7"])
     {
-        speciality = @"债权债务";
-    }else if ([str isEqualToString:@"8"])
+        speciality = @"军官证";
+    }else if ([str isEqualToString:@"14"])
     {
-        speciality = @"其他纠纷";
-    }else if ([str isEqualToString:@"9"])
+        speciality = @"港澳回乡证正面";
+    }else if ([str isEqualToString:@"15"])
     {
-        speciality = @"公司法";
-    }else if ([str isEqualToString:@"10"])
-    {
-        speciality = @"知识产权";
+        speciality = @"港澳回乡证背面";
     }
     return speciality;
 }

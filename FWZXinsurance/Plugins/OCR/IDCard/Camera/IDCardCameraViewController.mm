@@ -119,7 +119,7 @@
 {
     [super viewWillAppear:animated];
     //隐藏navigationBar
-    self.navigationController.navigationBarHidden = YES;
+//    self.navigationController.navigationBarHidden = YES;
     
     //视图将要出现时，设置UI以及对于检边参数
     [self orientChange:nil];
@@ -378,7 +378,7 @@
     //NSLog(@"sTop=%f,sBottom=%f,sLeft=%f,sRight=%f",sTop,sBottom,sLeft,sRight);
     //设置检边参数,识别的图像上检边框区域在整张图上的位置
     int a = [_cardRecog setROIWithLeft:(int)sLeft Top:(int)sTop Right:(int)sRight Bottom:(int)sBottom];
-    //NSLog(@"roi%d", a);
+    NSLog(@"roi%d", a);
     
     //设置覆盖层
     [self drawShapeLayerWithSmallFrame:_overView.smallrect First:YES];
@@ -419,6 +419,7 @@
     [_photoBtn addTarget:self action:@selector(photoBtn) forControlEvents:UIControlEventTouchUpInside];
     [_photoBtn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [self.view addSubview:_photoBtn];
+    _photoBtn.hidden = YES;
     
     
     //相册
@@ -533,6 +534,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     uint8_t *baseAddress = (uint8_t *)CVPixelBufferGetBaseAddress(imageBuffer);
     int width = (int)CVPixelBufferGetWidth(imageBuffer);
     int height = (int)CVPixelBufferGetHeight(imageBuffer);
+    
     //NSLog(@"self.adjustingFocus = %d",self.adjustingFocus);
     //检测证件边
     if (self.adjustingFocus) {
@@ -592,9 +594,9 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
                             
                             //重置连续检边成功次数
                             _confimCount = 0;
-                            
+                            UIImage *tempImage = [self imageFromSampleBuffer:sampleBuffer];;
                             //调用核心识别方法
-                            [self readyToRecog];
+                            [self readyToRecog:tempImage];
                             
                         }else{
                             //检边成功次数+1
@@ -662,7 +664,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     
     //导入图片数据
     int loadImage = [self.cardRecog LoadImageToMemoryWithFileName:_originalImagepath Type:0];
-    
+    NSLog(@"%d",loadImage);
     if (self.recogType != 3000) {//***注意：机读码需要自己重新设置类型来识别，拍照识别无法识别机读码
         if (self.recogType == 2) {
             
@@ -679,7 +681,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     [_session stopRunning];
     //获取识别结果
 //    dispatch_sync(dispatch_get_main_queue(), ^{
-        [self getRecogResult];
+    [self getRecogResult:image];
 //    });
     //导入识别完成后要重新设置扫描模式下核心的配置
     [self setRecongConfiguration];
@@ -690,10 +692,13 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 }
 
 //扫描识别模式
--(void)readyToRecog
+-(void)readyToRecog:(UIImage *)image
 {
     //禁用拍照按钮
-    _photoBtn.enabled = NO;
+    dispatch_sync(dispatch_get_main_queue(), ^{
+       _photoBtn.enabled = NO;
+      });
+    
     
     NSLog(@"————————————————————扫描识别————————————————————");
     _recogReuslt = 0;
@@ -718,16 +723,18 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
         
         //调用核心识别方法
-        dispatch_sync(dispatch_get_main_queue(), ^{
-            [self getRecogResult];
-        });
+//        dispatch_sync(dispatch_get_main_queue(), ^{
+        [self getRecogResult:image];
+//        });
     }
     //开启拍照按钮
-    _photoBtn.enabled = YES;
+    dispatch_sync(dispatch_get_main_queue(), ^{
+        _photoBtn.enabled = YES;
+    });
     
 }
 //获取识别结果
-- (void)getRecogResult{
+- (void)getRecogResult:(UIImage *)image{
     
     //获取识别结果 本demo为了方便展示结果使用了字符串方式
     NSString *allResult = @"";
@@ -745,29 +752,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
             NSString *result = [self.cardRecog GetRecogResultWithIndex:i];
             if (key!=nil && result!=nil) {
                 allResult = [allResult stringByAppendingString:[NSString stringWithFormat:@"%@:%@\n", key, result]];
-                if ([key isEqualToString:@"姓名"]) {
-                    [dict setValue:result forKey:@"id_name"];
-                }else if ([key isEqualToString:@"出生"]){
-                    [dict setValue:result forKey:@"id_birthday"];
-                }else if ([key isEqualToString:@"公民身份号码"]){
-                    NSString *age = [result ageFromIDCard];
-                    [dict setValue:age forKey:@"id_age"];
-                    [dict setValue:result forKey:@"id_number"];
-                }else if ([key isEqualToString:@"性别"]){
-                    [dict setValue:result forKey:@"id_sex"];
-                }else if ([key isEqualToString:@"住址"]){
-                    [dict setValue:result forKey:@"id_address"];
-                }else if ([key isEqualToString:@"民族"]){
-                    [dict setValue:result forKey:@"id_ethnic"];
-                }else if ([key isEqualToString:@"签发日期"]){
-                  
-                    [dict setValue:result forKey:@"id_signDate"];
-                }else if ([key isEqualToString:@"有效期至"]){
-                 
-                    [dict setValue:result forKey:@"id_expiryDate"];
-                }else if ([key isEqualToString:@"签发机关"]){
-                    [dict setValue:result forKey:@"id_issueAuthority"];
-                }
+                [dict setObject:result forKey:key];
                 
             }
         }
@@ -788,23 +773,26 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     //将裁切好的全幅面保存到imagepath里
     int save = [self.cardRecog saveImage:_cropImagepath];
     NSLog(@"save裁切图 = %d", save);
-
-    if (![allResult isEqualToString:@""]) {
-        self.backIDcard(dict, YES);
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }else{
-        NSLog(@"识别失败");
-        [_session startRunning];
-        self.backIDcard(nil, NO);
-        [self dismissViewControllerAnimated:YES completion:nil];
-    }
+            dispatch_sync(dispatch_get_main_queue(), ^{
+                if (![allResult isEqualToString:@""]) {
+                    self.backIDcard(dict,image,YES);
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }else{
+                    NSLog(@"识别失败");
+                    [_session startRunning];
+                    self.backIDcard(nil,nil, NO);
+                    [self dismissViewControllerAnimated:YES completion:nil];
+                }
+            });
+ 
+    
 }
 
 #pragma mark --------------------ButtonAction----------------------------
 //返回按钮按钮点击事件
 - (void)backAction{
 
-    self.backIDcard(nil, NO);
+    self.backIDcard(nil,nil, NO);
     [self dismissViewControllerAnimated:YES completion:nil];
     
 }
@@ -923,8 +911,8 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     sLeft = [roiInfo[@"sLeft"] floatValue];
     sRight = [roiInfo[@"sRight"] floatValue];
     int a = [_cardRecog setROIWithLeft:(int)sLeft Top:(int)sTop Right:(int)sRight Bottom:(int)sBottom];
-    //NSLog(@"sTop=%f,sBottom=%f,sLeft=%f,sRight=%f",sTop,sBottom,sLeft,sRight);
-    //NSLog(@"roi%d", a);
+    NSLog(@"sTop=%f,sBottom=%f,sLeft=%f,sRight=%f",sTop,sBottom,sLeft,sRight);
+    NSLog(@"roi%d", a);
     
 }
 

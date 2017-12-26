@@ -1365,20 +1365,24 @@
     </vecAnchor>
     <vecOutPutResult>
       <COutPutResult nIndex="0" cellRecogType="20" cellNameEng="Reserve" cellName="保留" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
-      <COutPutResult nIndex="1" cellRecogType="0" cellNameEng="Name" cellName="姓名" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" bMainField="1" nRejectThresh="20"/>
-      <COutPutResult nIndex="2" cellRecogType="1" cellNameEng="Sex" cellName="性别" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
-      <COutPutResult nIndex="3" cellRecogType="2" cellNameEng="Ethnicity" cellName="民族" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
-      <COutPutResult nIndex="4" cellRecogType="3" cellNameEng="Date of Birth" cellName="出生" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+      <COutPutResult nIndex="1" cellRecogType="0" cellNameEng="Name" cellName="id_name" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" bMainField="1" nRejectThresh="20"/>
+      <COutPutResult nIndex="2" cellRecogType="1" cellNameEng="Sex" cellName="id_sex" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+      <COutPutResult nIndex="3" cellRecogType="2" cellNameEng="Ethnicity" cellName="id_ethnic" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+      <COutPutResult nIndex="4" cellRecogType="3" cellNameEng="Date of Birth" cellName="id_birthday" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
         <CFormatInfo strDefault="" strInFormat="YYYYMMDD" strOutFormat="YYYY-MM-DD" />
       </COutPutResult>
-      <COutPutResult nIndex="5" cellRecogType="6" cellNameEng="Domicile" cellName="住址" nOutputThreshold="10" nOutputNumber="5" bFormatResult="1" bMainField="1" nRejectThresh="40">
+      <COutPutResult nIndex="5" cellRecogType="6" cellNameEng="Domicile" cellName="id_address" nOutputThreshold="10" nOutputNumber="5" bFormatResult="1" bMainField="1" nRejectThresh="40">
         <CFormatInfo strDefault="" strInFormat="" strOutFormat="">
           <vecCReplaceChar>
           <CReplaceChar newChar="河南疃" oldChar="河南瞳" />
          </vecCReplaceChar>
         </CFormatInfo>
       </COutPutResult>
+<!--
       <COutPutResult nIndex="6" cellRecogType="7" cellNameEng="Identification Number" cellName="公民身份号码" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" bMainField="1" nRejectThresh="40"/>
+-->
+      <COutPutResult nIndex="6" cellRecogType="7" cellNameEng="Identification Number" cellName="id_number" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" bMainField="1" nRejectThresh="40"/>
+
     </vecOutPutResult>
     <vecMergeUnit>
     <CMergeUnit nDestUnitIndex="2" nDestUnitType="4" nSrcUnitIndex="6" nSrcUnitType="4" strSrc="0" strDest="" nProcessPos="-1" bMeet="1" bSynchronous="0" nOperateType="23"/>

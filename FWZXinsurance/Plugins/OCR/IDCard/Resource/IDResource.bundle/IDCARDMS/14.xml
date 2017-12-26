@@ -103,7 +103,30 @@
     
     <vecOutPutResult>
       <COutPutResult nIndex="0" cellRecogType="20" cellName="保留" cellNameEng="Reserve" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
-      <COutPutResult nIndex="1" cellRecogType="20" cellName="证件号码" cellNameEng="ID Number" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" bMainField="1" />
+		<COutPutResult nIndex="1" cellRecogType="20" cellName="id_number" cellNameEng="ID Number" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" bMainField="1" />
+		<COutPutResult nIndex="2" cellRecogType="0" cellName="id_name" cellNameEng="Chinese name"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+		<COutPutResult nIndex="3" cellRecogType="20" cellName="id_name_py" cellNameEng="Name(Pinyin)"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+		<COutPutResult nIndex="4" cellRecogType="20" cellName="id_sex" cellNameEng="Sex"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+		<COutPutResult nIndex="5" cellRecogType="3" cellName="id_birthday" cellNameEng="Date of Birth" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+			<CFormatInfo strDefault="" strInFormat="YYYY-MM-DD" strOutFormat="YYYY-MM-DD" />
+		</COutPutResult>
+		<COutPutResult nIndex="6" cellRecogType="5" cellName="id_end_date" cellNameEng="Date of Expiry"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+			<CFormatInfo strDefault="" strInFormat="YYYY-MM-DD" strOutFormat="YYYY-MM-DD" />
+		</COutPutResult>
+		<COutPutResult nIndex="7" cellRecogType="20" cellName="id_surname_py" cellNameEng="Surname(Pinyin)"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+		<COutPutResult nIndex="8" cellRecogType="20" cellName="id_givenname_py" cellNameEng="Given name(Pinyin)"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+		<COutPutResult nIndex="9" cellRecogType="20" cellName="id_hk_idnumber" cellNameEng="HK/Macau permanent ID card number"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+		<COutPutResult nIndex="10" cellRecogType="4" cellName="id_signdate" cellNameEng="Date of Issue"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="1" bMainField="1">
+			<CFormatInfo strDefault="" strInFormat="YYYY-MM-DD" strOutFormat="YYYY-MM-DD" />
+		</COutPutResult>
+		<COutPutResult nIndex="11" cellRecogType="20" cellName="id_limitdate_length" cellNameEng="The limits to validity of the document"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0">
+			<CFormatInfo strDefault="" strInFormat="YYYY.MM.DD-XXXX.ZZ.NN" strOutFormat="YYYY.MM.DD-XXXX.ZZ.NN" />
+		</COutPutResult>
+		<COutPutResult nIndex="12" cellRecogType="20" cellName="id_issuing_authority" cellNameEng="Issuing authority"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+		<COutPutResult nIndex="13" cellRecogType="20" cellName="id_renewal_times" cellNameEng="Renewal times"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+		<COutPutResult nIndex="14" cellRecogType="20" cellName="id_english_name" cellNameEng="English name"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+
+		<!-- <COutPutResult nIndex="1" cellRecogType="20" cellName="证件号码" cellNameEng="ID Number" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" bMainField="1" />
 			  <COutPutResult nIndex="2" cellRecogType="0" cellName="中文姓名" cellNameEng="Chinese name"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
 			  <COutPutResult nIndex="3" cellRecogType="20" cellName="拼音姓名" cellNameEng="Name(Pinyin)"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" /> 
 			  <COutPutResult nIndex="4" cellRecogType="20" cellName="性别" cellNameEng="Sex"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
@@ -124,7 +147,7 @@
 			  </COutPutResult>
 			   <COutPutResult nIndex="12" cellRecogType="20" cellName="签发机关" cellNameEng="Issuing authority"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
 			   <COutPutResult nIndex="13" cellRecogType="20" cellName="换证次数" cellNameEng="Renewal times"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
-			   <COutPutResult nIndex="14" cellRecogType="20" cellName="英文姓名" cellNameEng="English name"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+			   <COutPutResult nIndex="14" cellRecogType="20" cellName="英文姓名" cellNameEng="English name"  nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />-->
     </vecOutPutResult>
     <vecMergeUnit>     <!--
      <CMergeUnit nDestUnitIndex="5" nDestUnitType="4" nSrcUnitIndex="5" nSrcUnitType="4" strSrc="2013" strDest="" nProcessPos="-1" bMeet="1" bSynchronous="0" nOperateType="19"/>-->

@@ -28,19 +28,30 @@
       <CAnchor nIndex="0" anchorType="0" anchorPos="0" bEnable="0" nMinPos="-1" nMaxPos="-1" />
     </vecAnchor>
     <vecOutPutResult>
-      <COutPutResult nIndex="0" cellRecogType="20" cellNameEng="Identification type" cellName="证件类型" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+      <!--<COutPutResult nIndex="0" cellRecogType="20" cellNameEng="Identification type" cellName="证件类型" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
       <COutPutResult nIndex="1" cellRecogType="20" cellNameEng="Identification Number" cellName="证件号码" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
-      <COutPutResult nIndex="2" cellRecogType="0" cellNameEng="Chinese name" cellName="中文姓名" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+      <COutPutResult nIndex="2" cellRecogType="0" cellNameEng="Chinese name" cellName="中文姓名" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">-->
+        <COutPutResult nIndex="0" cellRecogType="20" cellNameEng="Identification type" cellName="id_type" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+        <COutPutResult nIndex="1" cellRecogType="20" cellNameEng="Identification Number" cellName="id_number" nOutputThreshold="0" nOutputNumber="0" bFormatResult="0" />
+        <COutPutResult nIndex="2" cellRecogType="0" cellNameEng="Chinese name" cellName="id_name" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
         <CFormatInfo strDefault="" strInFormat="DDDD" strOutFormat="S"></CFormatInfo>
       </COutPutResult>
+<!--
       <COutPutResult nIndex="3" cellRecogType="20" cellNameEng="English name" cellName="英文姓名" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+-->
+        <COutPutResult nIndex="3" cellRecogType="20" cellNameEng="English name" cellName="id_english_name" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+
         <CFormatInfo strDefault="" strInFormat="" strOutFormat="">
           <vecCReplaceChar>
             <CReplaceChar newChar=" " oldChar="&lt;"></CReplaceChar>
           </vecCReplaceChar>
         </CFormatInfo>
       </COutPutResult>
+<!--
       <COutPutResult nIndex="4" cellRecogType="1" cellNameEng="Sex" cellName="性别" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+-->
+        <COutPutResult nIndex="4" cellRecogType="1" cellNameEng="Sex" cellName="id_sex" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+
         <CFormatInfo strDefault="" strInFormat="" strOutFormat="">
           <vecCReplaceChar>
             <CReplaceChar newChar="男" oldChar="M"></CReplaceChar>
@@ -48,20 +59,36 @@
           </vecCReplaceChar>
         </CFormatInfo>
       </COutPutResult>
+<!--
       <COutPutResult nIndex="5" cellRecogType="3" cellNameEng="Date of Birth" cellName="出生日期" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+-->
+        <COutPutResult nIndex="5" cellRecogType="3" cellNameEng="Date of Birth" cellName="id_birthday" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+
         <CFormatInfo strDefault="" strInFormat="YYMMDD" strOutFormat="YYYY-MM-DD" />
       </COutPutResult>
+<!--
       <COutPutResult nIndex="6" cellRecogType="5" cellNameEng="Date of Expiry" cellName="本证有效期至" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+-->
+        <COutPutResult nIndex="6" cellRecogType="5" cellNameEng="Date of Expiry" cellName="id_end_date" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+
         <CFormatInfo strDefault="" strInFormat="YYMMDD" strOutFormat="YYYY-MM-DD" />
       </COutPutResult>
+<!--
       <COutPutResult nIndex="7" cellRecogType="20" cellNameEng="The Family Name in English" cellName="英文姓" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+-->
+        <COutPutResult nIndex="7" cellRecogType="20" cellNameEng="The Family Name in English" cellName="id_english_familyname" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+
         <CFormatInfo strDefault="" strInFormat="" strOutFormat="">
           <vecCReplaceChar>
             <CReplaceChar newChar=" " oldChar="&lt;"></CReplaceChar>
           </vecCReplaceChar>
         </CFormatInfo>
       </COutPutResult>
+<!--
       <COutPutResult nIndex="8" cellRecogType="20" cellNameEng="The Given Name in English" cellName="英文名" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+-->
+        <COutPutResult nIndex="8" cellRecogType="20" cellNameEng="The Given Name in English" cellName="id_english_givenname" nOutputThreshold="0" nOutputNumber="0" bFormatResult="1">
+
         <CFormatInfo strDefault="" strInFormat="" strOutFormat="">
           <vecCReplaceChar>
             <CReplaceChar newChar=" " oldChar="&lt;"></CReplaceChar>

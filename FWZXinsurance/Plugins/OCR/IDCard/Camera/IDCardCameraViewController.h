@@ -25,7 +25,7 @@ typedef NS_ENUM(NSInteger, RecogOrientation){
 
 @property (assign, nonatomic) RecogOrientation recogOrientation;
 
-@property (nonatomic, copy) void(^backIDcard)(NSMutableDictionary *dict, BOOL isSuccess);
+@property (nonatomic, copy) void(^backIDcard)(NSMutableDictionary *dict,UIImage *image,BOOL isSuccess);
 
 //识别证件类型及结果个数
 @property (assign, nonatomic) int recogType;
