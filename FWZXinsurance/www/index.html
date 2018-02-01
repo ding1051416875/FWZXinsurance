@@ -50,7 +50,7 @@
                 
             }
             function ocrClick(){
-              FULAN_OCR.getIdInfo(onSuccess, onFail,"7");
+              FULAN_OCR.getIdInfo(onSuccess, onFail,"2");
               function onSuccess(success) {
                alert("成功码: " + success.result_code
                      + "\n信息："
@@ -85,7 +85,7 @@
                 }
             }
             function UMshareClick(){
-                Share.share (onSuccess, onFail, "123");
+                Share.share (onSuccess, onFail, "富卫","保险在线","http://www.baidu.com","http://www.kianlee.cn/test.jpg");
                 function onSuccess(success) {
                     alert("成功码: " + success.result_code
                           + "\n信息："
@@ -132,7 +132,23 @@
                           );
                 }
             }
-            
+            function pptClick(){
+                PPT.openPPT (onSuccess, onFail,'http://www-support-downloads.sonymobile.com/common/warranty_phones_CN_12_6.pdf');
+                function onSuccess(success) {
+                    
+                    alert("成功码: " + success.result_code
+                          + "\n信息："
+                          + success.result_msg
+                          );
+                          
+                }
+                function onFail(fail) {
+                    alert("错误码: " + fail.result_code
+                          + "\n信息："
+                          + fail.result_msg
+                          );
+                }
+            }
             function addClick(){
                 Add.chooseAddress(onSuccess, onFail);
                 function onSuccess(success) {
@@ -147,6 +163,8 @@
                           + success.code_city
                           + "\n区："
                           + success.code_area
+                          + "\n邮编："
+                          + success.code_post
                           );
                           
                 }
@@ -320,6 +338,7 @@
         <input type="button" value="分享" onclick="UMshareClick()"/>
         <input type="button" value="电子签名" onclick="signClick()"/>
         <input type="button" value="PDF" onclick="pdfClick()"/>
+        <input type="button" value="PPT" onclick="pptClick()"/>
         <input type="button" value="Address" onclick="addClick()"/>
         <input type="button" value="身份证正面" onclick="frontClick()"/>
         <input type="button" value="身份证反面" onclick="backClick()"/>

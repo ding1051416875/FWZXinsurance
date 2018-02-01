@@ -12,13 +12,18 @@
 #import <UShareUI/UShareUI.h>
 #import "Address.h"
 #import "AddrObject.h"
-
-@interface CeshiViewController ()<UITableViewDelegate,UITableViewDataSource,UMSocialShareMenuViewDelegate>
+#import "BankCardCameraViewController_iPad.h"
+#import "QLPreviewViewController.h"
+@interface CeshiViewController ()<UITableViewDelegate,UITableViewDataSource,UMSocialShareMenuViewDelegate,UIDocumentInteractionControllerDelegate>
+{
+    UIDocumentInteractionController *_documentController;
+}
 @property (nonatomic,strong) UITableView *tbView;
 @property (nonatomic,strong) NSArray *titleAry;
 @property (nonatomic,strong) Address *address;
 @property(nonatomic, strong) AddressPickView *addressPickView;
 @property(nonatomic, strong) UIView *backView;
+
 
 @end
 
@@ -69,13 +74,13 @@
 
 
 - (void)back{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 //创建UI界面
 - (void)createUI
 {
     
-    _titleAry = @[@"分享",@"选择",@"识别"];
+    _titleAry = @[@"分享",@"选择",@"doc",@"读取ppt",@"识别银行卡"];
     
     self.address = [[Address alloc] init];
     
@@ -115,7 +120,6 @@
     switch (indexPath.row) {
         case 0:
         {
-//            view = [KeyFrameViewController new];
             [self initShare];
         }
             break;
@@ -124,13 +128,33 @@
              [self jumpToSelectView];
         }
             break;
+        case 2:
+        {
+            NSString *path = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"ppt"];
+            NSURL *url = [NSURL fileURLWithPath:path];
+            _documentController = [UIDocumentInteractionController interactionControllerWithURL:url];
+            [_documentController setDelegate:self];
+            
+            //当前APP打开  需实现协议方法才可以完成预览功能
+            [_documentController presentPreviewAnimated:YES];
+        }
+            break;
+        case 3:
+        {
+            view = [QLPreviewViewController new];
+        }
+            break;
+        case 4:
+        {
+            view = [BankCardCameraViewController_iPad new];
+        }
         default:
             
             break;
     }
     view.title = _titleAry[indexPath.row];
     view.hidesBottomBarWhenPushed = YES;
-    [self presentViewController:view animated:YES completion:nil];
+    [self.navigationController pushViewController:view animated:YES];
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -200,6 +224,11 @@
 //{
 //    return YES;
 //}
+- (UIViewController *)documentInteractionControllerViewControllerForPreview:(UIDocumentInteractionController *)controller {
+    
+    //注意：此处要求的控制器，必须是它的页面view，已经显示在window之上了
+    return self.navigationController;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

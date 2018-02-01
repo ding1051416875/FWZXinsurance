@@ -15,7 +15,8 @@
 
 - (void)openPDF:(CDVInvokedUrlCommand *)command
 {
-  
+//    NSString *path = [[NSBundle mainBundle] pathForResource:@"text" ofType:@"ppt"];
+//    NSURL *url = [NSURL fileURLWithPath:path];
     NSString *title =[command.arguments objectAtIndex:0];
     
     if([Check isEmptyString:title])
@@ -52,6 +53,6 @@
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
     };
-    [self.viewController presentViewController:web animated:YES completion:nil];
+    [self.viewController.navigationController pushViewController:web animated:YES];
 }
 @end

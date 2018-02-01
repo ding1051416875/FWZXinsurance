@@ -10,24 +10,15 @@
 
 @implementation AreaModel
 
-- (instancetype)initWithDict:(NSDictionary *)dict{
++(instancetype)showDistrictDataWith:(NSDictionary *)dic
+{
+    AreaModel *model=[[AreaModel alloc]init];
+    NSString *string=dic[@"name"];
+    model.name=string;
+    model.code = dic[@"code"];
+    model.postCode = dic[@"postCode"];
     
-    self = [super init];
+    return model;
     
-    if (self) {
-        
-        self.name = dict[@"name"];
-        
-        self.code = dict[@"code"];
-        
-        self.areaList = dict[@"areaList"];
-        
-    }
-    return self;
-}
-
-+ (instancetype)areaModelWithDict:(NSDictionary *)dict{
-    
-    return [[self alloc] initWithDict:dict];
 }
 @end

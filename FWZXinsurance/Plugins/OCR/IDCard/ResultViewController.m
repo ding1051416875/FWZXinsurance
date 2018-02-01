@@ -33,7 +33,7 @@
     [self.view addSubview:Btn];
 }
 - (void)back{
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

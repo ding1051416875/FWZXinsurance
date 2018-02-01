@@ -120,8 +120,10 @@
 
 /**首次启动*/
 static NSString *const kFirstLuanch=@"FirstLuanch";
-
-
+/**支付成功的通知名）*/
+static NSString *const kPaySuccessedNotification=        @"kPaySuccessedNotification";
+/**支付失败的通知*/
+static NSString *const kPayFailedNotification=           @"kPayFailedNotification";
 #if __has_feature(objc_arc)
 #define SAFE_ARC_PROP_RETAIN strong
 #define SAFE_ARC_RETAIN(x) (x)

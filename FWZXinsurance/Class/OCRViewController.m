@@ -8,12 +8,18 @@
 
 #import "OCRViewController.h"
 #import <objc/runtime.h>
-#import <AipOcrSdk/AipOcrSdk.h>
+
 @interface OCRViewController ()
 
 @end
 
 @implementation OCRViewController
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //隐藏navigationBar
+    self.navigationController.navigationBarHidden = YES;
+}
 - (void)viewDidLoad
 {
     [super viewDidLoad];

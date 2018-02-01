@@ -6,14 +6,14 @@
 #import "ViewController.h"
 #import "ResultViewController.h"
 
-#if TARGET_IPHONE_SIMULATOR//模拟器
-#elif TARGET_OS_IPHONE//真机
+//#if TARGET_IPHONE_SIMULATOR//模拟器
+//#elif TARGET_OS_IPHONE//真机
 
 #import "IDCardOCR.h"
 #import "IDCardCameraViewController_auto.h"
 #import "IDCardCameraViewController.h"
 
-#endif
+//#endif
 
 @interface ViewController ()<UIActionSheetDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 {
@@ -31,10 +31,11 @@
 
 @property (strong, nonatomic) NSString *typeName;
 
-#if TARGET_IPHONE_SIMULATOR//模拟器
-#elif TARGET_OS_IPHONE//真机
+//#if TARGET_IPHONE_SIMULATOR//模拟器
+//
+//#elif TARGET_OS_IPHONE//真机
 @property (strong, nonatomic) IDCardOCR *cardRecog;
-#endif
+//#endif
 
 
 @end
@@ -155,8 +156,8 @@
     IDCardCameraViewController_auto *cameraVC = [[IDCardCameraViewController_auto alloc] init];
     cameraVC.recogType = self.cardType;
     cameraVC.typeName = self.typeName;
-//    [self.navigationController pushViewController:cameraVC animated:YES];
-    [self presentViewController:cameraVC animated:YES completion:nil];
+    [self.navigationController pushViewController:cameraVC animated:YES];
+
 }
 
 
@@ -167,8 +168,7 @@
     cameraVC.recogType = self.cardType;
     cameraVC.typeName = self.typeName;
     cameraVC.recogOrientation = recogOrientation;
-//    [self.navigationController pushViewController:cameraVC animated:YES];
-    [self presentViewController:cameraVC animated:YES completion:nil];
+    [self.navigationController pushViewController:cameraVC animated:YES];
 }
 //选择识别
 - (IBAction)selectToRecog:(id)sender{
@@ -203,7 +203,7 @@
     }
     self.cardRecog = [[IDCardOCR alloc] init];
     /*提示：该开发码和项目中的授权仅为演示用，客户开发时请替换该开发码及项目中Copy Bundle Resources 中的.lsc授权文件*/
-    int intRecog = [self.cardRecog InitIDCardWithDevcode:@"5AAM5Y2R6ZUG5ZU" recogLanguage:initLanguages];
+    int intRecog = [self.cardRecog InitIDCardWithDevcode:@"5LIK5RW357UF6II" recogLanguage:initLanguages];
     NSLog(@"intRecog = %d",intRecog);
     NSTimeInterval time = [[NSDate date] timeIntervalSinceDate:before];
     NSLog(@"%f", time);

@@ -9,25 +9,22 @@
 #import "CityModel.h"
 
 @implementation CityModel
-
-- (instancetype)initWithDict:(NSDictionary *)dict{
++(instancetype)showCityDataWith:(NSDictionary *)dic{
     
-    self = [super init];
+    CityModel *model=[[CityModel alloc]init];
+    NSString *string=dic[@"name"];
+    model.name=string;
+    model.code = dic[@"code"];
+    NSArray *arrayT=[dic objectForKey:@"areaList"];
+    NSMutableArray *data=[[NSMutableArray alloc]init];
+    [arrayT enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        
+        AreaModel *teanModels=[AreaModel showDistrictDataWith:obj];
+        [data addObject:teanModels];
+        
+    }];
+    model.District= data;
     
-    if (self) {
-        
-        self.name = dict[@"name"];
-        
-        self.code = dict[@"code"];
-        
-        self.cityList = dict[@"cityList"];
-        
-    }
-    return self;
-}
-
-+ (instancetype)cityModelWithDict:(NSDictionary *)dict{
-    
-    return [[self alloc] initWithDict:dict];
+    return model;
 }
 @end

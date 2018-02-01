@@ -53,6 +53,7 @@
     CGFloat _longHeight;            //当前屏幕尺寸，长的为高
     
     int _recogReuslt;       //识别接口返回值
+
 }
 
 #if TARGET_IPHONE_SIMULATOR//模拟器
@@ -75,6 +76,15 @@
 #endif
 }
 
+//- (BOOL)shouldAutorotate
+//{
+//    return YES;
+//}
+
+//- (UIInterfaceOrientationMask)preferredScreenEdgesDeferringSystemGestures
+//{
+//    return UIInterfaceOrientationMaskPortrait;
+//}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -207,7 +217,8 @@
     }
     
     /*提示：该开发码和项目中的授权仅为演示用，客户开发时请替换该开发码及项目中Copy Bundle Resources 中的.lsc授权文件*/
-    int intRecog = [self.cardRecog InitIDCardWithDevcode:@"5AAM5Y2R6ZUG5ZU" recogLanguage:initLanguages];
+    
+    int intRecog = [self.cardRecog InitIDCardWithDevcode:@"5LIK5RW357UF6II" recogLanguage:initLanguages];
     NSLog(@"核心初始化返回值 = %d\n返回值为0成功 其他失败\n\n常见错误：\n-10601 开发码错误(核心初始化方法传入开发码)\n-10602 Bundle identifier错误\n-10605 Bundle display name错误\n-10606 CompanyName错误\n请检查授权文件（wtproject.lsc）绑定的信息与Info.plist中设置是否一致!!!\n",intRecog);
     
     //设置扫描模式下核心的配置
@@ -306,7 +317,7 @@
     self.preview.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
     self.preview.videoGravity = AVLayerVideoGravityResizeAspectFill;
     [self.view.layer addSublayer:self.preview];
-    [self.session startRunning];
+//    [self.session startRunning];
     
     for (AVCaptureConnection *connection in captureOutput.connections) {
         for (AVCaptureInputPort *port in [connection inputPorts]) {
@@ -423,9 +434,10 @@
     
     
     //相册
-     _albumBtn = [[UIButton alloc]initWithFrame:CGRectMake(0,0,60, 60)];
-    _albumBtn.center = CGPointMake(kScreenWidth-50, kScreenHeight-30);
-    [_albumBtn setImage:[UIImage imageNamed:@"xiangce"] forState:UIControlStateNormal];
+     _albumBtn = [[UIButton alloc]initWithFrame:CGRectMake(0,0,80, 80)];
+    _albumBtn.center = CGPointMake(kScreenWidth-40, kScreenHeight-40);
+//    [_albumBtn setImage:[UIImage imageNamed:@"xiangce"] forState:UIControlStateNormal];
+//    [_albumBtn setBackgroundImage:[UIImage imageNamed:@"xiangce"] forState:UIControlStateNormal];
     [_albumBtn addTarget:self action:@selector(albumBtn) forControlEvents:UIControlEventTouchUpInside];
     [_albumBtn setTitleColor:[UIColor grayColor] forState:UIControlStateHighlighted];
     [self.view addSubview:_albumBtn];
@@ -517,17 +529,22 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     //点击拍照按钮，走拍照导入识别流程
     if (self.isProcessingImage) {
         //快门声音
-        AudioServicesPlaySystemSound(1108);
+//        AudioServicesPlaySystemSound(1108);
         
         //获取当前图片
-        UIImage *tempImage = [self imageFromSampleBuffer:sampleBuffer];
+//        UIImage *tempImage = [self imageFromSampleBuffer:sampleBuffer];
         
         //调用核心识别方法
-        [self readyToGetImageEx:tempImage];
-        
+//        [self readyToGetImageEx:tempImage];
+        self.isProcessingImage = NO;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self albumed];
+        });
         return;
     }
 
+    
+    
     //获取当前帧数据
     CVImageBufferRef imageBuffer = CMSampleBufferGetImageBuffer(sampleBuffer);
     CVPixelBufferLockBaseAddress(imageBuffer,0);
@@ -535,6 +552,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     int width = (int)CVPixelBufferGetWidth(imageBuffer);
     int height = (int)CVPixelBufferGetHeight(imageBuffer);
     
+    //测试下崩溃的几率 算了 可能不太好重现 这里是个子线程
     //NSLog(@"self.adjustingFocus = %d",self.adjustingFocus);
     //检测证件边
     if (self.adjustingFocus) {
@@ -544,7 +562,7 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     if (_aLensPosition == _isIOS8AndFoucePixelLensPosition) {
         _pixelLensCount++;
         //连续三次镜头位置不变，对焦成功
-        if (_pixelLensCount == 4) {
+        if (_pixelLensCount == 1) {
             _pixelLensCount--;
             //调用核心导入内存接口
             if ([self.cardRecog newLoadImageWithBuffer:baseAddress Width:width Height:height] == 0) {
@@ -594,9 +612,9 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
                             
                             //重置连续检边成功次数
                             _confimCount = 0;
-                            UIImage *tempImage = [self imageFromSampleBuffer:sampleBuffer];;
+//                            UIImage *tempImage = [self imageFromSampleBuffer:sampleBuffer];;
                             //调用核心识别方法
-                            [self readyToRecog:tempImage];
+                            [self readyToRecog];
                             
                         }else{
                             //检边成功次数+1
@@ -651,66 +669,68 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 //拍照识别（导入识别）模式
 -(void)readyToGetImageEx:(UIImage *)image{
     
-    NSLog(@"——————————————————————拍照导入识别————————————————————");
-    [self.cardRecog setIDCardRejectType:self.recogType isSet:false];
-    
-    //保存到沙盒
-    [UIImageJPEGRepresentation(image, 1.0f) writeToFile:_originalImagepath atomically:YES];
-    //设置导入识别模式和证件类型
-    [self.cardRecog setParameterWithMode:0 CardType:self.recogType];
-    
-    //图片预处理 7－裁切+倾斜校正+旋转
-    [self.cardRecog processImageWithProcessType:7 setType:1];
-    
-    //导入图片数据
-    int loadImage = [self.cardRecog LoadImageToMemoryWithFileName:_originalImagepath Type:0];
-    NSLog(@"%d",loadImage);
-    if (self.recogType != 3000) {//***注意：机读码需要自己重新设置类型来识别，拍照识别无法识别机读码
-        if (self.recogType == 2) {
-            
-            //自动分辨二代证正反面
-            int recog = [self.cardRecog autoRecogChineseID];
-            NSLog(@"sum = %d", recog);
-        }else{
-            //其他证件
-            int recog = recog = [self.cardRecog recogIDCardWithMainID:self.recogType];
-            NSLog(@"recog:%d",recog);
-        }
-    }
+   
+        NSLog(@"——————————————————————拍照导入识别————————————————————");
+        [self.cardRecog setIDCardRejectType:self.recogType isSet:true];
         
-    [_session stopRunning];
-    //获取识别结果
-//    dispatch_sync(dispatch_get_main_queue(), ^{
-    [self getRecogResult:image];
-//    });
+        //保存到沙盒
+        [UIImageJPEGRepresentation(image, 1.0f) writeToFile:_originalImagepath atomically:YES];
+        //设置导入识别模式和证件类型
+        [self.cardRecog setParameterWithMode:0 CardType:self.recogType];
+        
+        //图片预处理 7－裁切+倾斜校正+旋转
+        [self.cardRecog processImageWithProcessType:7 setType:1];
+        _recogReuslt = 0;
+        //导入图片数据
+        int loadImage = [self.cardRecog LoadImageToMemoryWithFileName:_originalImagepath Type:0];
+        NSLog(@"loadImage = %d", loadImage);
+        if (self.recogType != 3000) {//***注意：机读码需要自己重新设置类型来识别，拍照识别无法识别机读码
+//            if (self.recogType == 2) {
+//
+//                _recogReuslt =  [self.cardRecog recogIDCardWithMainID:self.recogType];
+//
+//            }else{
+                //其他证件
+                _recogReuslt = [self.cardRecog recogIDCardWithMainID:self.recogType];
+                
+//            }
+        }
+        
+        [_session stopRunning];
+        //获取识别结果
+        if (_recogReuslt > 0) {
+            AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);
+            //当前就是主线程啊。。
+//             dispatch_async(dispatch_get_main_queue(), ^{
+                   [self getRecogResult];
+//            });
+        }else{
+            [_session startRunning];
+            [self.view showError:@"识别失败，请重新选择照片识别"];
+        }
     //导入识别完成后要重新设置扫描模式下核心的配置
     [self setRecongConfiguration];
-    
     //将处理图片状态值置为NO
     self.isProcessingImage = NO;
-    
 }
 
 //扫描识别模式
--(void)readyToRecog:(UIImage *)image
+-(void)readyToRecog
 {
-    //禁用拍照按钮
-    dispatch_sync(dispatch_get_main_queue(), ^{
-       _photoBtn.enabled = NO;
-      });
-    
-    
+//    //禁用拍照按钮
+//    dispatch_sync(dispatch_get_main_queue(), ^{
+//         _photoBtn.enabled = NO;
+//    });
+   [self.cardRecog setIDCardRejectType:self.recogType isSet:true];
+    //设置导入识别模式和证件类型
+//    [self.cardRecog setParameterWithMode:0 CardType:self.recogType];
     NSLog(@"————————————————————扫描识别————————————————————");
     _recogReuslt = 0;
     if (self.recogType == 3000) {
         //识别机读码
         _recogReuslt = [self.cardRecog recogIDCardWithMainID:_sliderAllLine];
         NSLog(@"recog:%d",_recogReuslt);
-    }else if(self.recogType == 2){
-        //自动判断二代证正反面
-        _recogReuslt = [self.cardRecog autoRecogChineseID];
-        NSLog(@"sum = %d", _recogReuslt);
-    }else{
+    }else {
         //识别非机读码证件
         _recogReuslt = [self.cardRecog recogIDCardWithMainID:self.recogType];
         NSLog(@"recog:%d",_recogReuslt);
@@ -724,17 +744,30 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
         
         //调用核心识别方法
 //        dispatch_sync(dispatch_get_main_queue(), ^{
-        [self getRecogResult:image];
+//
+//
 //        });
+         dispatch_queue_t queue= dispatch_queue_create("test.asyncqueue", DISPATCH_QUEUE_CONCURRENT);
+        dispatch_async(queue, ^{
+             [self getRecogResult];
+        });
+    }else{
+        
+         [_session stopRunning];
+        dispatch_async(dispatch_get_main_queue(), ^{
+         [self.view showError:@"识别失败，请重新选择照片识别"];
+        });
+    
     }
-    //开启拍照按钮
-    dispatch_sync(dispatch_get_main_queue(), ^{
-        _photoBtn.enabled = YES;
-    });
+//    //开启拍照按钮
+//    dispatch_sync(dispatch_get_main_queue(), ^{
+//        _photoBtn.enabled = YES;
+//    });
+    
     
 }
 //获取识别结果
-- (void)getRecogResult:(UIImage *)image{
+- (void)getRecogResult{
     
     //获取识别结果 本demo为了方便展示结果使用了字符串方式
     NSString *allResult = @"";
@@ -773,28 +806,27 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
     //将裁切好的全幅面保存到imagepath里
     int save = [self.cardRecog saveImage:_cropImagepath];
     NSLog(@"save裁切图 = %d", save);
-            dispatch_sync(dispatch_get_main_queue(), ^{
-                if (![allResult isEqualToString:@""]) {
-                    self.backIDcard(dict,image,YES);
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                }else{
-                    NSLog(@"识别失败");
-                    [_session startRunning];
-                    self.backIDcard(nil,nil, NO);
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                }
-            });
+    UIImage *backImage = [UIImage imageWithContentsOfFile:_cropImagepath];
+    if (![allResult isEqualToString:@""]) {
+        self.backIDcard(dict,backImage,YES);
+    }else{
+        [_session startRunning];
+        NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+        [dict setObject:@"识别失败" forKey:@"result"];
+        self.backIDcard(dict,nil, NO);
+    }
+    [self.navigationController popViewControllerAnimated:YES];
+
  
-    
 }
 
 #pragma mark --------------------ButtonAction----------------------------
 //返回按钮按钮点击事件
 - (void)backAction{
-
-    self.backIDcard(nil,nil, NO);
-    [self dismissViewControllerAnimated:YES completion:nil];
-    
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
+    [dict setObject:@"您取消了操作" forKey:@"result"];
+    self.backIDcard(dict,nil, NO);
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 //闪光灯按钮点击事件
@@ -828,35 +860,49 @@ didOutputSampleBuffer:(CMSampleBufferRef)sampleBuffer
 }
 //相机
 - (void)albumBtn{
- 
-    //初始化相册
+    
+    self.isProcessingImage = YES;
+   
+}
+
+- (void)albumed{
     UIImagePickerControllerSourceType sourceType=UIImagePickerControllerSourceTypePhotoLibrary;
     UIImagePickerController * picker = [[UIImagePickerController alloc]init];
     picker.delegate = self;
     picker.sourceType=sourceType;
+    picker.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    //    CGFloat rotate = 0.0;
+    //    UIInterfaceOrientation orient = [[UIApplication sharedApplication] statusBarOrientation];
+    //    //---------------------------------------------------------------------------------------------------------------------------------------------
+    //    if (orient == UIInterfaceOrientationPortrait)            rotate = 0.0;
+    //    if (orient == UIInterfaceOrientationPortraitUpsideDown)    rotate = M_PI;
+    //    if (orient == UIInterfaceOrientationLandscapeLeft)        rotate = M_PI*3/2;
+    //    if (orient == UIInterfaceOrientationLandscapeRight)        rotate = M_PI/2;
+    //
+    //    picker.view.transform = CGAffineTransformMakeRotation(rotate);
     [self presentViewController:picker animated:YES completion:nil];
+    //    picker.view.transform = CGAffineTransformMakeRotation(0);
 }
+
 #pragma mark--选取相册图片
 -(void)imagePickerController:(UIImagePickerController*)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     UIImage * image=[info objectForKey:UIImagePickerControllerOriginalImage];
+    if (!image)
+    {
+        image = info[UIImagePickerControllerOriginalImage];
+    }
     [self readyToGetImageEx:image];
-//    [self performSelectorInBackground:@selector(didFinishedSelect:) withObject:image];
-    [picker dismissViewControllerAnimated:YES completion:nil];
-}
-
-//存储照片
--(void)didFinishedSelect:(UIImage *)image{
-    //存储图片
-//    [UIImageJPEGRepresentation(image, 1.0f) writeToFile:_originalImagepath atomically:YES];
-    NSLog(@"_originalImagepath= %@",_originalImagepath);
-//    [self performSelectorInBackground:@selector(recog) withObject:nil];
-    [self readyToGetImageEx:image];
+    //    [self performSelectorInBackground:@selector(didFinishedSelect:) withObject:image];
+    [picker dismissViewControllerAnimated:YES completion:^{
+    }];
 }
 
 //取消选择
 -(void)imagePickerControllerDIdCancel:(UIImagePickerController*)picker{
-    [picker dismissViewControllerAnimated:YES completion:nil];
+
+    [picker dismissViewControllerAnimated:YES completion:^{
+    }];
 }
 
 //光斑检测开关

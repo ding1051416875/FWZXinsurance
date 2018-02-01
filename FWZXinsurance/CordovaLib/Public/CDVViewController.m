@@ -267,15 +267,7 @@
 
     return nil;
 }
-- (WKWebView *)wkwebView
-{
-   
-    if(!_wkwebView){
-        _wkwebView = [[WKWebView alloc] init];
-        _wkwebView.navigationDelegate = self;
-    }
-    return _wkwebView;
-}
+
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
@@ -300,12 +292,6 @@
     if (!self.webView) {
         [self createGapView];
     }
-//    [self.view addSubview:self.wkwebView];
-//    if(!self.wkwebView){
-//        [self createGapView];
-//    }
-
-    // /////////////////
 
     /*
      * Fire up CDVLocalStorage to work-around WebKit storage limitations: on all iOS 5.1+ versions for local-only backups, but only needed on iOS 5.1 for cloud backup.
@@ -338,9 +324,7 @@
         [CDVUserAgentUtil setUserAgent:self.userAgent lockToken:lockToken];
         if (appURL) {
             NSURLRequest* appReq = [NSURLRequest requestWithURL:appURL cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
-//            修改后的
             [self.webViewEngine loadRequest:appReq];
-//            [self.wkwebView loadRequest:appReq];
         } else {
             NSString* loadErr = [NSString stringWithFormat:@"ERROR: Start Page at '%@/%@' was not found.", self.wwwFolderName, self.startPage];
             NSLog(@"%@", loadErr);
@@ -349,14 +333,14 @@
             if (errorUrl) {
                 errorUrl = [NSURL URLWithString:[NSString stringWithFormat:@"?error=%@", [loadErr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]] relativeToURL:errorUrl];
                 NSLog(@"%@", [errorUrl absoluteString]);
-                //            修改后的
+
                 [self.webViewEngine loadRequest:[NSURLRequest requestWithURL:errorUrl]];
-//                [self.wkwebView loadRequest:[NSURLRequest requestWithURL:errorUrl]];
+
             } else {
                 NSString* html = [NSString stringWithFormat:@"<html><body> %@ </body></html>", loadErr];
-                //            修改后的
+              
                 [self.webViewEngine loadHTMLString:html baseURL:nil];
-//                [self.wkwebView loadHTMLString:html baseURL:nil];
+
             }
         }
     }];
@@ -372,9 +356,7 @@
 {
     [super viewDidAppear:animated];
     [[NSNotificationCenter defaultCenter] postNotification:[NSNotification notificationWithName:CDVViewDidAppearNotification object:nil]];
-    UIImageView *status = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"statusView"]];
-    status.frame = CGRectMake(0, 0, self.view.frame.size.width, 20);
-    [self.view addSubview:status];
+
 }
 
 -(void)viewWillDisappear:(BOOL)animated
@@ -440,6 +422,7 @@
 {
     return YES;
 }
+
 
 - (NSUInteger)supportedInterfaceOrientations
 {

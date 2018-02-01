@@ -58,6 +58,14 @@ module.exports = [
                   }
                   ,
                   {
+                  "file": "plugins/cordova-plugin-ppt.www/ppt.js",//js文件路径
+                  "id": "cordova-plugin-ppt.www.Ppt",//js cordova.define的id
+                  "clobbers": [
+                               "PPT"//js 调用时的方法名
+                               ]
+                  }
+                  ,
+                  {
                   "file": "plugins/cordova-plugin-add.www/add.js",//js文件路径
                   "id": "cordova-plugin-add.www.Add",//js cordova.define的id
                   "clobbers": [

@@ -24,6 +24,12 @@
 @end
 
 @implementation WebViewController
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //隐藏navigationBar
+    self.navigationController.navigationBarHidden = YES;
+}
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
@@ -43,7 +49,7 @@
 - (void)btnClicked:(UIButton *)btn
 {
     [ProgressHUD dismiss];
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 - (void)viewDidDisappear:(BOOL)animated
 {

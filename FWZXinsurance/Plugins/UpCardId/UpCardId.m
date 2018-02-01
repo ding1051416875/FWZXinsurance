@@ -30,16 +30,13 @@
 }
 - (void)upCardId:(CDVInvokedUrlCommand *)command
 {
-//    <!--                UpCardId.upCardId (success(function), error(function)-->
-//                                           <!--                                   , customerId, policyId, seqNum, type, customerType, url);-->
-//    <!--                                   success :成功回调；-->
-//    <!--                                   error：失败回调;-->
-//    <!--                                   customerId：customerId;-->
-//    <!--                                   policyId : policyId;-->
-//    <!--                                   seqNum : seqNum（1正面，2反面）；-->
-//    <!--                                   type:上传文件类型，0为身份证，1为签名-->
-//    <!--                                   customerType: 0投保人，1被保人，2代理人-->
-//    <!--                                   url ：上传服务器。-->
+
+//                                      customerId：customerId;
+//                                      policyId : policyId;
+//                                      seqNum : seqNum（1正面，2反面）
+//                                      type:上传文件类型，0为身份证，1为签名
+//                                      customerType: 0投保人，1被保人，2代理人
+//                                      url ：上传服务器
     //返回值
      _command =command;
     _customerId= [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:0]];
@@ -49,14 +46,14 @@
     _type = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:3]];
     _customerType = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:4]];
     NSString *type = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:5]];
+    if ([Check isEmptyString:type]) {
+        [ProgressHUD showError:@"传入类型为空"];
+        return;
+    }
     _card_type = type;
     int inttype= [type intValue];
     _url = [NSString stringWithFormat:@"%@",[command.arguments objectAtIndex:6]];
-//    if ([Check isEmptyString:_customerId]||[Check isEmptyString:_policyId]||[Check isEmptyString:_seqNum]||[Check isEmptyString:_type]||[Check isEmptyString:_customerType]||[Check isEmptyString:_url]) {
-////        [ProgressHUD showError:@"传入数据为空"];
-//        [MBProgressHUD showError:@"传入数据为空" toView:self.viewController.view];
-//        return;
-//    }
+
     IDCardCameraViewController *cameraVC = [[IDCardCameraViewController alloc] init];
     cameraVC.recogType = inttype;
     cameraVC.typeName = [NSString speciality:type];
@@ -68,13 +65,15 @@
             
         }else if(isSuccess == NO){
             [dict setValue:@"0" forKey:@"result_code"];
-            [dict setValue:@"识别失败" forKey:@"result_msg"];
+            [dict setValue:resultdict[@"result"] forKey:@"result_msg"];
             CDVPluginResult *result = nil;
             result=[CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR messageAsDictionary:dict];
             [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
         }
+        
+     
     };
-    [self.viewController presentViewController:cameraVC animated:YES completion:nil];
+    [self.viewController.navigationController pushViewController:cameraVC animated:YES];
 
 
 }
@@ -95,9 +94,11 @@
     if (![Check isEmptyString:_customerType]) {
         [rdict setObject:_customerType forKey:@"customerType"];
     }
-    
     NSMutableArray *array = [[NSMutableArray alloc] init];
     [array addObject:image];
+    if (array.count==0) {
+        return;
+    }
     [HttpTool postWithPath:_url name:@"file" imagePathList:array params:rdict success:^(id responseObj) {
         NSDictionary *data = [NSJSONSerialization JSONObjectWithData:responseObj options:NSJSONReadingMutableContainers error:nil];
         NSString *result = [NSString stringWithFormat:@"%@",data[@"code"]];
@@ -110,11 +111,11 @@
             
             }
             NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-            NSString *jsStr = [NSString stringWithFormat:@"mdResult('%@',)",[resultdict mj_JSONString]];
+            NSString *jsStr = [NSString stringWithFormat:@"%@",[resultdict mj_JSONString]];
             [dict setObject:jsStr forKey:@"result_info"];
             [dict setValue:@"1" forKey:@"result_code"];
             [dict setValue:@"图片上传成功" forKey:@"result_msg"];
-            [dict setValue:dict[@"data"] forKey:@"result_data"];
+            [dict setValue:data[@"data"] forKey:@"result_data"];
             [dict setValue:_card_type forKey:@"result_type"];
             CDVPluginResult *resultcd = nil;
             resultcd=[CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsDictionary:dict];

@@ -10,17 +10,8 @@
 
 @interface AreaModel : NSObject
 
-//县区名字
-@property (nonatomic,copy) NSString *name;
-
-//编号
-@property (nonatomic,copy) NSString *code;
-
-//区列表
-@property (nonatomic,strong) NSArray *areaList;
-
-- (instancetype)initWithDict:(NSDictionary *)dict;
-
-+ (instancetype)areaModelWithDict:(NSDictionary *)dict;
-
+@property(nonatomic,strong)NSString *name;
+@property (nonatomic,strong) NSString *code;
+@property (nonatomic,strong) NSString *postCode;
++(instancetype)showDistrictDataWith:(NSDictionary *)dic;
 @end

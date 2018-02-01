@@ -14,10 +14,9 @@
 // 屏幕高度
 #define ScreenHeight [UIScreen mainScreen].bounds.size.height
 
-typedef void(^determineBtnActionBlock)(NSInteger shengId, NSInteger shiId, NSInteger xianId, NSString *shengName, NSString *shiName, NSString *xianName);
+typedef void(^determineBtnActionBlock)(NSString *shengId, NSString *shiId, NSString *xianId, NSString *shengName, NSString *shiName, NSString *xianName,NSString *postCode);
 
 @interface ZmjPickView : UIView
-
 @property (copy, nonatomic) determineBtnActionBlock determineBtnBlock;
 
 - (void)show;

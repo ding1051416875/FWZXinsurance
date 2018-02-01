@@ -85,7 +85,7 @@
         }
 //        [self.commandDelegate sendPluginResult:result callbackId:command.callbackId];
     };
-    [self.viewController presentViewController:vc animated:YES completion:nil];
+    [self.viewController.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)uploadImageToService:(UIImage *)filePath command:(CDVInvokedUrlCommand *)command

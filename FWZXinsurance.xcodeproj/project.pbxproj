@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		350CB1A31FF1316100652833 /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 350CB1971FF1316100652833 /* UMSocialSDKResources.bundle */; };
-		350CB1A41FF1316100652833 /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 350CB1981FF1316100652833 /* UShareUI.framework */; };
 		350CB1A51FF1316100652833 /* UMSocialNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 350CB19A1FF1316100652833 /* UMSocialNetwork.framework */; };
 		350CB1A61FF1316100652833 /* UMSocialSDKPromptResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 350CB19B1FF1316100652833 /* UMSocialSDKPromptResources.bundle */; };
 		350CB1A71FF1316100652833 /* UMSocialCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 350CB19C1FF1316100652833 /* UMSocialCore.framework */; };
@@ -81,7 +79,6 @@
 		3511ADA11FEB83750026FA3B /* SDPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3511AD0D1FEB83710026FA3B /* SDPhotoBrowser.m */; };
 		3511ADA21FEB83750026FA3B /* SDWaitingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3511AD0E1FEB83710026FA3B /* SDWaitingView.m */; };
 		3511ADA31FEB83750026FA3B /* SDBrowserImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3511AD0F1FEB83710026FA3B /* SDBrowserImageView.m */; };
-		3511ADAB1FEB83750026FA3B /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 3511AD231FEB83730026FA3B /* README.md */; };
 		3511ADAC1FEB83750026FA3B /* GTMBase64.m in Sources */ = {isa = PBXBuildFile; fileRef = 3511AD251FEB83730026FA3B /* GTMBase64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		3511ADAD1FEB83750026FA3B /* SVRadialGradientLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3511AD271FEB83730026FA3B /* SVRadialGradientLayer.m */; };
 		3511ADAE1FEB83750026FA3B /* SVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 3511AD2C1FEB83730026FA3B /* SVProgressHUD.m */; };
@@ -103,6 +100,67 @@
 		3511ADC61FEB83750026FA3B /* qrcode_scan_light_green@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3511AD541FEB83750026FA3B /* qrcode_scan_light_green@2x.png */; };
 		3511ADC71FEB83750026FA3B /* qrcode_scan_bar@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3511AD551FEB83750026FA3B /* qrcode_scan_bar@2x.png */; };
 		3511ADC91FEB83AC0026FA3B /* iflyMSC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3511ADC81FEB83AC0026FA3B /* iflyMSC.framework */; };
+		3512EC461FF5E5F900672FF3 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3512EC451FF5E5F800672FF3 /* libsqlite3.0.tbd */; };
+		3512EC491FF5E7FD00672FF3 /* UMSocialSDKResources.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 3512EC481FF5E7FD00672FF3 /* UMSocialSDKResources.bundle */; };
+		3512EC4B1FF5E80400672FF3 /* UShareUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3512EC4A1FF5E80400672FF3 /* UShareUI.framework */; };
+		3513443B201A05DC001DE10E /* DBSphereView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513443A201A05DC001DE10E /* DBSphereView.m */; };
+		3513443D201A32F3001DE10E /* fengchedata.json in Resources */ = {isa = PBXBuildFile; fileRef = 3513443C201A32F2001DE10E /* fengchedata.json */; };
+		351344BA201A3372001DE10E /* LOTRenderNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134441201A3372001DE10E /* LOTRenderNode.m */; };
+		351344BB201A3372001DE10E /* LOTTrimPathNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134446201A3372001DE10E /* LOTTrimPathNode.m */; };
+		351344BC201A3372001DE10E /* LOTColorInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134448201A3372001DE10E /* LOTColorInterpolator.m */; };
+		351344BD201A3372001DE10E /* LOTPathInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134449201A3372001DE10E /* LOTPathInterpolator.m */; };
+		351344BE201A3372001DE10E /* LOTSizeInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134451201A3372001DE10E /* LOTSizeInterpolator.m */; };
+		351344BF201A3372001DE10E /* LOTPointInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134453201A3372001DE10E /* LOTPointInterpolator.m */; };
+		351344C0201A3372001DE10E /* LOTValueInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134454201A3372001DE10E /* LOTValueInterpolator.m */; };
+		351344C1201A3372001DE10E /* LOTTransformInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134455201A3372001DE10E /* LOTTransformInterpolator.m */; };
+		351344C2201A3372001DE10E /* LOTArrayInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134456201A3372001DE10E /* LOTArrayInterpolator.m */; };
+		351344C3201A3372001DE10E /* LOTNumberInterpolator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134457201A3372001DE10E /* LOTNumberInterpolator.m */; };
+		351344C4201A3372001DE10E /* LOTAnimatorNode.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134458201A3372001DE10E /* LOTAnimatorNode.m */; };
+		351344C5201A3372001DE10E /* LOTPathAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513445A201A3372001DE10E /* LOTPathAnimator.m */; };
+		351344C6201A3372001DE10E /* LOTPolystarAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513445B201A3372001DE10E /* LOTPolystarAnimator.m */; };
+		351344C7201A3372001DE10E /* LOTPolygonAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513445C201A3372001DE10E /* LOTPolygonAnimator.m */; };
+		351344C8201A3372001DE10E /* LOTCircleAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513445E201A3372001DE10E /* LOTCircleAnimator.m */; };
+		351344C9201A3372001DE10E /* LOTRoundedRectAnimator.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134462201A3372001DE10E /* LOTRoundedRectAnimator.m */; };
+		351344CA201A3372001DE10E /* LOTRenderGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134465201A3372001DE10E /* LOTRenderGroup.m */; };
+		351344CB201A3372001DE10E /* LOTGradientFillRender.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134466201A3372001DE10E /* LOTGradientFillRender.m */; };
+		351344CC201A3372001DE10E /* LOTStrokeRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513446B201A3372001DE10E /* LOTStrokeRenderer.m */; };
+		351344CD201A3372001DE10E /* LOTFillRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513446C201A3372001DE10E /* LOTFillRenderer.m */; };
+		351344CE201A3372001DE10E /* LOTRepeaterRenderer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513446E201A3372001DE10E /* LOTRepeaterRenderer.m */; };
+		351344CF201A3372001DE10E /* LOTMask.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134470201A3372001DE10E /* LOTMask.m */; };
+		351344D0201A3372001DE10E /* LOTLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134471201A3372001DE10E /* LOTLayer.m */; };
+		351344D1201A3372001DE10E /* LOTAssetGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134472201A3372001DE10E /* LOTAssetGroup.m */; };
+		351344D2201A3372001DE10E /* LOTLayerGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134477201A3372001DE10E /* LOTLayerGroup.m */; };
+		351344D3201A3372001DE10E /* LOTShapeStar.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134478201A3372001DE10E /* LOTShapeStar.m */; };
+		351344D4201A3372001DE10E /* LOTShapeTrimPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134479201A3372001DE10E /* LOTShapeTrimPath.m */; };
+		351344D5201A3372001DE10E /* LOTShapeGradientFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513447D201A3372001DE10E /* LOTShapeGradientFill.m */; };
+		351344D6201A3372001DE10E /* LOTAsset.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134480201A3372001DE10E /* LOTAsset.m */; };
+		351344D7201A3372001DE10E /* LOTShapeRepeater.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134482201A3372001DE10E /* LOTShapeRepeater.m */; };
+		351344D8201A3372001DE10E /* LOTShapeRectangle.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134484201A3372001DE10E /* LOTShapeRectangle.m */; };
+		351344D9201A3372001DE10E /* LOTShapeCircle.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134489201A3372001DE10E /* LOTShapeCircle.m */; };
+		351344DA201A3372001DE10E /* LOTShapePath.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513448A201A3372001DE10E /* LOTShapePath.m */; };
+		351344DB201A3372001DE10E /* LOTShapeGroup.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513448B201A3372001DE10E /* LOTShapeGroup.m */; };
+		351344DC201A3372001DE10E /* LOTShapeFill.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513448D201A3372001DE10E /* LOTShapeFill.m */; };
+		351344DD201A3372001DE10E /* LOTShapeTransform.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513448E201A3372001DE10E /* LOTShapeTransform.m */; };
+		351344DE201A3372001DE10E /* LOTShapeStroke.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134490201A3372001DE10E /* LOTShapeStroke.m */; };
+		351344DF201A3372001DE10E /* CGGeometry+LOTAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134493201A3372001DE10E /* CGGeometry+LOTAdditions.m */; };
+		351344E0201A3372001DE10E /* LOTBezierPath.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134494201A3372001DE10E /* LOTBezierPath.m */; };
+		351344E1201A3372001DE10E /* UIColor+Expanded.m in Sources */ = {isa = PBXBuildFile; fileRef = 35134498201A3372001DE10E /* UIColor+Expanded.m */; };
+		351344E2201A3372001DE10E /* UIColor.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513449D201A3372001DE10E /* UIColor.m */; };
+		351344E3201A3372001DE10E /* NSValue+Compat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3513449F201A3372001DE10E /* NSValue+Compat.m */; };
+		351344E4201A3372001DE10E /* CALayer+Compat.m in Sources */ = {isa = PBXBuildFile; fileRef = 351344A0201A3372001DE10E /* CALayer+Compat.m */; };
+		351344E5201A3372001DE10E /* LOTAnimationCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 351344A2201A3372001DE10E /* LOTAnimationCache.m */; };
+		351344E6201A3372001DE10E /* LOTComposition.m in Sources */ = {isa = PBXBuildFile; fileRef = 351344A3201A3372001DE10E /* LOTComposition.m */; };
+		351344E7201A3372001DE10E /* LOTAnimationView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351344A4201A3372001DE10E /* LOTAnimationView.m */; };
+		351344E8201A3372001DE10E /* LOTAnimationTransitionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 351344A5201A3372001DE10E /* LOTAnimationTransitionController.m */; };
+		351344E9201A3372001DE10E /* LOTKeyframe.m in Sources */ = {isa = PBXBuildFile; fileRef = 351344A8201A3372001DE10E /* LOTKeyframe.m */; };
+		351344EA201A3372001DE10E /* LOTBezierData.m in Sources */ = {isa = PBXBuildFile; fileRef = 351344A9201A3372001DE10E /* LOTBezierData.m */; };
+		351344EB201A3372001DE10E /* LOTLayerContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 351344AD201A3372001DE10E /* LOTLayerContainer.m */; };
+		351344EC201A3372001DE10E /* LOTCompositionContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 351344B1201A3372001DE10E /* LOTCompositionContainer.m */; };
+		351344ED201A3372001DE10E /* LOTMaskContainer.m in Sources */ = {isa = PBXBuildFile; fileRef = 351344B2201A3372001DE10E /* LOTMaskContainer.m */; };
+		351344F6201A337C001DE10E /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 351344EF201A337C001DE10E /* LICENSE */; };
+		351344F7201A337C001DE10E /* OLImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351344F0201A337C001DE10E /* OLImageView.m */; };
+		351344F8201A337C001DE10E /* OLImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 351344F1201A337C001DE10E /* OLImage.m */; };
+		351344F9201A337C001DE10E /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 351344F2201A337C001DE10E /* README.md */; };
 		351870F01FEA0431002DF73E /* AddressPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351870ED1FEA0431002DF73E /* AddressPickView.m */; };
 		351870F11FEA0431002DF73E /* AddressPickTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 351870EE1FEA0431002DF73E /* AddressPickTableView.m */; };
 		351870F61FEA04E1002DF73E /* AddrObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 351870F31FEA04E1002DF73E /* AddrObject.m */; };
@@ -119,7 +177,6 @@
 		35251A651FF0E20C008F38A4 /* IDCardCameraViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 35251A471FF0E20C008F38A4 /* IDCardCameraViewController.mm */; };
 		35251A661FF0E20C008F38A4 /* IDCardCameraViewController_auto.m in Sources */ = {isa = PBXBuildFile; fileRef = 35251A491FF0E20C008F38A4 /* IDCardCameraViewController_auto.m */; };
 		35251A671FF0E20C008F38A4 /* IDCardOverView_auto.m in Sources */ = {isa = PBXBuildFile; fileRef = 35251A4A1FF0E20C008F38A4 /* IDCardOverView_auto.m */; };
-		35251A691FF0E20C008F38A4 /* wtproject.lsc in Resources */ = {isa = PBXBuildFile; fileRef = 35251A4E1FF0E20C008F38A4 /* wtproject.lsc */; };
 		35251A6B1FF0E20C008F38A4 /* flash_camera_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35251A511FF0E20C008F38A4 /* flash_camera_btn@2x.png */; };
 		35251A6C1FF0E20C008F38A4 /* flash_camera_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35251A521FF0E20C008F38A4 /* flash_camera_btn@3x.png */; };
 		35251A6D1FF0E20C008F38A4 /* take_pic_btn@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35251A531FF0E20C008F38A4 /* take_pic_btn@3x.png */; };
@@ -135,17 +192,12 @@
 		35251A7D1FF0ECFC008F38A4 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35251A7C1FF0ECFC008F38A4 /* ViewController.m */; };
 		35251A801FF0F3FC008F38A4 /* xiangce@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35251A7E1FF0F3FB008F38A4 /* xiangce@3x.png */; };
 		35251A811FF0F3FC008F38A4 /* xiangce@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35251A7F1FF0F3FC008F38A4 /* xiangce@2x.png */; };
-		352E68CF1FE246A50000CF96 /* CCPClipCaremaImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 352E68CA1FE246A40000CF96 /* CCPClipCaremaImage.m */; };
-		352E68D01FE246A50000CF96 /* UIImage+Rotate.m in Sources */ = {isa = PBXBuildFile; fileRef = 352E68CB1FE246A40000CF96 /* UIImage+Rotate.m */; };
-		352E68D41FE246BB0000CF96 /* CameraViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 352E68D31FE246BB0000CF96 /* CameraViewController.m */; };
-		352E68DB1FE268F60000CF96 /* UIImage+SubImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 352E68D91FE268F50000CF96 /* UIImage+SubImage.m */; };
-		352E68DE1FE2776A0000CF96 /* cardfront.png in Resources */ = {isa = PBXBuildFile; fileRef = 352E68DC1FE277690000CF96 /* cardfront.png */; };
-		352E68DF1FE2776A0000CF96 /* cardback.png in Resources */ = {isa = PBXBuildFile; fileRef = 352E68DD1FE2776A0000CF96 /* cardback.png */; };
 		3540E6C01FD7B78900F48F6B /* Add.m in Sources */ = {isa = PBXBuildFile; fileRef = 3540E6BF1FD7B78900F48F6B /* Add.m */; };
-		3540E6C31FD7B88F00F48F6B /* ZmjPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3540E6C21FD7B88F00F48F6B /* ZmjPickView.m */; };
-		3540E6C71FD7B89A00F48F6B /* sheng.json in Resources */ = {isa = PBXBuildFile; fileRef = 3540E6C41FD7B89800F48F6B /* sheng.json */; };
-		3540E6C81FD7B89A00F48F6B /* xian.json in Resources */ = {isa = PBXBuildFile; fileRef = 3540E6C51FD7B89900F48F6B /* xian.json */; };
-		3540E6C91FD7B89A00F48F6B /* shi.json in Resources */ = {isa = PBXBuildFile; fileRef = 3540E6C61FD7B89A00F48F6B /* shi.json */; };
+		35518CD7201ACE4C00194122 /* wtproject.lsc in Resources */ = {isa = PBXBuildFile; fileRef = 350DDFBF201ACA8D00E69E82 /* wtproject.lsc */; };
+		3558639F2020D17F0065ADD7 /* GSAudioTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3558639D2020D17F0065ADD7 /* GSAudioTool.m */; };
+		355863A42020D2EC0065ADD7 /* 许嵩庐州月.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 355863A32020D2EC0065ADD7 /* 许嵩庐州月.mp3 */; };
+		355863AE2021D21E0065ADD7 /* libmtasdk.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 355863AA2021D2180065ADD7 /* libmtasdk.a */; };
+		355863B02021D2A50065ADD7 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 355863AF2021D2A50065ADD7 /* CFNetwork.framework */; };
 		355BFD4A1FD088C600CDCB9B /* Pen.m in Sources */ = {isa = PBXBuildFile; fileRef = 355BFD401FD088C600CDCB9B /* Pen.m */; };
 		355BFD4B1FD088C600CDCB9B /* PSDataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 355BFD431FD088C600CDCB9B /* PSDataManager.m */; };
 		355BFD4C1FD088C600CDCB9B /* PSDrawBoarderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 355BFD451FD088C600CDCB9B /* PSDrawBoarderView.m */; };
@@ -170,24 +222,37 @@
 		3560E7541FCD676300E7A2C5 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3560E7531FCD675D00E7A2C5 /* QuartzCore.framework */; };
 		3560E7561FCD677500E7A2C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3560E7551FCD676E00E7A2C5 /* CoreGraphics.framework */; };
 		3560E7581FCD678E00E7A2C5 /* libicucore.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 3560E7571FCD678E00E7A2C5 /* libicucore.tbd */; };
+		3566D0C81FF607AB003E3F70 /* text.ppt in Resources */ = {isa = PBXBuildFile; fileRef = 3566D0C71FF607AA003E3F70 /* text.ppt */; };
+		3566D0CE1FF60FB9003E3F70 /* QLPreviewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3566D0CD1FF60FB9003E3F70 /* QLPreviewViewController.m */; };
 		3583B90D1FDA6A16006C2867 /* UpCardId.m in Sources */ = {isa = PBXBuildFile; fileRef = 3583B90C1FDA6A16006C2867 /* UpCardId.m */; };
 		3583B9131FDA6D02006C2867 /* BaseHttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3583B90F1FDA6D02006C2867 /* BaseHttpTool.m */; };
 		3583B9141FDA6D02006C2867 /* HttpTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 3583B9121FDA6D02006C2867 /* HttpTool.m */; };
+		35B0873B200F212D00778D7F /* BankCardOverView_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B08737200F212C00778D7F /* BankCardOverView_iPad.m */; };
+		35B0873C200F212D00778D7F /* BankCardCameraViewController_iPad.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B0873A200F212C00778D7F /* BankCardCameraViewController_iPad.m */; };
+		35B08744200F223C00778D7F /* BankCardResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B08742200F223B00778D7F /* BankCardResultViewController.m */; };
+		35B08746200F232000778D7F /* BundleForBankCard.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 35B08745200F232000778D7F /* BundleForBankCard.bundle */; };
+		35B0874B200F3B7800778D7F /* libBankCardRecogPro.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 35B08748200F3B7800778D7F /* libBankCardRecogPro.a */; };
+		35B6F77F1FF3CEDD00B1897C /* DistrictDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B6F7771FF3CEDC00B1897C /* DistrictDataModel.m */; };
+		35B6F7801FF3CEDD00B1897C /* ProvinceDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B6F77A1FF3CEDC00B1897C /* ProvinceDataModel.m */; };
+		35B6F7811FF3CEDD00B1897C /* CityDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B6F77C1FF3CEDD00B1897C /* CityDataModel.m */; };
+		35B6F7821FF3CEDD00B1897C /* JobPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B6F77E1FF3CEDD00B1897C /* JobPickView.m */; };
+		35B6F78E1FF3F3EF00B1897C /* AreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B6F7871FF3F3ED00B1897C /* AreaModel.m */; };
+		35B6F78F1FF3F3EF00B1897C /* ZmjPickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B6F7891FF3F3EE00B1897C /* ZmjPickView.m */; };
+		35B6F7901FF3F3EF00B1897C /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B6F78B1FF3F3EE00B1897C /* CityModel.m */; };
+		35B6F7911FF3F3EF00B1897C /* ProvinceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35B6F78C1FF3F3EF00B1897C /* ProvinceModel.m */; };
 		35BA0F401FCE451100D969F8 /* WebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35BA0F3F1FCE451100D969F8 /* WebViewController.m */; };
 		35C1FE911FE79184009977AB /* UIView+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C1FE901FE79184009977AB /* UIView+Common.m */; };
 		35C1FE941FE7928D009977AB /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C1FE921FE7928C009977AB /* TestViewController.m */; };
 		35C1FE9A1FE79341009977AB /* OCRViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 35C1FE981FE79340009977AB /* OCRViewController.m */; };
-		35CE70571FD8EA5700309D98 /* add.json in Resources */ = {isa = PBXBuildFile; fileRef = 35CE70561FD8EA5600309D98 /* add.json */; };
-		35CE705E1FD8F04D00309D98 /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CE70591FD8F04900309D98 /* Model.m */; };
-		35CE705F1FD8F04D00309D98 /* AreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CE705A1FD8F04A00309D98 /* AreaModel.m */; };
-		35CE70601FD8F04D00309D98 /* CityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 35CE705D1FD8F04D00309D98 /* CityModel.m */; };
+		35C7E08E1FF25EE40070C481 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 35C7E08D1FF25EE40070C481 /* CoreMedia.framework */; };
+		35C7E0A11FF388800070C481 /* jobs.json in Resources */ = {isa = PBXBuildFile; fileRef = 35C7E09F1FF388800070C481 /* jobs.json */; };
+		35D6A72B1FF6423B0065B1D3 /* PPT.m in Sources */ = {isa = PBXBuildFile; fileRef = 35D6A72A1FF6423B0065B1D3 /* PPT.m */; };
+		35DE24B51FF624A40035922B /* address.json in Resources */ = {isa = PBXBuildFile; fileRef = 35DE24B41FF624A40035922B /* address.json */; };
 		35E101D91FDF864E00DCA575 /* PDF.m in Sources */ = {isa = PBXBuildFile; fileRef = 35E101D81FDF864E00DCA575 /* PDF.m */; };
 		35E101DB1FDF869D00DCA575 /* libc++abi.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 35E101DA1FDF869C00DCA575 /* libc++abi.tbd */; };
 		35ED0B0B1FEA54270008051C /* icon_dizhixuanze_duihao@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35ED0B091FEA54260008051C /* icon_dizhixuanze_duihao@3x.png */; };
 		35ED0B0C1FEA54270008051C /* icon_dizhixuanze_duihao@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35ED0B0A1FEA54260008051C /* icon_dizhixuanze_duihao@2x.png */; };
 		35ED0B141FEA59E70008051C /* Occupation.m in Sources */ = {isa = PBXBuildFile; fileRef = 35ED0B131FEA59E70008051C /* Occupation.m */; };
-		35ED3BF81FE929830018E613 /* markBottomMView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35ED3BF71FE929830018E613 /* markBottomMView@2x.png */; };
-		35ED3BFA1FE9298F0018E613 /* markTopMView@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 35ED3BF91FE9298E0018E613 /* markTopMView@2x.png */; };
 		8F596F631FC70985007027C2 /* www in Resources */ = {isa = PBXBuildFile; fileRef = 8F596F621FC70985007027C2 /* www */; };
 		8F59700D1FC712E2007027C2 /* libiconv.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F59700C1FC712B5007027C2 /* libiconv.tbd */; };
 		8F59B7CE1FBD716E00CEC183 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F59B7CD1FBD716E00CEC183 /* AppDelegate.m */; };
@@ -221,12 +286,6 @@
 		8F59B8591FBD731000CEC183 /* CDVWhitelist.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F59B83F1FBD731000CEC183 /* CDVWhitelist.m */; };
 		8F59B85A1FBD731000CEC183 /* NSDictionary+CordovaPreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F59B8411FBD731000CEC183 /* NSDictionary+CordovaPreferences.m */; };
 		8F59B85B1FBD731000CEC183 /* NSMutableArray+QueueAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F59B8431FBD731000CEC183 /* NSMutableArray+QueueAdditions.m */; };
-		8F5D55EF1FCBF27400581521 /* IdcardQuality.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D55EC1FCBF27400581521 /* IdcardQuality.framework */; };
-		8F5D55F01FCBF2A600581521 /* AipBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D55EB1FCBF27400581521 /* AipBase.framework */; };
-		8F5D55F11FCBF2A600581521 /* AipBase.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D55EB1FCBF27400581521 /* AipBase.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8F5D55F31FCBF2AA00581521 /* AipOcrSdk.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D55EA1FCBF27300581521 /* AipOcrSdk.framework */; };
-		8F5D55F41FCBF2AA00581521 /* AipOcrSdk.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D55EA1FCBF27300581521 /* AipOcrSdk.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		8F5D55F61FCBF2AE00581521 /* IdcardQuality.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8F5D55EC1FCBF27400581521 /* IdcardQuality.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8F9BA7671FC7CA510072B1D8 /* SortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BA75F1FC7CA510072B1D8 /* SortViewController.m */; };
 		8F9BA76D1FC7CA840072B1D8 /* Check.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BA76B1FC7CA840072B1D8 /* Check.m */; };
 		8F9BA7711FC7CAA40072B1D8 /* Maker.m in Sources */ = {isa = PBXBuildFile; fileRef = 8F9BA7701FC7CAA40072B1D8 /* Maker.m */; };
@@ -279,9 +338,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				8F5D55F11FCBF2A600581521 /* AipBase.framework in Embed Frameworks */,
-				8F5D55F41FCBF2AA00581521 /* AipOcrSdk.framework in Embed Frameworks */,
-				8F5D55F61FCBF2AE00581521 /* IdcardQuality.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -289,14 +345,13 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		350CB1971FF1316100652833 /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
-		350CB1981FF1316100652833 /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
 		350CB19A1FF1316100652833 /* UMSocialNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialNetwork.framework; sourceTree = "<group>"; };
 		350CB19B1FF1316100652833 /* UMSocialSDKPromptResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKPromptResources.bundle; sourceTree = "<group>"; };
 		350CB19C1FF1316100652833 /* UMSocialCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UMSocialCore.framework; sourceTree = "<group>"; };
 		350CB19F1FF1316100652833 /* libSocialWeChat.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libSocialWeChat.a; sourceTree = "<group>"; };
 		350CB1A01FF1316100652833 /* UMSocialWechatHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UMSocialWechatHandler.h; sourceTree = "<group>"; };
 		350CB1A21FF1316100652833 /* libUMSocialLog.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libUMSocialLog.a; sourceTree = "<group>"; };
+		350DDFBF201ACA8D00E69E82 /* wtproject.lsc */ = {isa = PBXFileReference; lastKnownFileType = file; path = wtproject.lsc; sourceTree = "<group>"; };
 		3510E4B71FCE8B4600BFB583 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		3510E4B91FCE8B9700BFB583 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		3510E4BE1FCE8EFB00BFB583 /* CeshiPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CeshiPlugin.h; sourceTree = "<group>"; };
@@ -481,6 +536,131 @@
 		3511AD6C1FEB83750026FA3B /* ZBarReaderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZBarReaderViewController.h; sourceTree = "<group>"; };
 		3511AD6D1FEB83750026FA3B /* ZCZBarViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZCZBarViewController.h; sourceTree = "<group>"; };
 		3511ADC81FEB83AC0026FA3B /* iflyMSC.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = iflyMSC.framework; sourceTree = "<group>"; };
+		3512EC451FF5E5F800672FF3 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
+		3512EC481FF5E7FD00672FF3 /* UMSocialSDKResources.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = UMSocialSDKResources.bundle; sourceTree = "<group>"; };
+		3512EC4A1FF5E80400672FF3 /* UShareUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = UShareUI.framework; sourceTree = "<group>"; };
+		35134437201A05DC001DE10E /* DBPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBPoint.h; sourceTree = "<group>"; };
+		35134438201A05DC001DE10E /* DBSphereView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBSphereView.h; sourceTree = "<group>"; };
+		35134439201A05DC001DE10E /* DBMatrix.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DBMatrix.h; sourceTree = "<group>"; };
+		3513443A201A05DC001DE10E /* DBSphereView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DBSphereView.m; sourceTree = "<group>"; };
+		3513443C201A32F2001DE10E /* fengchedata.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = fengchedata.json; sourceTree = "<group>"; };
+		35134441201A3372001DE10E /* LOTRenderNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRenderNode.m; sourceTree = "<group>"; };
+		35134442201A3372001DE10E /* LOTAnimatorNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTAnimatorNode.h; sourceTree = "<group>"; };
+		35134443201A3372001DE10E /* LOTRenderNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRenderNode.h; sourceTree = "<group>"; };
+		35134445201A3372001DE10E /* LOTTrimPathNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTTrimPathNode.h; sourceTree = "<group>"; };
+		35134446201A3372001DE10E /* LOTTrimPathNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTTrimPathNode.m; sourceTree = "<group>"; };
+		35134448201A3372001DE10E /* LOTColorInterpolator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTColorInterpolator.m; sourceTree = "<group>"; };
+		35134449201A3372001DE10E /* LOTPathInterpolator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTPathInterpolator.m; sourceTree = "<group>"; };
+		3513444A201A3372001DE10E /* LOTSizeInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTSizeInterpolator.h; sourceTree = "<group>"; };
+		3513444B201A3372001DE10E /* LOTValueInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTValueInterpolator.h; sourceTree = "<group>"; };
+		3513444C201A3372001DE10E /* LOTPointInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTPointInterpolator.h; sourceTree = "<group>"; };
+		3513444D201A3372001DE10E /* LOTNumberInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTNumberInterpolator.h; sourceTree = "<group>"; };
+		3513444E201A3372001DE10E /* LOTTransformInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTTransformInterpolator.h; sourceTree = "<group>"; };
+		3513444F201A3372001DE10E /* LOTArrayInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTArrayInterpolator.h; sourceTree = "<group>"; };
+		35134450201A3372001DE10E /* LOTColorInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTColorInterpolator.h; sourceTree = "<group>"; };
+		35134451201A3372001DE10E /* LOTSizeInterpolator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTSizeInterpolator.m; sourceTree = "<group>"; };
+		35134452201A3372001DE10E /* LOTPathInterpolator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTPathInterpolator.h; sourceTree = "<group>"; };
+		35134453201A3372001DE10E /* LOTPointInterpolator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTPointInterpolator.m; sourceTree = "<group>"; };
+		35134454201A3372001DE10E /* LOTValueInterpolator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTValueInterpolator.m; sourceTree = "<group>"; };
+		35134455201A3372001DE10E /* LOTTransformInterpolator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTTransformInterpolator.m; sourceTree = "<group>"; };
+		35134456201A3372001DE10E /* LOTArrayInterpolator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTArrayInterpolator.m; sourceTree = "<group>"; };
+		35134457201A3372001DE10E /* LOTNumberInterpolator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTNumberInterpolator.m; sourceTree = "<group>"; };
+		35134458201A3372001DE10E /* LOTAnimatorNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTAnimatorNode.m; sourceTree = "<group>"; };
+		3513445A201A3372001DE10E /* LOTPathAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTPathAnimator.m; sourceTree = "<group>"; };
+		3513445B201A3372001DE10E /* LOTPolystarAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTPolystarAnimator.m; sourceTree = "<group>"; };
+		3513445C201A3372001DE10E /* LOTPolygonAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTPolygonAnimator.m; sourceTree = "<group>"; };
+		3513445D201A3372001DE10E /* LOTRoundedRectAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRoundedRectAnimator.h; sourceTree = "<group>"; };
+		3513445E201A3372001DE10E /* LOTCircleAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTCircleAnimator.m; sourceTree = "<group>"; };
+		3513445F201A3372001DE10E /* LOTPolystarAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTPolystarAnimator.h; sourceTree = "<group>"; };
+		35134460201A3372001DE10E /* LOTPathAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTPathAnimator.h; sourceTree = "<group>"; };
+		35134461201A3372001DE10E /* LOTCircleAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTCircleAnimator.h; sourceTree = "<group>"; };
+		35134462201A3372001DE10E /* LOTRoundedRectAnimator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRoundedRectAnimator.m; sourceTree = "<group>"; };
+		35134463201A3372001DE10E /* LOTPolygonAnimator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTPolygonAnimator.h; sourceTree = "<group>"; };
+		35134465201A3372001DE10E /* LOTRenderGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRenderGroup.m; sourceTree = "<group>"; };
+		35134466201A3372001DE10E /* LOTGradientFillRender.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTGradientFillRender.m; sourceTree = "<group>"; };
+		35134467201A3372001DE10E /* LOTFillRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTFillRenderer.h; sourceTree = "<group>"; };
+		35134468201A3372001DE10E /* LOTStrokeRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTStrokeRenderer.h; sourceTree = "<group>"; };
+		35134469201A3372001DE10E /* LOTRepeaterRenderer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRepeaterRenderer.h; sourceTree = "<group>"; };
+		3513446A201A3372001DE10E /* LOTRenderGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTRenderGroup.h; sourceTree = "<group>"; };
+		3513446B201A3372001DE10E /* LOTStrokeRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTStrokeRenderer.m; sourceTree = "<group>"; };
+		3513446C201A3372001DE10E /* LOTFillRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTFillRenderer.m; sourceTree = "<group>"; };
+		3513446D201A3372001DE10E /* LOTGradientFillRender.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTGradientFillRender.h; sourceTree = "<group>"; };
+		3513446E201A3372001DE10E /* LOTRepeaterRenderer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTRepeaterRenderer.m; sourceTree = "<group>"; };
+		35134470201A3372001DE10E /* LOTMask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTMask.m; sourceTree = "<group>"; };
+		35134471201A3372001DE10E /* LOTLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTLayer.m; sourceTree = "<group>"; };
+		35134472201A3372001DE10E /* LOTAssetGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTAssetGroup.m; sourceTree = "<group>"; };
+		35134473201A3372001DE10E /* LOTShapeRectangle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTShapeRectangle.h; sourceTree = "<group>"; };
+		35134474201A3372001DE10E /* LOTShapeRepeater.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTShapeRepeater.h; sourceTree = "<group>"; };
+		35134475201A3372001DE10E /* LOTAsset.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTAsset.h; sourceTree = "<group>"; };
+		35134476201A3372001DE10E /* LOTShapeCircle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTShapeCircle.h; sourceTree = "<group>"; };
+		35134477201A3372001DE10E /* LOTLayerGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTLayerGroup.m; sourceTree = "<group>"; };
+		35134478201A3372001DE10E /* LOTShapeStar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTShapeStar.m; sourceTree = "<group>"; };
+		35134479201A3372001DE10E /* LOTShapeTrimPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTShapeTrimPath.m; sourceTree = "<group>"; };
+		3513447A201A3372001DE10E /* LOTShapeGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTShapeGroup.h; sourceTree = "<group>"; };
+		3513447B201A3372001DE10E /* LOTShapePath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTShapePath.h; sourceTree = "<group>"; };
+		3513447C201A3372001DE10E /* LOTShapeStroke.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTShapeStroke.h; sourceTree = "<group>"; };
+		3513447D201A3372001DE10E /* LOTShapeGradientFill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTShapeGradientFill.m; sourceTree = "<group>"; };
+		3513447E201A3372001DE10E /* LOTShapeFill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTShapeFill.h; sourceTree = "<group>"; };
+		3513447F201A3372001DE10E /* LOTShapeTransform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTShapeTransform.h; sourceTree = "<group>"; };
+		35134480201A3372001DE10E /* LOTAsset.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTAsset.m; sourceTree = "<group>"; };
+		35134481201A3372001DE10E /* LOTModels.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTModels.h; sourceTree = "<group>"; };
+		35134482201A3372001DE10E /* LOTShapeRepeater.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTShapeRepeater.m; sourceTree = "<group>"; };
+		35134483201A3372001DE10E /* LOTAssetGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTAssetGroup.h; sourceTree = "<group>"; };
+		35134484201A3372001DE10E /* LOTShapeRectangle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTShapeRectangle.m; sourceTree = "<group>"; };
+		35134485201A3372001DE10E /* LOTLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTLayer.h; sourceTree = "<group>"; };
+		35134486201A3372001DE10E /* LOTMask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTMask.h; sourceTree = "<group>"; };
+		35134487201A3372001DE10E /* LOTShapeStar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTShapeStar.h; sourceTree = "<group>"; };
+		35134488201A3372001DE10E /* LOTLayerGroup.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTLayerGroup.h; sourceTree = "<group>"; };
+		35134489201A3372001DE10E /* LOTShapeCircle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTShapeCircle.m; sourceTree = "<group>"; };
+		3513448A201A3372001DE10E /* LOTShapePath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTShapePath.m; sourceTree = "<group>"; };
+		3513448B201A3372001DE10E /* LOTShapeGroup.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTShapeGroup.m; sourceTree = "<group>"; };
+		3513448C201A3372001DE10E /* LOTShapeTrimPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTShapeTrimPath.h; sourceTree = "<group>"; };
+		3513448D201A3372001DE10E /* LOTShapeFill.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTShapeFill.m; sourceTree = "<group>"; };
+		3513448E201A3372001DE10E /* LOTShapeTransform.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTShapeTransform.m; sourceTree = "<group>"; };
+		3513448F201A3372001DE10E /* LOTShapeGradientFill.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTShapeGradientFill.h; sourceTree = "<group>"; };
+		35134490201A3372001DE10E /* LOTShapeStroke.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTShapeStroke.m; sourceTree = "<group>"; };
+		35134492201A3372001DE10E /* LOTHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTHelpers.h; sourceTree = "<group>"; };
+		35134493201A3372001DE10E /* CGGeometry+LOTAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CGGeometry+LOTAdditions.m"; sourceTree = "<group>"; };
+		35134494201A3372001DE10E /* LOTBezierPath.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTBezierPath.m; sourceTree = "<group>"; };
+		35134495201A3372001DE10E /* UIColor+Expanded.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Expanded.h"; sourceTree = "<group>"; };
+		35134496201A3372001DE10E /* CGGeometry+LOTAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CGGeometry+LOTAdditions.h"; sourceTree = "<group>"; };
+		35134497201A3372001DE10E /* LOTBezierPath.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTBezierPath.h; sourceTree = "<group>"; };
+		35134498201A3372001DE10E /* UIColor+Expanded.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Expanded.m"; sourceTree = "<group>"; };
+		3513449A201A3372001DE10E /* UIColor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIColor.h; sourceTree = "<group>"; };
+		3513449B201A3372001DE10E /* CALayer+Compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CALayer+Compat.h"; sourceTree = "<group>"; };
+		3513449C201A3372001DE10E /* NSValue+Compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSValue+Compat.h"; sourceTree = "<group>"; };
+		3513449D201A3372001DE10E /* UIColor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIColor.m; sourceTree = "<group>"; };
+		3513449E201A3372001DE10E /* LOTPlatformCompat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTPlatformCompat.h; sourceTree = "<group>"; };
+		3513449F201A3372001DE10E /* NSValue+Compat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSValue+Compat.m"; sourceTree = "<group>"; };
+		351344A0201A3372001DE10E /* CALayer+Compat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CALayer+Compat.m"; sourceTree = "<group>"; };
+		351344A2201A3372001DE10E /* LOTAnimationCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTAnimationCache.m; sourceTree = "<group>"; };
+		351344A3201A3372001DE10E /* LOTComposition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTComposition.m; sourceTree = "<group>"; };
+		351344A4201A3372001DE10E /* LOTAnimationView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTAnimationView.m; sourceTree = "<group>"; };
+		351344A5201A3372001DE10E /* LOTAnimationTransitionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTAnimationTransitionController.m; sourceTree = "<group>"; };
+		351344A6201A3372001DE10E /* LOTAnimationView_Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTAnimationView_Internal.h; sourceTree = "<group>"; };
+		351344A8201A3372001DE10E /* LOTKeyframe.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTKeyframe.m; sourceTree = "<group>"; };
+		351344A9201A3372001DE10E /* LOTBezierData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTBezierData.m; sourceTree = "<group>"; };
+		351344AA201A3372001DE10E /* LOTKeyframe.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTKeyframe.h; sourceTree = "<group>"; };
+		351344AB201A3372001DE10E /* LOTBezierData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTBezierData.h; sourceTree = "<group>"; };
+		351344AD201A3372001DE10E /* LOTLayerContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTLayerContainer.m; sourceTree = "<group>"; };
+		351344AE201A3372001DE10E /* LOTCompositionContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTCompositionContainer.h; sourceTree = "<group>"; };
+		351344AF201A3372001DE10E /* LOTMaskContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTMaskContainer.h; sourceTree = "<group>"; };
+		351344B0201A3372001DE10E /* LOTLayerContainer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTLayerContainer.h; sourceTree = "<group>"; };
+		351344B1201A3372001DE10E /* LOTCompositionContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTCompositionContainer.m; sourceTree = "<group>"; };
+		351344B2201A3372001DE10E /* LOTMaskContainer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LOTMaskContainer.m; sourceTree = "<group>"; };
+		351344B4201A3372001DE10E /* LOTAnimationCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTAnimationCache.h; sourceTree = "<group>"; };
+		351344B5201A3372001DE10E /* Lottie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Lottie.h; sourceTree = "<group>"; };
+		351344B6201A3372001DE10E /* LOTComposition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTComposition.h; sourceTree = "<group>"; };
+		351344B7201A3372001DE10E /* LOTAnimationTransitionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTAnimationTransitionController.h; sourceTree = "<group>"; };
+		351344B8201A3372001DE10E /* LOTAnimationView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTAnimationView.h; sourceTree = "<group>"; };
+		351344B9201A3372001DE10E /* LOTAnimationView_Compat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LOTAnimationView_Compat.h; sourceTree = "<group>"; };
+		351344EF201A337C001DE10E /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		351344F0201A337C001DE10E /* OLImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OLImageView.m; sourceTree = "<group>"; };
+		351344F1201A337C001DE10E /* OLImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OLImage.m; sourceTree = "<group>"; };
+		351344F2201A337C001DE10E /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		351344F3201A337C001DE10E /* OLImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLImageView.h; sourceTree = "<group>"; };
+		351344F4201A337C001DE10E /* OLImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLImage.h; sourceTree = "<group>"; };
+		351344F5201A337C001DE10E /* OLImageViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OLImageViewDelegate.h; sourceTree = "<group>"; };
 		351870EC1FEA0431002DF73E /* AddressPickTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddressPickTableView.h; sourceTree = "<group>"; };
 		351870ED1FEA0431002DF73E /* AddressPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressPickView.m; sourceTree = "<group>"; };
 		351870EE1FEA0431002DF73E /* AddressPickTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddressPickTableView.m; sourceTree = "<group>"; };
@@ -509,7 +689,6 @@
 		35251A4A1FF0E20C008F38A4 /* IDCardOverView_auto.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IDCardOverView_auto.m; sourceTree = "<group>"; };
 		35251A4B1FF0E20C008F38A4 /* IDCardCameraViewController_auto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCardCameraViewController_auto.h; sourceTree = "<group>"; };
 		35251A4C1FF0E20C008F38A4 /* IDCardOverView_auto.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IDCardOverView_auto.h; sourceTree = "<group>"; };
-		35251A4E1FF0E20C008F38A4 /* wtproject.lsc */ = {isa = PBXFileReference; lastKnownFileType = file; path = wtproject.lsc; sourceTree = "<group>"; };
 		35251A511FF0E20C008F38A4 /* flash_camera_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash_camera_btn@2x.png"; sourceTree = "<group>"; };
 		35251A521FF0E20C008F38A4 /* flash_camera_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "flash_camera_btn@3x.png"; sourceTree = "<group>"; };
 		35251A531FF0E20C008F38A4 /* take_pic_btn@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "take_pic_btn@3x.png"; sourceTree = "<group>"; };
@@ -530,23 +709,17 @@
 		35251A7C1FF0ECFC008F38A4 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		35251A7E1FF0F3FB008F38A4 /* xiangce@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangce@3x.png"; sourceTree = "<group>"; };
 		35251A7F1FF0F3FC008F38A4 /* xiangce@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "xiangce@2x.png"; sourceTree = "<group>"; };
-		352E68CA1FE246A40000CF96 /* CCPClipCaremaImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CCPClipCaremaImage.m; sourceTree = "<group>"; };
-		352E68CB1FE246A40000CF96 /* UIImage+Rotate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Rotate.m"; sourceTree = "<group>"; };
-		352E68CD1FE246A40000CF96 /* CCPClipCaremaImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CCPClipCaremaImage.h; sourceTree = "<group>"; };
-		352E68CE1FE246A50000CF96 /* UIImage+Rotate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Rotate.h"; sourceTree = "<group>"; };
-		352E68D21FE246BB0000CF96 /* CameraViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraViewController.h; sourceTree = "<group>"; };
-		352E68D31FE246BB0000CF96 /* CameraViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CameraViewController.m; sourceTree = "<group>"; };
-		352E68D91FE268F50000CF96 /* UIImage+SubImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+SubImage.m"; sourceTree = "<group>"; };
-		352E68DA1FE268F60000CF96 /* UIImage+SubImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+SubImage.h"; sourceTree = "<group>"; };
-		352E68DC1FE277690000CF96 /* cardfront.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardfront.png; sourceTree = "<group>"; };
-		352E68DD1FE2776A0000CF96 /* cardback.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cardback.png; sourceTree = "<group>"; };
 		3540E6BE1FD7B78900F48F6B /* Add.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Add.h; sourceTree = "<group>"; };
 		3540E6BF1FD7B78900F48F6B /* Add.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Add.m; sourceTree = "<group>"; };
-		3540E6C11FD7B88E00F48F6B /* ZmjPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZmjPickView.h; sourceTree = "<group>"; };
-		3540E6C21FD7B88F00F48F6B /* ZmjPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZmjPickView.m; sourceTree = "<group>"; };
-		3540E6C41FD7B89800F48F6B /* sheng.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sheng.json; sourceTree = "<group>"; };
-		3540E6C51FD7B89900F48F6B /* xian.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = xian.json; sourceTree = "<group>"; };
-		3540E6C61FD7B89A00F48F6B /* shi.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shi.json; sourceTree = "<group>"; };
+		3558639D2020D17F0065ADD7 /* GSAudioTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GSAudioTool.m; sourceTree = "<group>"; };
+		3558639E2020D17F0065ADD7 /* GSAudioTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GSAudioTool.h; sourceTree = "<group>"; };
+		355863A02020D2050065ADD7 /* Singleton.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Singleton.h; sourceTree = "<group>"; };
+		355863A32020D2EC0065ADD7 /* 许嵩庐州月.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "许嵩庐州月.mp3"; sourceTree = "<group>"; };
+		355863AA2021D2180065ADD7 /* libmtasdk.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libmtasdk.a; sourceTree = "<group>"; };
+		355863AB2021D2190065ADD7 /* MTA.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTA.h; sourceTree = "<group>"; };
+		355863AC2021D21B0065ADD7 /* MTAConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTAConfig.h; sourceTree = "<group>"; };
+		355863AD2021D21E0065ADD7 /* MTACrashReporter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MTACrashReporter.h; sourceTree = "<group>"; };
+		355863AF2021D2A50065ADD7 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		355BFD3F1FD088C600CDCB9B /* Pen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pen.h; sourceTree = "<group>"; };
 		355BFD401FD088C600CDCB9B /* Pen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pen.m; sourceTree = "<group>"; };
 		355BFD421FD088C600CDCB9B /* PSDataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDataManager.h; sourceTree = "<group>"; };
@@ -577,12 +750,41 @@
 		3560E7531FCD675D00E7A2C5 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		3560E7551FCD676E00E7A2C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		3560E7571FCD678E00E7A2C5 /* libicucore.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libicucore.tbd; path = usr/lib/libicucore.tbd; sourceTree = SDKROOT; };
+		3566D0C71FF607AA003E3F70 /* text.ppt */ = {isa = PBXFileReference; lastKnownFileType = file; path = text.ppt; sourceTree = "<group>"; };
+		3566D0CC1FF60FB9003E3F70 /* QLPreviewViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QLPreviewViewController.h; sourceTree = "<group>"; };
+		3566D0CD1FF60FB9003E3F70 /* QLPreviewViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = QLPreviewViewController.m; sourceTree = "<group>"; };
 		3583B90B1FDA6A16006C2867 /* UpCardId.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UpCardId.h; sourceTree = "<group>"; };
 		3583B90C1FDA6A16006C2867 /* UpCardId.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UpCardId.m; sourceTree = "<group>"; };
 		3583B90F1FDA6D02006C2867 /* BaseHttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseHttpTool.m; sourceTree = "<group>"; };
 		3583B9101FDA6D02006C2867 /* HttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HttpTool.h; sourceTree = "<group>"; };
 		3583B9111FDA6D02006C2867 /* BaseHttpTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseHttpTool.h; sourceTree = "<group>"; };
 		3583B9121FDA6D02006C2867 /* HttpTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HttpTool.m; sourceTree = "<group>"; };
+		35B08737200F212C00778D7F /* BankCardOverView_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCardOverView_iPad.m; sourceTree = "<group>"; };
+		35B08738200F212C00778D7F /* BankCardCameraViewController_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardCameraViewController_iPad.h; sourceTree = "<group>"; };
+		35B08739200F212C00778D7F /* BankCardOverView_iPad.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardOverView_iPad.h; sourceTree = "<group>"; };
+		35B0873A200F212C00778D7F /* BankCardCameraViewController_iPad.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCardCameraViewController_iPad.m; sourceTree = "<group>"; };
+		35B08742200F223B00778D7F /* BankCardResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BankCardResultViewController.m; sourceTree = "<group>"; };
+		35B08743200F223C00778D7F /* BankCardResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardResultViewController.h; sourceTree = "<group>"; };
+		35B08745200F232000778D7F /* BundleForBankCard.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = BundleForBankCard.bundle; sourceTree = "<group>"; };
+		35B08748200F3B7800778D7F /* libBankCardRecogPro.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libBankCardRecogPro.a; sourceTree = "<group>"; };
+		35B08749200F3B7800778D7F /* BankCardRecogPro.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankCardRecogPro.h; sourceTree = "<group>"; };
+		35B0874A200F3B7800778D7F /* BankSlideLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BankSlideLine.h; sourceTree = "<group>"; };
+		35B6F7771FF3CEDC00B1897C /* DistrictDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DistrictDataModel.m; sourceTree = "<group>"; };
+		35B6F7781FF3CEDC00B1897C /* DistrictDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DistrictDataModel.h; sourceTree = "<group>"; };
+		35B6F7791FF3CEDC00B1897C /* JobPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JobPickView.h; sourceTree = "<group>"; };
+		35B6F77A1FF3CEDC00B1897C /* ProvinceDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceDataModel.m; sourceTree = "<group>"; };
+		35B6F77B1FF3CEDD00B1897C /* CityDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityDataModel.h; sourceTree = "<group>"; };
+		35B6F77C1FF3CEDD00B1897C /* CityDataModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityDataModel.m; sourceTree = "<group>"; };
+		35B6F77D1FF3CEDD00B1897C /* ProvinceDataModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceDataModel.h; sourceTree = "<group>"; };
+		35B6F77E1FF3CEDD00B1897C /* JobPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JobPickView.m; sourceTree = "<group>"; };
+		35B6F7861FF3F3ED00B1897C /* ZmjPickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZmjPickView.h; sourceTree = "<group>"; };
+		35B6F7871FF3F3ED00B1897C /* AreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaModel.m; sourceTree = "<group>"; };
+		35B6F7881FF3F3ED00B1897C /* AreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaModel.h; sourceTree = "<group>"; };
+		35B6F7891FF3F3EE00B1897C /* ZmjPickView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZmjPickView.m; sourceTree = "<group>"; };
+		35B6F78A1FF3F3EE00B1897C /* ProvinceModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProvinceModel.h; sourceTree = "<group>"; };
+		35B6F78B1FF3F3EE00B1897C /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		35B6F78C1FF3F3EF00B1897C /* ProvinceModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProvinceModel.m; sourceTree = "<group>"; };
+		35B6F78D1FF3F3EF00B1897C /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
 		35BA0F3E1FCE451100D969F8 /* WebViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WebViewController.h; sourceTree = "<group>"; };
 		35BA0F3F1FCE451100D969F8 /* WebViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WebViewController.m; sourceTree = "<group>"; };
 		35C1FE8F1FE79183009977AB /* UIView+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Common.h"; sourceTree = "<group>"; };
@@ -591,13 +793,11 @@
 		35C1FE931FE7928D009977AB /* TestViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestViewController.h; sourceTree = "<group>"; };
 		35C1FE981FE79340009977AB /* OCRViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OCRViewController.m; sourceTree = "<group>"; };
 		35C1FE991FE79340009977AB /* OCRViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OCRViewController.h; sourceTree = "<group>"; };
-		35CE70561FD8EA5600309D98 /* add.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = add.json; sourceTree = "<group>"; };
-		35CE70581FD8F04800309D98 /* Model.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Model.h; sourceTree = "<group>"; };
-		35CE70591FD8F04900309D98 /* Model.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Model.m; sourceTree = "<group>"; };
-		35CE705A1FD8F04A00309D98 /* AreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AreaModel.m; sourceTree = "<group>"; };
-		35CE705B1FD8F04B00309D98 /* AreaModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaModel.h; sourceTree = "<group>"; };
-		35CE705C1FD8F04C00309D98 /* CityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CityModel.h; sourceTree = "<group>"; };
-		35CE705D1FD8F04D00309D98 /* CityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CityModel.m; sourceTree = "<group>"; };
+		35C7E08D1FF25EE40070C481 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		35C7E09F1FF388800070C481 /* jobs.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = jobs.json; sourceTree = "<group>"; };
+		35D6A7291FF6423B0065B1D3 /* PPT.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PPT.h; sourceTree = "<group>"; };
+		35D6A72A1FF6423B0065B1D3 /* PPT.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PPT.m; sourceTree = "<group>"; };
+		35DE24B41FF624A40035922B /* address.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = address.json; sourceTree = "<group>"; };
 		35E101D71FDF864D00DCA575 /* PDF.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PDF.h; sourceTree = "<group>"; };
 		35E101D81FDF864E00DCA575 /* PDF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PDF.m; sourceTree = "<group>"; };
 		35E101DA1FDF869C00DCA575 /* libc++abi.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++abi.tbd"; path = "usr/lib/libc++abi.tbd"; sourceTree = SDKROOT; };
@@ -605,8 +805,6 @@
 		35ED0B0A1FEA54260008051C /* icon_dizhixuanze_duihao@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon_dizhixuanze_duihao@2x.png"; sourceTree = "<group>"; };
 		35ED0B121FEA59E70008051C /* Occupation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Occupation.h; sourceTree = "<group>"; };
 		35ED0B131FEA59E70008051C /* Occupation.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Occupation.m; sourceTree = "<group>"; };
-		35ED3BF71FE929830018E613 /* markBottomMView@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "markBottomMView@2x.png"; sourceTree = "<group>"; };
-		35ED3BF91FE9298E0018E613 /* markTopMView@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "markTopMView@2x.png"; sourceTree = "<group>"; };
 		8F596F621FC70985007027C2 /* www */ = {isa = PBXFileReference; lastKnownFileType = folder; path = www; sourceTree = "<group>"; };
 		8F59700C1FC712B5007027C2 /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
 		8F59B7C91FBD716E00CEC183 /* FWZXinsurance.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FWZXinsurance.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -679,9 +877,6 @@
 		8F59B8421FBD731000CEC183 /* NSMutableArray+QueueAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSMutableArray+QueueAdditions.h"; sourceTree = "<group>"; };
 		8F59B8431FBD731000CEC183 /* NSMutableArray+QueueAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSMutableArray+QueueAdditions.m"; sourceTree = "<group>"; };
 		8F59B8691FBD744A00CEC183 /* FWZXPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWZXPrefixHeader.pch; sourceTree = "<group>"; };
-		8F5D55EA1FCBF27300581521 /* AipOcrSdk.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AipOcrSdk.framework; sourceTree = "<group>"; };
-		8F5D55EB1FCBF27400581521 /* AipBase.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AipBase.framework; sourceTree = "<group>"; };
-		8F5D55EC1FCBF27400581521 /* IdcardQuality.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = IdcardQuality.framework; sourceTree = "<group>"; };
 		8F991A111FC65E4F00E8BD22 /* FWZXHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FWZXHeader.h; sourceTree = "<group>"; };
 		8F9BA75F1FC7CA510072B1D8 /* SortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SortViewController.m; sourceTree = "<group>"; };
 		8F9BA7621FC7CA510072B1D8 /* SortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SortViewController.h; sourceTree = "<group>"; };
@@ -743,6 +938,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				355863B02021D2A50065ADD7 /* CFNetwork.framework in Frameworks */,
+				3560E71F1FCD435900E7A2C5 /* Security.framework in Frameworks */,
+				3560E7481FCD66F200E7A2C5 /* CoreTelephony.framework in Frameworks */,
+				3560E7211FCD436300E7A2C5 /* libz.tbd in Frameworks */,
+				3512EC461FF5E5F900672FF3 /* libsqlite3.0.tbd in Frameworks */,
+				35C7E08E1FF25EE40070C481 /* CoreMedia.framework in Frameworks */,
 				350CB1A91FF1316100652833 /* libUMSocialLog.a in Frameworks */,
 				35251A761FF0E265008F38A4 /* libiconv.2.4.0.tbd in Frameworks */,
 				35251A741FF0E248008F38A4 /* libxml2.2.tbd in Frameworks */,
@@ -753,7 +954,6 @@
 				3510E4BA1FCE8BA100BFB583 /* MessageUI.framework in Frameworks */,
 				3560E7561FCD677500E7A2C5 /* CoreGraphics.framework in Frameworks */,
 				3560E7581FCD678E00E7A2C5 /* libicucore.tbd in Frameworks */,
-				350CB1A41FF1316100652833 /* UShareUI.framework in Frameworks */,
 				3560E7541FCD676300E7A2C5 /* QuartzCore.framework in Frameworks */,
 				3560E7521FCD675200E7A2C5 /* AddressBook.framework in Frameworks */,
 				3560E7501FCD674000E7A2C5 /* Contacts.framework in Frameworks */,
@@ -761,20 +961,17 @@
 				350CB1A81FF1316100652833 /* libSocialWeChat.a in Frameworks */,
 				3560E74C1FCD671700E7A2C5 /* UIKit.framework in Frameworks */,
 				3560E74A1FCD670700E7A2C5 /* AudioToolbox.framework in Frameworks */,
-				3560E7481FCD66F200E7A2C5 /* CoreTelephony.framework in Frameworks */,
 				3560E7461FCD66E100E7A2C5 /* Foundation.framework in Frameworks */,
 				350CB1A71FF1316100652833 /* UMSocialCore.framework in Frameworks */,
+				3512EC4B1FF5E80400672FF3 /* UShareUI.framework in Frameworks */,
 				3560E71D1FCD434800E7A2C5 /* SystemConfiguration.framework in Frameworks */,
 				3560E7441FCD66CB00E7A2C5 /* AVFoundation.framework in Frameworks */,
 				3510E4B81FCE8B4600BFB583 /* libsqlite3.tbd in Frameworks */,
-				3560E7211FCD436300E7A2C5 /* libz.tbd in Frameworks */,
 				3511ADC91FEB83AC0026FA3B /* iflyMSC.framework in Frameworks */,
-				3560E71F1FCD435900E7A2C5 /* Security.framework in Frameworks */,
-				8F5D55F01FCBF2A600581521 /* AipBase.framework in Frameworks */,
-				8F5D55EF1FCBF27400581521 /* IdcardQuality.framework in Frameworks */,
 				8F59700D1FC712E2007027C2 /* libiconv.tbd in Frameworks */,
-				8F5D55F31FCBF2AA00581521 /* AipOcrSdk.framework in Frameworks */,
 				3560E71B1FCD432100E7A2C5 /* Bugly.framework in Frameworks */,
+				355863AE2021D21E0065ADD7 /* libmtasdk.a in Frameworks */,
+				35B0874B200F3B7800778D7F /* libBankCardRecogPro.a in Frameworks */,
 				35251A711FF0E20C008F38A4 /* libIDCardOCR.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -799,21 +996,12 @@
 		350CB1951FF1316100652833 /* UShareSDK */ = {
 			isa = PBXGroup;
 			children = (
-				350CB1961FF1316100652833 /* UMSocialUI */,
+				3512EC471FF5E7EB00672FF3 /* UMSocialUI */,
 				350CB1991FF1316100652833 /* UMSocialSDK */,
 				350CB19D1FF1316100652833 /* SocialLibraries */,
 				350CB1A11FF1316100652833 /* UMSocialSDKPlugin */,
 			);
 			path = UShareSDK;
-			sourceTree = "<group>";
-		};
-		350CB1961FF1316100652833 /* UMSocialUI */ = {
-			isa = PBXGroup;
-			children = (
-				350CB1971FF1316100652833 /* UMSocialSDKResources.bundle */,
-				350CB1981FF1316100652833 /* UShareUI.framework */,
-			);
-			path = UMSocialUI;
 			sourceTree = "<group>";
 		};
 		350CB1991FF1316100652833 /* UMSocialSDK */ = {
@@ -854,6 +1042,7 @@
 		3510E4BC1FCE8EFB00BFB583 /* Plugins */ = {
 			isa = PBXGroup;
 			children = (
+				35D6A7281FF642100065B1D3 /* PPT */,
 				35ED0B111FEA59C30008051C /* Occupation */,
 				3583B90A1FDA69E0006C2867 /* UpCardId */,
 				3540E6BD1FD7B77500F48F6B /* Address */,
@@ -924,6 +1113,8 @@
 				35251A391FF0E20C008F38A4 /* IDCard */,
 				3510E4CF1FCE8EFB00BFB583 /* FULAN_OCR.h */,
 				3510E4D01FCE8EFB00BFB583 /* FULAN_OCR.m */,
+				35B08747200F3B7800778D7F /* 集成所需文件 */,
+				35B08736200F212C00778D7F /* Camera_iPad */,
 			);
 			path = OCR;
 			sourceTree = "<group>";
@@ -953,6 +1144,8 @@
 			children = (
 				3510E4E61FCE956300BFB583 /* CeshiViewController.h */,
 				3510E4E71FCE956300BFB583 /* CeshiViewController.m */,
+				3566D0CC1FF60FB9003E3F70 /* QLPreviewViewController.h */,
+				3566D0CD1FF60FB9003E3F70 /* QLPreviewViewController.m */,
 			);
 			path = ceshi;
 			sourceTree = "<group>";
@@ -1227,6 +1420,261 @@
 			path = zbar;
 			sourceTree = "<group>";
 		};
+		3512EC471FF5E7EB00672FF3 /* UMSocialUI */ = {
+			isa = PBXGroup;
+			children = (
+				3512EC4A1FF5E80400672FF3 /* UShareUI.framework */,
+				3512EC481FF5E7FD00672FF3 /* UMSocialSDKResources.bundle */,
+			);
+			path = UMSocialUI;
+			sourceTree = "<group>";
+		};
+		35134436201A05DC001DE10E /* DBSphereTagCloud */ = {
+			isa = PBXGroup;
+			children = (
+				35134437201A05DC001DE10E /* DBPoint.h */,
+				35134438201A05DC001DE10E /* DBSphereView.h */,
+				35134439201A05DC001DE10E /* DBMatrix.h */,
+				3513443A201A05DC001DE10E /* DBSphereView.m */,
+			);
+			path = DBSphereTagCloud;
+			sourceTree = "<group>";
+		};
+		3513443E201A3372001DE10E /* lottie-ios */ = {
+			isa = PBXGroup;
+			children = (
+				3513443F201A3372001DE10E /* Classes */,
+			);
+			path = "lottie-ios";
+			sourceTree = "<group>";
+		};
+		3513443F201A3372001DE10E /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				35134440201A3372001DE10E /* RenderSystem */,
+				3513446F201A3372001DE10E /* Models */,
+				35134491201A3372001DE10E /* Extensions */,
+				35134499201A3372001DE10E /* MacCompatability */,
+				351344A1201A3372001DE10E /* Private */,
+				351344A7201A3372001DE10E /* AnimatableProperties */,
+				351344AC201A3372001DE10E /* AnimatableLayers */,
+				351344B3201A3372001DE10E /* PublicHeaders */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		35134440201A3372001DE10E /* RenderSystem */ = {
+			isa = PBXGroup;
+			children = (
+				35134441201A3372001DE10E /* LOTRenderNode.m */,
+				35134442201A3372001DE10E /* LOTAnimatorNode.h */,
+				35134443201A3372001DE10E /* LOTRenderNode.h */,
+				35134444201A3372001DE10E /* ManipulatorNodes */,
+				35134447201A3372001DE10E /* InterpolatorNodes */,
+				35134458201A3372001DE10E /* LOTAnimatorNode.m */,
+				35134459201A3372001DE10E /* AnimatorNodes */,
+				35134464201A3372001DE10E /* RenderNodes */,
+			);
+			path = RenderSystem;
+			sourceTree = "<group>";
+		};
+		35134444201A3372001DE10E /* ManipulatorNodes */ = {
+			isa = PBXGroup;
+			children = (
+				35134445201A3372001DE10E /* LOTTrimPathNode.h */,
+				35134446201A3372001DE10E /* LOTTrimPathNode.m */,
+			);
+			path = ManipulatorNodes;
+			sourceTree = "<group>";
+		};
+		35134447201A3372001DE10E /* InterpolatorNodes */ = {
+			isa = PBXGroup;
+			children = (
+				35134448201A3372001DE10E /* LOTColorInterpolator.m */,
+				35134449201A3372001DE10E /* LOTPathInterpolator.m */,
+				3513444A201A3372001DE10E /* LOTSizeInterpolator.h */,
+				3513444B201A3372001DE10E /* LOTValueInterpolator.h */,
+				3513444C201A3372001DE10E /* LOTPointInterpolator.h */,
+				3513444D201A3372001DE10E /* LOTNumberInterpolator.h */,
+				3513444E201A3372001DE10E /* LOTTransformInterpolator.h */,
+				3513444F201A3372001DE10E /* LOTArrayInterpolator.h */,
+				35134450201A3372001DE10E /* LOTColorInterpolator.h */,
+				35134451201A3372001DE10E /* LOTSizeInterpolator.m */,
+				35134452201A3372001DE10E /* LOTPathInterpolator.h */,
+				35134453201A3372001DE10E /* LOTPointInterpolator.m */,
+				35134454201A3372001DE10E /* LOTValueInterpolator.m */,
+				35134455201A3372001DE10E /* LOTTransformInterpolator.m */,
+				35134456201A3372001DE10E /* LOTArrayInterpolator.m */,
+				35134457201A3372001DE10E /* LOTNumberInterpolator.m */,
+			);
+			path = InterpolatorNodes;
+			sourceTree = "<group>";
+		};
+		35134459201A3372001DE10E /* AnimatorNodes */ = {
+			isa = PBXGroup;
+			children = (
+				3513445A201A3372001DE10E /* LOTPathAnimator.m */,
+				3513445B201A3372001DE10E /* LOTPolystarAnimator.m */,
+				3513445C201A3372001DE10E /* LOTPolygonAnimator.m */,
+				3513445D201A3372001DE10E /* LOTRoundedRectAnimator.h */,
+				3513445E201A3372001DE10E /* LOTCircleAnimator.m */,
+				3513445F201A3372001DE10E /* LOTPolystarAnimator.h */,
+				35134460201A3372001DE10E /* LOTPathAnimator.h */,
+				35134461201A3372001DE10E /* LOTCircleAnimator.h */,
+				35134462201A3372001DE10E /* LOTRoundedRectAnimator.m */,
+				35134463201A3372001DE10E /* LOTPolygonAnimator.h */,
+			);
+			path = AnimatorNodes;
+			sourceTree = "<group>";
+		};
+		35134464201A3372001DE10E /* RenderNodes */ = {
+			isa = PBXGroup;
+			children = (
+				35134465201A3372001DE10E /* LOTRenderGroup.m */,
+				35134466201A3372001DE10E /* LOTGradientFillRender.m */,
+				35134467201A3372001DE10E /* LOTFillRenderer.h */,
+				35134468201A3372001DE10E /* LOTStrokeRenderer.h */,
+				35134469201A3372001DE10E /* LOTRepeaterRenderer.h */,
+				3513446A201A3372001DE10E /* LOTRenderGroup.h */,
+				3513446B201A3372001DE10E /* LOTStrokeRenderer.m */,
+				3513446C201A3372001DE10E /* LOTFillRenderer.m */,
+				3513446D201A3372001DE10E /* LOTGradientFillRender.h */,
+				3513446E201A3372001DE10E /* LOTRepeaterRenderer.m */,
+			);
+			path = RenderNodes;
+			sourceTree = "<group>";
+		};
+		3513446F201A3372001DE10E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				35134470201A3372001DE10E /* LOTMask.m */,
+				35134471201A3372001DE10E /* LOTLayer.m */,
+				35134472201A3372001DE10E /* LOTAssetGroup.m */,
+				35134473201A3372001DE10E /* LOTShapeRectangle.h */,
+				35134474201A3372001DE10E /* LOTShapeRepeater.h */,
+				35134475201A3372001DE10E /* LOTAsset.h */,
+				35134476201A3372001DE10E /* LOTShapeCircle.h */,
+				35134477201A3372001DE10E /* LOTLayerGroup.m */,
+				35134478201A3372001DE10E /* LOTShapeStar.m */,
+				35134479201A3372001DE10E /* LOTShapeTrimPath.m */,
+				3513447A201A3372001DE10E /* LOTShapeGroup.h */,
+				3513447B201A3372001DE10E /* LOTShapePath.h */,
+				3513447C201A3372001DE10E /* LOTShapeStroke.h */,
+				3513447D201A3372001DE10E /* LOTShapeGradientFill.m */,
+				3513447E201A3372001DE10E /* LOTShapeFill.h */,
+				3513447F201A3372001DE10E /* LOTShapeTransform.h */,
+				35134480201A3372001DE10E /* LOTAsset.m */,
+				35134481201A3372001DE10E /* LOTModels.h */,
+				35134482201A3372001DE10E /* LOTShapeRepeater.m */,
+				35134483201A3372001DE10E /* LOTAssetGroup.h */,
+				35134484201A3372001DE10E /* LOTShapeRectangle.m */,
+				35134485201A3372001DE10E /* LOTLayer.h */,
+				35134486201A3372001DE10E /* LOTMask.h */,
+				35134487201A3372001DE10E /* LOTShapeStar.h */,
+				35134488201A3372001DE10E /* LOTLayerGroup.h */,
+				35134489201A3372001DE10E /* LOTShapeCircle.m */,
+				3513448A201A3372001DE10E /* LOTShapePath.m */,
+				3513448B201A3372001DE10E /* LOTShapeGroup.m */,
+				3513448C201A3372001DE10E /* LOTShapeTrimPath.h */,
+				3513448D201A3372001DE10E /* LOTShapeFill.m */,
+				3513448E201A3372001DE10E /* LOTShapeTransform.m */,
+				3513448F201A3372001DE10E /* LOTShapeGradientFill.h */,
+				35134490201A3372001DE10E /* LOTShapeStroke.m */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		35134491201A3372001DE10E /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				35134492201A3372001DE10E /* LOTHelpers.h */,
+				35134493201A3372001DE10E /* CGGeometry+LOTAdditions.m */,
+				35134494201A3372001DE10E /* LOTBezierPath.m */,
+				35134495201A3372001DE10E /* UIColor+Expanded.h */,
+				35134496201A3372001DE10E /* CGGeometry+LOTAdditions.h */,
+				35134497201A3372001DE10E /* LOTBezierPath.h */,
+				35134498201A3372001DE10E /* UIColor+Expanded.m */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		35134499201A3372001DE10E /* MacCompatability */ = {
+			isa = PBXGroup;
+			children = (
+				3513449A201A3372001DE10E /* UIColor.h */,
+				3513449B201A3372001DE10E /* CALayer+Compat.h */,
+				3513449C201A3372001DE10E /* NSValue+Compat.h */,
+				3513449D201A3372001DE10E /* UIColor.m */,
+				3513449E201A3372001DE10E /* LOTPlatformCompat.h */,
+				3513449F201A3372001DE10E /* NSValue+Compat.m */,
+				351344A0201A3372001DE10E /* CALayer+Compat.m */,
+			);
+			path = MacCompatability;
+			sourceTree = "<group>";
+		};
+		351344A1201A3372001DE10E /* Private */ = {
+			isa = PBXGroup;
+			children = (
+				351344A2201A3372001DE10E /* LOTAnimationCache.m */,
+				351344A3201A3372001DE10E /* LOTComposition.m */,
+				351344A4201A3372001DE10E /* LOTAnimationView.m */,
+				351344A5201A3372001DE10E /* LOTAnimationTransitionController.m */,
+				351344A6201A3372001DE10E /* LOTAnimationView_Internal.h */,
+			);
+			path = Private;
+			sourceTree = "<group>";
+		};
+		351344A7201A3372001DE10E /* AnimatableProperties */ = {
+			isa = PBXGroup;
+			children = (
+				351344A8201A3372001DE10E /* LOTKeyframe.m */,
+				351344A9201A3372001DE10E /* LOTBezierData.m */,
+				351344AA201A3372001DE10E /* LOTKeyframe.h */,
+				351344AB201A3372001DE10E /* LOTBezierData.h */,
+			);
+			path = AnimatableProperties;
+			sourceTree = "<group>";
+		};
+		351344AC201A3372001DE10E /* AnimatableLayers */ = {
+			isa = PBXGroup;
+			children = (
+				351344AD201A3372001DE10E /* LOTLayerContainer.m */,
+				351344AE201A3372001DE10E /* LOTCompositionContainer.h */,
+				351344AF201A3372001DE10E /* LOTMaskContainer.h */,
+				351344B0201A3372001DE10E /* LOTLayerContainer.h */,
+				351344B1201A3372001DE10E /* LOTCompositionContainer.m */,
+				351344B2201A3372001DE10E /* LOTMaskContainer.m */,
+			);
+			path = AnimatableLayers;
+			sourceTree = "<group>";
+		};
+		351344B3201A3372001DE10E /* PublicHeaders */ = {
+			isa = PBXGroup;
+			children = (
+				351344B4201A3372001DE10E /* LOTAnimationCache.h */,
+				351344B5201A3372001DE10E /* Lottie.h */,
+				351344B6201A3372001DE10E /* LOTComposition.h */,
+				351344B7201A3372001DE10E /* LOTAnimationTransitionController.h */,
+				351344B8201A3372001DE10E /* LOTAnimationView.h */,
+				351344B9201A3372001DE10E /* LOTAnimationView_Compat.h */,
+			);
+			path = PublicHeaders;
+			sourceTree = "<group>";
+		};
+		351344EE201A337C001DE10E /* OLImageView */ = {
+			isa = PBXGroup;
+			children = (
+				351344EF201A337C001DE10E /* LICENSE */,
+				351344F0201A337C001DE10E /* OLImageView.m */,
+				351344F1201A337C001DE10E /* OLImage.m */,
+				351344F2201A337C001DE10E /* README.md */,
+				351344F3201A337C001DE10E /* OLImageView.h */,
+				351344F4201A337C001DE10E /* OLImage.h */,
+				351344F5201A337C001DE10E /* OLImageViewDelegate.h */,
+			);
+			path = OLImageView;
+			sourceTree = "<group>";
+		};
 		351870EB1FEA0431002DF73E /* views */ = {
 			isa = PBXGroup;
 			children = (
@@ -1255,6 +1703,7 @@
 		35251A391FF0E20C008F38A4 /* IDCard */ = {
 			isa = PBXGroup;
 			children = (
+				350DDFBF201ACA8D00E69E82 /* wtproject.lsc */,
 				35251A3A1FF0E20C008F38A4 /* ViewController.xib */,
 				35251A3C1FF0E20C008F38A4 /* Localizable.strings */,
 				35251A3E1FF0E20C008F38A4 /* InfoPlist.strings */,
@@ -1266,7 +1715,6 @@
 				35251A411FF0E20C008F38A4 /* IDCardDemoTests */,
 				35251A431FF0E20C008F38A4 /* Camera */,
 				35251A481FF0E20C008F38A4 /* Camera_ip_Auto */,
-				35251A4E1FF0E20C008F38A4 /* wtproject.lsc */,
 				35251A501FF0E20C008F38A4 /* CameraImage */,
 				35251A581FF0E20C008F38A4 /* Resource */,
 				35251A5E1FF0E20C008F38A4 /* ViewController.h */,
@@ -1335,20 +1783,38 @@
 			children = (
 				3540E6BE1FD7B78900F48F6B /* Add.h */,
 				3540E6BF1FD7B78900F48F6B /* Add.m */,
-				3540E6C11FD7B88E00F48F6B /* ZmjPickView.h */,
-				3540E6C21FD7B88F00F48F6B /* ZmjPickView.m */,
-				35CE705B1FD8F04B00309D98 /* AreaModel.h */,
-				35CE705A1FD8F04A00309D98 /* AreaModel.m */,
-				35CE705C1FD8F04C00309D98 /* CityModel.h */,
-				35CE705D1FD8F04D00309D98 /* CityModel.m */,
-				35CE70581FD8F04800309D98 /* Model.h */,
-				35CE70591FD8F04900309D98 /* Model.m */,
-				35CE70561FD8EA5600309D98 /* add.json */,
-				3540E6C41FD7B89800F48F6B /* sheng.json */,
-				3540E6C61FD7B89A00F48F6B /* shi.json */,
-				3540E6C51FD7B89900F48F6B /* xian.json */,
+				35B6F7881FF3F3ED00B1897C /* AreaModel.h */,
+				35B6F7871FF3F3ED00B1897C /* AreaModel.m */,
+				35B6F78D1FF3F3EF00B1897C /* CityModel.h */,
+				35B6F78B1FF3F3EE00B1897C /* CityModel.m */,
+				35B6F78A1FF3F3EE00B1897C /* ProvinceModel.h */,
+				35B6F78C1FF3F3EF00B1897C /* ProvinceModel.m */,
+				35B6F7861FF3F3ED00B1897C /* ZmjPickView.h */,
+				35B6F7891FF3F3EE00B1897C /* ZmjPickView.m */,
+				35DE24B41FF624A40035922B /* address.json */,
 			);
 			path = Address;
+			sourceTree = "<group>";
+		};
+		3558639C2020D17F0065ADD7 /* Audio */ = {
+			isa = PBXGroup;
+			children = (
+				3558639D2020D17F0065ADD7 /* GSAudioTool.m */,
+				3558639E2020D17F0065ADD7 /* GSAudioTool.h */,
+				355863A32020D2EC0065ADD7 /* 许嵩庐州月.mp3 */,
+			);
+			path = Audio;
+			sourceTree = "<group>";
+		};
+		355863A92021D20B0065ADD7 /* MTA */ = {
+			isa = PBXGroup;
+			children = (
+				355863AA2021D2180065ADD7 /* libmtasdk.a */,
+				355863AB2021D2190065ADD7 /* MTA.h */,
+				355863AC2021D21B0065ADD7 /* MTAConfig.h */,
+				355863AD2021D21E0065ADD7 /* MTACrashReporter.h */,
+			);
+			path = MTA;
 			sourceTree = "<group>";
 		};
 		355BFD3E1FD088C600CDCB9B /* Pen  */ = {
@@ -1398,6 +1864,7 @@
 			children = (
 				35E101D71FDF864D00DCA575 /* PDF.h */,
 				35E101D81FDF864E00DCA575 /* PDF.m */,
+				3566D0C71FF607AA003E3F70 /* text.ppt */,
 			);
 			path = PDF;
 			sourceTree = "<group>";
@@ -1407,18 +1874,6 @@
 			children = (
 				3583B90B1FDA6A16006C2867 /* UpCardId.h */,
 				3583B90C1FDA6A16006C2867 /* UpCardId.m */,
-				35ED3BF91FE9298E0018E613 /* markTopMView@2x.png */,
-				35ED3BF71FE929830018E613 /* markBottomMView@2x.png */,
-				352E68DD1FE2776A0000CF96 /* cardback.png */,
-				352E68DC1FE277690000CF96 /* cardfront.png */,
-				352E68DA1FE268F60000CF96 /* UIImage+SubImage.h */,
-				352E68D91FE268F50000CF96 /* UIImage+SubImage.m */,
-				352E68D21FE246BB0000CF96 /* CameraViewController.h */,
-				352E68D31FE246BB0000CF96 /* CameraViewController.m */,
-				352E68CD1FE246A40000CF96 /* CCPClipCaremaImage.h */,
-				352E68CA1FE246A40000CF96 /* CCPClipCaremaImage.m */,
-				352E68CE1FE246A50000CF96 /* UIImage+Rotate.h */,
-				352E68CB1FE246A40000CF96 /* UIImage+Rotate.m */,
 			);
 			path = UpCardId;
 			sourceTree = "<group>";
@@ -1434,6 +1889,30 @@
 			path = HttpTool;
 			sourceTree = "<group>";
 		};
+		35B08736200F212C00778D7F /* Camera_iPad */ = {
+			isa = PBXGroup;
+			children = (
+				35B08745200F232000778D7F /* BundleForBankCard.bundle */,
+				35B08737200F212C00778D7F /* BankCardOverView_iPad.m */,
+				35B08739200F212C00778D7F /* BankCardOverView_iPad.h */,
+				35B08738200F212C00778D7F /* BankCardCameraViewController_iPad.h */,
+				35B0873A200F212C00778D7F /* BankCardCameraViewController_iPad.m */,
+				35B08743200F223C00778D7F /* BankCardResultViewController.h */,
+				35B08742200F223B00778D7F /* BankCardResultViewController.m */,
+			);
+			path = Camera_iPad;
+			sourceTree = "<group>";
+		};
+		35B08747200F3B7800778D7F /* 集成所需文件 */ = {
+			isa = PBXGroup;
+			children = (
+				35B08748200F3B7800778D7F /* libBankCardRecogPro.a */,
+				35B08749200F3B7800778D7F /* BankCardRecogPro.h */,
+				35B0874A200F3B7800778D7F /* BankSlideLine.h */,
+			);
+			path = "集成所需文件";
+			sourceTree = "<group>";
+		};
 		35BA0F3D1FCE44ED00D969F8 /* web */ = {
 			isa = PBXGroup;
 			children = (
@@ -1443,11 +1922,37 @@
 			path = web;
 			sourceTree = "<group>";
 		};
+		35C7E09C1FF388800070C481 /* JOB */ = {
+			isa = PBXGroup;
+			children = (
+				35B6F77B1FF3CEDD00B1897C /* CityDataModel.h */,
+				35B6F77C1FF3CEDD00B1897C /* CityDataModel.m */,
+				35B6F7781FF3CEDC00B1897C /* DistrictDataModel.h */,
+				35B6F7771FF3CEDC00B1897C /* DistrictDataModel.m */,
+				35B6F7791FF3CEDC00B1897C /* JobPickView.h */,
+				35B6F77E1FF3CEDD00B1897C /* JobPickView.m */,
+				35B6F77D1FF3CEDD00B1897C /* ProvinceDataModel.h */,
+				35B6F77A1FF3CEDC00B1897C /* ProvinceDataModel.m */,
+				35C7E09F1FF388800070C481 /* jobs.json */,
+			);
+			path = JOB;
+			sourceTree = "<group>";
+		};
+		35D6A7281FF642100065B1D3 /* PPT */ = {
+			isa = PBXGroup;
+			children = (
+				35D6A7291FF6423B0065B1D3 /* PPT.h */,
+				35D6A72A1FF6423B0065B1D3 /* PPT.m */,
+			);
+			path = PPT;
+			sourceTree = "<group>";
+		};
 		35ED0B111FEA59C30008051C /* Occupation */ = {
 			isa = PBXGroup;
 			children = (
 				35ED0B121FEA59E70008051C /* Occupation.h */,
 				35ED0B131FEA59E70008051C /* Occupation.m */,
+				35C7E09C1FF388800070C481 /* JOB */,
 				351870EB1FEA0431002DF73E /* views */,
 			);
 			path = Occupation;
@@ -1456,6 +1961,9 @@
 		8F59700B1FC712B5007027C2 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				355863AF2021D2A50065ADD7 /* CFNetwork.framework */,
+				3512EC451FF5E5F800672FF3 /* libsqlite3.0.tbd */,
+				35C7E08D1FF25EE40070C481 /* CoreMedia.framework */,
 				35251A751FF0E264008F38A4 /* libiconv.2.4.0.tbd */,
 				35251A731FF0E248008F38A4 /* libxml2.2.tbd */,
 				35E101DA1FDF869C00DCA575 /* libc++abi.tbd */,
@@ -1673,6 +2181,7 @@
 			children = (
 				8F59B8691FBD744A00CEC183 /* FWZXPrefixHeader.pch */,
 				8F991A111FC65E4F00E8BD22 /* FWZXHeader.h */,
+				355863A02020D2050065ADD7 /* Singleton.h */,
 			);
 			path = Const;
 			sourceTree = "<group>";
@@ -1680,6 +2189,10 @@
 		8F9919D81FC65DFF00E8BD22 /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				355863A92021D20B0065ADD7 /* MTA */,
+				3558639C2020D17F0065ADD7 /* Audio */,
+				351344EE201A337C001DE10E /* OLImageView */,
+				3513443E201A3372001DE10E /* lottie-ios */,
 				350CB1951FF1316100652833 /* UShareSDK */,
 				3511ADC81FEB83AC0026FA3B /* iflyMSC.framework */,
 				3511AC9C1FEB836F0026FA3B /* AFNetworking */,
@@ -1692,9 +2205,6 @@
 				3511AD261FEB83730026FA3B /* SVProgressHUD */,
 				3511AD451FEB83750026FA3B /* ZBarSDK */,
 				3560E71A1FCD432100E7A2C5 /* Bugly.framework */,
-				8F5D55EB1FCBF27400581521 /* AipBase.framework */,
-				8F5D55EA1FCBF27300581521 /* AipOcrSdk.framework */,
-				8F5D55EC1FCBF27400581521 /* IdcardQuality.framework */,
 			);
 			path = Third;
 			sourceTree = "<group>";
@@ -1710,6 +2220,7 @@
 				35C1FE981FE79340009977AB /* OCRViewController.m */,
 				8F9BA7641FC7CA510072B1D8 /* MainViewController.h */,
 				3560E70D1FCD2EE100E7A2C5 /* MainViewController.m */,
+				3513443C201A32F2001DE10E /* fengchedata.json */,
 				3510E4E51FCE954500BFB583 /* ceshi */,
 				35BA0F3D1FCE44ED00D969F8 /* web */,
 				3560E70C1FCD2EBC00E7A2C5 /* 声音播放 */,
@@ -1720,6 +2231,7 @@
 		8F9BA7691FC7CA5F0072B1D8 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				35134436201A05DC001DE10E /* DBSphereTagCloud */,
 				3583B90E1FDA6D02006C2867 /* HttpTool */,
 				8F9BA7A81FC7CB560072B1D8 /* SDLog */,
 				8F9BA7721FC7CAC20072B1D8 /* BXExtension */,
@@ -1917,10 +2429,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				35518CD7201ACE4C00194122 /* wtproject.lsc in Resources */,
+				3566D0C81FF607AB003E3F70 /* text.ppt in Resources */,
 				3560E7191FCD379F00E7A2C5 /* 面试题-C部分.pdf in Resources */,
+				35DE24B51FF624A40035922B /* address.json in Resources */,
 				3511ADBF1FEB83750026FA3B /* qrcode_scan_btn_photo_nor@2x.png in Resources */,
 				3511ADC51FEB83750026FA3B /* qrcode_scan_titlebar_back_pressed@2x.png in Resources */,
 				8F59B7D91FBD716E00CEC183 /* LaunchScreen.storyboard in Resources */,
+				351344F9201A337C001DE10E /* README.md in Resources */,
 				3511ADBE1FEB83750026FA3B /* qrcode_scan_btn_myqrcode_nor@2x.png in Resources */,
 				8F596F631FC70985007027C2 /* www in Resources */,
 				35251A811FF0F3FC008F38A4 /* xiangce@2x.png in Resources */,
@@ -1929,44 +2445,39 @@
 				3511ADBB1FEB83750026FA3B /* qrcode_scan_btn_scan_off@2x.png in Resources */,
 				3511ADC31FEB83750026FA3B /* qrcode_scan_titlebar_back_nor@2x.png in Resources */,
 				3511ADB01FEB83750026FA3B /* SVProgressHUD.bundle in Resources */,
-				350CB1A31FF1316100652833 /* UMSocialSDKResources.bundle in Resources */,
+				35B08746200F232000778D7F /* BundleForBankCard.bundle in Resources */,
 				8F59B7D41FBD716E00CEC183 /* Main.storyboard in Resources */,
+				35C7E0A11FF388800070C481 /* jobs.json in Resources */,
 				35251A6B1FF0E20C008F38A4 /* flash_camera_btn@2x.png in Resources */,
 				350CB1A61FF1316100652833 /* UMSocialSDKPromptResources.bundle in Resources */,
 				35251A6E1FF0E20C008F38A4 /* back_camera_btn@2x.png in Resources */,
+				3512EC491FF5E7FD00672FF3 /* UMSocialSDKResources.bundle in Resources */,
 				3511ADBC1FEB83750026FA3B /* qrcode_scan_btn_photo_down@2x.png in Resources */,
 				35251A721FF0E20C008F38A4 /* IDResource.bundle in Resources */,
 				35251A6F1FF0E20C008F38A4 /* back_camera_btn@3x.png in Resources */,
 				3511ADC01FEB83750026FA3B /* qrcode_scan_btn_myqrcode_down@2x.png in Resources */,
-				3540E6C91FD7B89A00F48F6B /* shi.json in Resources */,
 				35251A5F1FF0E20C008F38A4 /* ViewController.xib in Resources */,
 				3511ADC41FEB83750026FA3B /* qrcode_scan_bg_Green_iphone5@2x.png in Resources */,
 				35251A611FF0E20C008F38A4 /* InfoPlist.strings in Resources */,
 				3511AD6F1FEB83750026FA3B /* README.md in Resources */,
-				352E68DE1FE2776A0000CF96 /* cardfront.png in Resources */,
 				35251A6D1FF0E20C008F38A4 /* take_pic_btn@3x.png in Resources */,
 				35251A801FF0F3FC008F38A4 /* xiangce@3x.png in Resources */,
-				352E68DF1FE2776A0000CF96 /* cardback.png in Resources */,
 				3511AD6E1FEB83750026FA3B /* LICENSE in Resources */,
-				3540E6C71FD7B89A00F48F6B /* sheng.json in Resources */,
 				35ED0B0C1FEA54270008051C /* icon_dizhixuanze_duihao@2x.png in Resources */,
-				35ED3BFA1FE9298F0018E613 /* markTopMView@2x.png in Resources */,
 				8F59B8441FBD731000CEC183 /* config.xml in Resources */,
 				35ED0B0B1FEA54270008051C /* icon_dizhixuanze_duihao@3x.png in Resources */,
 				35251A701FF0E20C008F38A4 /* take_pic_btn@2x.png in Resources */,
+				351344F6201A337C001DE10E /* LICENSE in Resources */,
 				35251A6C1FF0E20C008F38A4 /* flash_camera_btn@3x.png in Resources */,
 				3511AD8D1FEB83750026FA3B /* ProgressHUD.bundle in Resources */,
-				35ED3BF81FE929830018E613 /* markBottomMView@2x.png in Resources */,
+				355863A42020D2EC0065ADD7 /* 许嵩庐州月.mp3 in Resources */,
+				3513443D201A32F3001DE10E /* fengchedata.json in Resources */,
 				3511ADC61FEB83750026FA3B /* qrcode_scan_light_green@2x.png in Resources */,
-				35251A691FF0E20C008F38A4 /* wtproject.lsc in Resources */,
 				3511ADC71FEB83750026FA3B /* qrcode_scan_bar@2x.png in Resources */,
-				35CE70571FD8EA5700309D98 /* add.json in Resources */,
 				3511ADC21FEB83750026FA3B /* qrcode_scan_btn_flash_nor@2x.png in Resources */,
-				3511ADAB1FEB83750026FA3B /* README.md in Resources */,
 				3511ADC11FEB83750026FA3B /* qrcode_scan_btn_flash_down@2x.png in Resources */,
 				35251A601FF0E20C008F38A4 /* Localizable.strings in Resources */,
 				3511ADBD1FEB83750026FA3B /* qrcode_scan_bg_Green@2x.png in Resources */,
-				3540E6C81FD7B89A00F48F6B /* xian.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2000,15 +2511,16 @@
 				3511AD851FEB83750026FA3B /* SDWebImageCompat.m in Sources */,
 				3511ADAE1FEB83750026FA3B /* SVProgressHUD.m in Sources */,
 				3511AD9F1FEB83750026FA3B /* qrspec.c in Sources */,
+				351344C7201A3372001DE10E /* LOTPolygonAnimator.m in Sources */,
 				8F9BA79C1FC7CAC20072B1D8 /* UIView+IBExtension.m in Sources */,
 				8F9BA7A51FC7CAC20072B1D8 /* UIBarButtonItem+Extension.m in Sources */,
 				3510E4DB1FCE8EFB00BFB583 /* FULAN_IFLY.m in Sources */,
 				3511ADAD1FEB83750026FA3B /* SVRadialGradientLayer.m in Sources */,
 				8F59B85A1FBD731000CEC183 /* NSDictionary+CordovaPreferences.m in Sources */,
 				355BFD4E1FD088C600CDCB9B /* SignDrawViewController.m in Sources */,
+				35B6F7801FF3CEDD00B1897C /* ProvinceDataModel.m in Sources */,
 				8F59B8561FBD731000CEC183 /* CDVURLProtocol.m in Sources */,
 				3511ADA01FEB83750026FA3B /* rscode.c in Sources */,
-				35CE70601FD8F04D00309D98 /* CityModel.m in Sources */,
 				351870F61FEA04E1002DF73E /* AddrObject.m in Sources */,
 				8F9BA7B61FC7CC810072B1D8 /* NSError+Description.m in Sources */,
 				8F59B8461FBD731000CEC183 /* CDVGestureHandler.m in Sources */,
@@ -2016,111 +2528,158 @@
 				8F59B8521FBD731000CEC183 /* CDVPlugin+Resources.m in Sources */,
 				8F9BA79B1FC7CAC20072B1D8 /* NSString+BXExtension.m in Sources */,
 				3510E4E41FCE8F1F00BFB583 /* Share.m in Sources */,
+				351344CB201A3372001DE10E /* LOTGradientFillRender.m in Sources */,
 				35251A621FF0E20C008F38A4 /* IDCardNavController.m in Sources */,
 				8F9BA7A01FC7CAC20072B1D8 /* Foundation+Log.m in Sources */,
+				35B0873B200F212D00778D7F /* BankCardOverView_iPad.m in Sources */,
 				351870F11FEA0431002DF73E /* AddressPickTableView.m in Sources */,
 				3511AD791FEB83750026FA3B /* AFURLResponseSerialization.m in Sources */,
 				3511AD9A1FEB83750026FA3B /* qrencode.c in Sources */,
+				351344C9201A3372001DE10E /* LOTRoundedRectAnimator.m in Sources */,
 				355BFD4A1FD088C600CDCB9B /* Pen.m in Sources */,
 				8F59B8581FBD731000CEC183 /* CDVViewController.m in Sources */,
 				3511ADA31FEB83750026FA3B /* SDBrowserImageView.m in Sources */,
 				3511AD961FEB83750026FA3B /* NSString+MJExtension.m in Sources */,
+				351344C5201A3372001DE10E /* LOTPathAnimator.m in Sources */,
+				351344E9201A3372001DE10E /* LOTKeyframe.m in Sources */,
 				8F9BA79A1FC7CAC20072B1D8 /* UIDevice+DeviceType.m in Sources */,
+				35B6F78E1FF3F3EF00B1897C /* AreaModel.m in Sources */,
+				351344DF201A3372001DE10E /* CGGeometry+LOTAdditions.m in Sources */,
+				351344DB201A3372001DE10E /* LOTShapeGroup.m in Sources */,
+				35B08744200F223C00778D7F /* BankCardResultViewController.m in Sources */,
 				8F9BA7A61FC7CAC20072B1D8 /* UIButton+Extension.m in Sources */,
+				351344BD201A3372001DE10E /* LOTPathInterpolator.m in Sources */,
 				3510E4DD1FCE8EFB00BFB583 /* FULAN_OCR.m in Sources */,
 				351870F01FEA0431002DF73E /* AddressPickView.m in Sources */,
+				351344DE201A3372001DE10E /* LOTShapeStroke.m in Sources */,
 				8F9BA79E1FC7CAC20072B1D8 /* UIFont+Extension.m in Sources */,
 				3511AD7C1FEB83750026FA3B /* AFURLRequestSerialization.m in Sources */,
 				35251A7D1FF0ECFC008F38A4 /* ViewController.m in Sources */,
+				351344CD201A3372001DE10E /* LOTFillRenderer.m in Sources */,
 				3511AD801FEB83750026FA3B /* SDWebImageDecoder.m in Sources */,
 				3511AD741FEB83750026FA3B /* UIButton+AFNetworking.m in Sources */,
+				351344C1201A3372001DE10E /* LOTTransformInterpolator.m in Sources */,
 				351870F71FEA04E1002DF73E /* Address.m in Sources */,
 				3511AD9E1FEB83750026FA3B /* mask.c in Sources */,
 				8F59B8481FBD731000CEC183 /* CDVIntentAndNavigationFilter.m in Sources */,
 				8F9BA7671FC7CA510072B1D8 /* SortViewController.m in Sources */,
+				35B6F7901FF3F3EF00B1897C /* CityModel.m in Sources */,
+				351344EC201A3372001DE10E /* LOTCompositionContainer.m in Sources */,
 				3511AD911FEB83750026FA3B /* MJProperty.m in Sources */,
 				352370261FEA070C00D492FF /* AddressPickCell.m in Sources */,
 				3583B9131FDA6D02006C2867 /* BaseHttpTool.m in Sources */,
 				3510E4D81FCE8EFB00BFB583 /* TestPlugin.m in Sources */,
 				3511AD901FEB83750026FA3B /* NSObject+MJKeyValue.m in Sources */,
+				35B6F7811FF3CEDD00B1897C /* CityDataModel.m in Sources */,
+				351344D4201A3372001DE10E /* LOTShapeTrimPath.m in Sources */,
 				3511AD711FEB83750026FA3B /* UIRefreshControl+AFNetworking.m in Sources */,
-				352E68D01FE246A50000CF96 /* UIImage+Rotate.m in Sources */,
 				3511AD831FEB83750026FA3B /* UIImage+GIF.m in Sources */,
+				351344D1201A3372001DE10E /* LOTAssetGroup.m in Sources */,
 				8F59B8491FBD731000CEC183 /* CDVLocalStorage.m in Sources */,
-				35CE705F1FD8F04D00309D98 /* AreaModel.m in Sources */,
+				351344CE201A3372001DE10E /* LOTRepeaterRenderer.m in Sources */,
+				351344E2201A3372001DE10E /* UIColor.m in Sources */,
+				351344D5201A3372001DE10E /* LOTShapeGradientFill.m in Sources */,
+				3558639F2020D17F0065ADD7 /* GSAudioTool.m in Sources */,
 				3511AD7F1FEB83750026FA3B /* SDWebImageManager.m in Sources */,
+				351344DC201A3372001DE10E /* LOTShapeFill.m in Sources */,
+				351344E4201A3372001DE10E /* CALayer+Compat.m in Sources */,
 				8F59B8501FBD731000CEC183 /* CDVConfigParser.m in Sources */,
 				35C1FE911FE79184009977AB /* UIView+Common.m in Sources */,
 				355BFD4C1FD088C600CDCB9B /* PSDrawBoarderView.m in Sources */,
+				351344CA201A3372001DE10E /* LOTRenderGroup.m in Sources */,
 				8F9BA79F1FC7CAC20072B1D8 /* NSDictionary+Extension.m in Sources */,
+				351344CC201A3372001DE10E /* LOTStrokeRenderer.m in Sources */,
 				3511AD7D1FEB83750026FA3B /* AFNetworkReachabilityManager.m in Sources */,
 				8F59B84E1FBD731000CEC183 /* CDVCommandDelegateImpl.m in Sources */,
 				35E101D91FDF864E00DCA575 /* PDF.m in Sources */,
 				8F9BA7A41FC7CAC20072B1D8 /* UIView+UIViewController.m in Sources */,
 				3511AD9D1FEB83750026FA3B /* qrinput.c in Sources */,
 				3511AD811FEB83750026FA3B /* UIImageView+HighlightedWebCache.m in Sources */,
+				351344F8201A337C001DE10E /* OLImage.m in Sources */,
+				351344CF201A3372001DE10E /* LOTMask.m in Sources */,
 				3511AD8A1FEB83750026FA3B /* UIImageView+WebCache.m in Sources */,
+				351344D8201A3372001DE10E /* LOTShapeRectangle.m in Sources */,
 				3511AD761FEB83750026FA3B /* UIWebView+AFNetworking.m in Sources */,
 				35BA0F401FCE451100D969F8 /* WebViewController.m in Sources */,
 				3511AD821FEB83750026FA3B /* SDWebImageDownloader.m in Sources */,
 				3510E4D71FCE8EFB00BFB583 /* CeshiPlugin.m in Sources */,
 				8F9BA7BA1FC7CC810072B1D8 /* NSString+function.m in Sources */,
 				8F9BA7A31FC7CAC20072B1D8 /* NSDate+Extension.m in Sources */,
+				351344D9201A3372001DE10E /* LOTShapeCircle.m in Sources */,
+				35B6F78F1FF3F3EF00B1897C /* ZmjPickView.m in Sources */,
 				3511AD771FEB83750026FA3B /* AFAutoPurgingImageCache.m in Sources */,
 				8F9BA7A71FC7CAC20072B1D8 /* UIView+Extension.m in Sources */,
+				35B6F7911FF3F3EF00B1897C /* ProvinceModel.m in Sources */,
 				8F9BA7991FC7CAC20072B1D8 /* UIImage+Extension.m in Sources */,
 				35C1FE941FE7928D009977AB /* TestViewController.m in Sources */,
+				351344D0201A3372001DE10E /* LOTLayer.m in Sources */,
 				3511AD931FEB83750026FA3B /* MJExtensionConst.m in Sources */,
-				352E68CF1FE246A50000CF96 /* CCPClipCaremaImage.m in Sources */,
 				35251A7B1FF0ECEB008F38A4 /* ResultViewController.m in Sources */,
+				351344E0201A3372001DE10E /* LOTBezierPath.m in Sources */,
+				351344D3201A3372001DE10E /* LOTShapeStar.m in Sources */,
 				3511ADAC1FEB83750026FA3B /* GTMBase64.m in Sources */,
 				8F59B84F1FBD731000CEC183 /* CDVCommandQueue.m in Sources */,
 				3511AD781FEB83750026FA3B /* AFImageDownloader.m in Sources */,
 				3511AD841FEB83750026FA3B /* UIImage+MultiFormat.m in Sources */,
 				3511AD881FEB83750026FA3B /* SDWebImageDownloaderOperation.m in Sources */,
 				8F9BA7981FC7CAC20072B1D8 /* UIScreen+Extension.m in Sources */,
+				351344E3201A3372001DE10E /* NSValue+Compat.m in Sources */,
 				35251A651FF0E20C008F38A4 /* IDCardCameraViewController.mm in Sources */,
-				352E68DB1FE268F60000CF96 /* UIImage+SubImage.m in Sources */,
+				351344C3201A3372001DE10E /* LOTNumberInterpolator.m in Sources */,
+				351344C6201A3372001DE10E /* LOTPolystarAnimator.m in Sources */,
 				3540E6C01FD7B78900F48F6B /* Add.m in Sources */,
 				3511AD7B1FEB83750026FA3B /* AFURLSessionManager.m in Sources */,
 				3511AD9C1FEB83750026FA3B /* QRCodeGenerator.m in Sources */,
+				351344EB201A3372001DE10E /* LOTLayerContainer.m in Sources */,
+				351344C2201A3372001DE10E /* LOTArrayInterpolator.m in Sources */,
 				8F9BA7711FC7CAA40072B1D8 /* Maker.m in Sources */,
+				351344BE201A3372001DE10E /* LOTSizeInterpolator.m in Sources */,
 				8F59B8551FBD731000CEC183 /* CDVTimer.m in Sources */,
 				8F9BA7AB1FC7CB570072B1D8 /* SDLog.m in Sources */,
 				8F9BA7A21FC7CAC20072B1D8 /* UIApplication+Extensions.m in Sources */,
+				351344BC201A3372001DE10E /* LOTColorInterpolator.m in Sources */,
 				3511AD8E1FEB83750026FA3B /* ProgressHUD.m in Sources */,
 				8F59B84C1FBD731000CEC183 /* CDVUIWebViewNavigationDelegate.m in Sources */,
+				351344DA201A3372001DE10E /* LOTShapePath.m in Sources */,
 				8F9BA7B71FC7CC810072B1D8 /* UIColor+Hex.m in Sources */,
 				3583B9141FDA6D02006C2867 /* HttpTool.m in Sources */,
 				35ED0B141FEA59E70008051C /* Occupation.m in Sources */,
 				8F9BA7961FC7CAC20072B1D8 /* UIImage+ScreenShot.m in Sources */,
-				35CE705E1FD8F04D00309D98 /* Model.m in Sources */,
 				35251A671FF0E20C008F38A4 /* IDCardOverView_auto.m in Sources */,
 				3511AD701FEB83750026FA3B /* UIProgressView+AFNetworking.m in Sources */,
 				3511ADA11FEB83750026FA3B /* SDPhotoBrowser.m in Sources */,
 				8F9BA7971FC7CAC20072B1D8 /* UILabel+Extension.m in Sources */,
-				3540E6C31FD7B88F00F48F6B /* ZmjPickView.m in Sources */,
 				3511AD861FEB83750026FA3B /* SDWebImagePrefetcher.m in Sources */,
 				3511AD721FEB83750026FA3B /* AFNetworkActivityIndicatorManager.m in Sources */,
-				352E68D41FE246BB0000CF96 /* CameraViewController.m in Sources */,
 				3560E7111FCD2EF300E7A2C5 /* HLAudioPlayer.m in Sources */,
 				3510E4DC1FCE8EFB00BFB583 /* Signature.m in Sources */,
 				8F9BA7A11FC7CAC20072B1D8 /* UIView+Runtime.m in Sources */,
+				351344F7201A337C001DE10E /* OLImageView.m in Sources */,
 				35C1FE9A1FE79341009977AB /* OCRViewController.m in Sources */,
 				8F9BA7B81FC7CC810072B1D8 /* NSMutableString+dataString.m in Sources */,
 				3510E4E81FCE956300BFB583 /* CeshiViewController.m in Sources */,
+				351344BA201A3372001DE10E /* LOTRenderNode.m in Sources */,
+				351344E6201A3372001DE10E /* LOTComposition.m in Sources */,
+				35D6A72B1FF6423B0065B1D3 /* PPT.m in Sources */,
 				8F59B8571FBD731000CEC183 /* CDVUserAgentUtil.m in Sources */,
+				35B6F7821FF3CEDD00B1897C /* JobPickView.m in Sources */,
 				8F59B84B1FBD731000CEC183 /* CDVUIWebViewEngine.m in Sources */,
 				3511AD7E1FEB83750026FA3B /* AFSecurityPolicy.m in Sources */,
 				8F59B85B1FBD731000CEC183 /* NSMutableArray+QueueAdditions.m in Sources */,
+				35B0873C200F212D00778D7F /* BankCardCameraViewController_iPad.m in Sources */,
 				352370291FEA075200D492FF /* NSObject+ObjectMap.m in Sources */,
 				3511AD891FEB83750026FA3B /* NSData+ImageContentType.m in Sources */,
+				351344C8201A3372001DE10E /* LOTCircleAnimator.m in Sources */,
+				351344E5201A3372001DE10E /* LOTAnimationCache.m in Sources */,
 				3511AD951FEB83750026FA3B /* NSObject+MJClass.m in Sources */,
 				3511AD871FEB83750026FA3B /* SDImageCache.m in Sources */,
 				3560E70E1FCD2EE200E7A2C5 /* MainViewController.m in Sources */,
+				351344C0201A3372001DE10E /* LOTValueInterpolator.m in Sources */,
 				355BFD4D1FD088C600CDCB9B /* PSSignBoardView.m in Sources */,
+				351344ED201A3372001DE10E /* LOTMaskContainer.m in Sources */,
 				8F59B8531FBD731000CEC183 /* CDVPlugin.m in Sources */,
 				3511AD941FEB83750026FA3B /* NSObject+MJProperty.m in Sources */,
+				351344DD201A3372001DE10E /* LOTShapeTransform.m in Sources */,
 				3511ADA21FEB83750026FA3B /* SDWaitingView.m in Sources */,
 				3511ADAF1FEB83750026FA3B /* SVIndefiniteAnimatedView.m in Sources */,
 				3511AD8C1FEB83750026FA3B /* UIButton+WebCache.m in Sources */,
@@ -2129,26 +2688,39 @@
 				8F59B8451FBD731000CEC183 /* CDVJSON_private.m in Sources */,
 				3511AD751FEB83750026FA3B /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				8F59B7DC1FBD716E00CEC183 /* main.m in Sources */,
+				351344E8201A3372001DE10E /* LOTAnimationTransitionController.m in Sources */,
+				351344E1201A3372001DE10E /* UIColor+Expanded.m in Sources */,
 				3511AD7A1FEB83750026FA3B /* AFHTTPSessionManager.m in Sources */,
 				3510E4E01FCE8EFB00BFB583 /* QCode.m in Sources */,
+				35B6F77F1FF3CEDD00B1897C /* DistrictDataModel.m in Sources */,
+				351344E7201A3372001DE10E /* LOTAnimationView.m in Sources */,
 				3511AD921FEB83750026FA3B /* NSObject+MJCoding.m in Sources */,
+				351344D2201A3372001DE10E /* LOTLayerGroup.m in Sources */,
 				3510E4DE1FCE8EFB00BFB583 /* CodeViewController.m in Sources */,
 				3510E4DA1FCE8EFB00BFB583 /* HaleyPlugin.m in Sources */,
 				35251A641FF0E20C008F38A4 /* IDCardOverView.m in Sources */,
 				3511AD971FEB83750026FA3B /* MJPropertyKey.m in Sources */,
+				351344BB201A3372001DE10E /* LOTTrimPathNode.m in Sources */,
 				3511AD9B1FEB83750026FA3B /* split.c in Sources */,
 				8F59B7CE1FBD716E00CEC183 /* AppDelegate.m in Sources */,
+				3566D0CE1FF60FB9003E3F70 /* QLPreviewViewController.m in Sources */,
+				351344EA201A3372001DE10E /* LOTBezierData.m in Sources */,
 				3511AD8F1FEB83750026FA3B /* MJPropertyType.m in Sources */,
 				3511AD991FEB83750026FA3B /* bitstream.c in Sources */,
+				351344C4201A3372001DE10E /* LOTAnimatorNode.m in Sources */,
 				3523702C1FEA081100D492FF /* NSString+Common.m in Sources */,
 				355BFD4B1FD088C600CDCB9B /* PSDataManager.m in Sources */,
 				3583B90D1FDA6A16006C2867 /* UpCardId.m in Sources */,
+				351344D6201A3372001DE10E /* LOTAsset.m in Sources */,
+				3513443B201A05DC001DE10E /* DBSphereView.m in Sources */,
 				8F59B84D1FBD731000CEC183 /* CDVAppDelegate.m in Sources */,
 				8F59B8511FBD731000CEC183 /* CDVInvokedUrlCommand.m in Sources */,
 				352370231FEA068C00D492FF /* UILabel+Common.m in Sources */,
+				351344D7201A3372001DE10E /* LOTShapeRepeater.m in Sources */,
 				3511ADBA1FEB83750026FA3B /* ZCZBarViewController.mm in Sources */,
 				3511AD731FEB83750026FA3B /* UIImageView+AFNetworking.m in Sources */,
 				8F59B8541FBD731000CEC183 /* CDVPluginResult.m in Sources */,
+				351344BF201A3372001DE10E /* LOTPointInterpolator.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2227,6 +2799,122 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		357AA3B52006F3090040E2C4 /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = "ad hoc distribution";
+		};
+		357AA3B62006F3090040E2C4 /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 39HL38HU4D;
+				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FWZXinsurance/Third",
+					"$(PROJECT_DIR)/FWZXinsurance/Third/UShareSDK/UMSocialSDK",
+					"$(PROJECT_DIR)/FWZXinsurance/Third/UShareSDK/UMSocialUI",
+				);
+				GCC_PREFIX_HEADER = "$(SRCROOT)/FWZXinsurance/Const/FWZXPrefixHeader.pch";
+				INFOPLIST_FILE = FWZXinsurance/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/FWZXinsurance/Third/UShareSDK/UMSocialSDKPlugin",
+					"$(PROJECT_DIR)/FWZXinsurance/Third/ZBarSDK",
+					"$(PROJECT_DIR)/FWZXinsurance/Plugins/OCR/IDCard/Resource",
+					"$(PROJECT_DIR)/FWZXinsurance/Third/UShareSDK/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/FWZXinsurance/Class/ceshi/集成所需文件",
+					"$(PROJECT_DIR)/FWZXinsurance/Plugins/OCR/集成所需文件",
+					"$(PROJECT_DIR)/FWZXinsurance/Third/MTA",
+				);
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.fwd.eApp.UAT;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
+				TARGETED_DEVICE_FAMILY = 2;
+				x = "";
+			};
+			name = "ad hoc distribution";
+		};
+		357AA3B72006F3090040E2C4 /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FWZXinsuranceTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fulan.FWZXinsuranceTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FWZXinsurance.app/FWZXinsurance";
+			};
+			name = "ad hoc distribution";
+		};
+		357AA3B82006F3090040E2C4 /* ad hoc distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = FWZXinsuranceUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.fulan.FWZXinsuranceUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = FWZXinsurance;
+			};
+			name = "ad hoc distribution";
+		};
 		8F59B7F31FBD716F00CEC183 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -2335,6 +3023,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39HL38HU4D;
@@ -2355,10 +3044,13 @@
 					"$(PROJECT_DIR)/FWZXinsurance/Third/ZBarSDK",
 					"$(PROJECT_DIR)/FWZXinsurance/Plugins/OCR/IDCard/Resource",
 					"$(PROJECT_DIR)/FWZXinsurance/Third/UShareSDK/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/FWZXinsurance/Class/ceshi/集成所需文件",
+					"$(PROJECT_DIR)/FWZXinsurance/Plugins/OCR/集成所需文件",
+					"$(PROJECT_DIR)/FWZXinsurance/Third/MTA",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fulan.FWZXinsurance;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.fwd.eApp.UAT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2371,6 +3063,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 39HL38HU4D;
@@ -2391,10 +3084,13 @@
 					"$(PROJECT_DIR)/FWZXinsurance/Third/ZBarSDK",
 					"$(PROJECT_DIR)/FWZXinsurance/Plugins/OCR/IDCard/Resource",
 					"$(PROJECT_DIR)/FWZXinsurance/Third/UShareSDK/SocialLibraries/WeChat",
+					"$(PROJECT_DIR)/FWZXinsurance/Class/ceshi/集成所需文件",
+					"$(PROJECT_DIR)/FWZXinsurance/Plugins/OCR/集成所需文件",
+					"$(PROJECT_DIR)/FWZXinsurance/Third/MTA",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
-				PRODUCT_BUNDLE_IDENTIFIER = com.fulan.FWZXinsurance;
+				PRODUCT_BUNDLE_IDENTIFIER = cn.com.fwd.eApp.UAT;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -2465,6 +3161,7 @@
 			buildConfigurations = (
 				8F59B7F31FBD716F00CEC183 /* Debug */,
 				8F59B7F41FBD716F00CEC183 /* Release */,
+				357AA3B52006F3090040E2C4 /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2474,6 +3171,7 @@
 			buildConfigurations = (
 				8F59B7F61FBD716F00CEC183 /* Debug */,
 				8F59B7F71FBD716F00CEC183 /* Release */,
+				357AA3B62006F3090040E2C4 /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2483,6 +3181,7 @@
 			buildConfigurations = (
 				8F59B7F91FBD716F00CEC183 /* Debug */,
 				8F59B7FA1FBD716F00CEC183 /* Release */,
+				357AA3B72006F3090040E2C4 /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -2492,6 +3191,7 @@
 			buildConfigurations = (
 				8F59B7FC1FBD716F00CEC183 /* Debug */,
 				8F59B7FD1FBD716F00CEC183 /* Release */,
+				357AA3B82006F3090040E2C4 /* ad hoc distribution */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

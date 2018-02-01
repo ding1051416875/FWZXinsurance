@@ -13,7 +13,12 @@
 @end
 
 @implementation TestViewController
-
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //隐藏navigationBar
+    self.navigationController.navigationBarHidden = YES;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -26,7 +31,7 @@
 }
 - (void)backBtnClicked
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 

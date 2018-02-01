@@ -33,6 +33,9 @@
     <feature name="PDF">
         <param name="ios-package" value="PDF" />
     </feature>
+    <feature name="PPT">
+        <param name="ios-package" value="PPT" />
+    </feature>
     <feature name="Add">
         <param name="ios-package" value="Add" />
     </feature>

@@ -7,20 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import "AreaModel.h"
 @interface CityModel : NSObject
 
-//城市名字
-@property (nonatomic,copy) NSString *name;
+@property(nonatomic,strong)NSString *name;
+@property (nonatomic,strong) NSString *code;
+@property (nonatomic, strong) NSArray<AreaModel*> *District;
 
-//编号
-@property (nonatomic,copy) NSString *code;
-
-//县区列表
-@property (nonatomic,strong) NSArray *cityList;
-
-- (instancetype)initWithDict:(NSDictionary *)dict;
-
-+ (instancetype)cityModelWithDict:(NSDictionary *)dict;
++(instancetype)showCityDataWith:(NSDictionary *)dic;
 
 @end

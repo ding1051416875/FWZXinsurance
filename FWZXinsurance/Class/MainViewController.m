@@ -15,23 +15,21 @@
 @end
 
 @implementation MainViewController
-
+- (void) viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    //隐藏navigationBar
+    self.navigationController.navigationBarHidden = YES;
+}
 - (UIStatusBarStyle)preferredStatusBarStyle
 {
     return UIStatusBarStyleLightContent;
 }
-//-(BOOL)prefersStatusBarHidden
-//
-//{
-//    
-//    return YES;// 返回YES表示隐藏，返回NO表示显示
-//    
-//}
-- (void)viewWillAppear:(BOOL)animated
+-(BOOL)prefersStatusBarHidden
 {
-    [super viewWillAppear:animated];
-  
+    return YES;// 返回YES表示隐藏，返回NO表示显示
 }
+
 
 - (void)viewDidLoad {
     
@@ -64,7 +62,7 @@
 
 - (void)backBtnClicked
 {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)setNetwork{
@@ -124,14 +122,14 @@
 {
     [[AFNetworkReachabilityManager sharedManager] stopMonitoring];
 }
-//-(BOOL)shouldAutorotate{
-//    return YES;
-//}
-//
-//- (NSUInteger)supportedInterfaceOrientations
-//{
-//    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
-//}
+-(BOOL)shouldAutorotate{
+    return YES;
+}
+
+- (NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscapeLeft | UIInterfaceOrientationMaskLandscapeRight;
+}
 //
 //- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 //{

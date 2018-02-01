@@ -28,7 +28,7 @@
 #import "CDVWebViewEngineProtocol.h"
 #import <WebKit/WebKit.h>
 
-@interface CDVViewController : UIViewController <CDVScreenOrientationDelegate,WKNavigationDelegate,WKUIDelegate>{
+@interface CDVViewController : UIViewController <CDVScreenOrientationDelegate>{
     @protected
     id <CDVWebViewEngineProtocol> _webViewEngine;
     @protected
@@ -40,9 +40,7 @@
 
 @property (nonatomic, readonly, weak) IBOutlet UIView* webView;
 
-//修改的cordova
-@property (nonatomic,strong) WKWebView *wkwebView;
-//修改的cordova
+
 @property (nonatomic, readonly, strong) NSMutableDictionary* pluginObjects;
 @property (nonatomic, readonly, strong) NSDictionary* pluginsMap;
 @property (nonatomic, readonly, strong) NSMutableDictionary* settings;
